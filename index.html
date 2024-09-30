@@ -38,8 +38,9 @@
         <a class="p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular">Model</a>
       </div>
   </nav>
-  <section id = "landingIntro">
-    <h1 class = "weAre">We are </h1><h1 class = "weAre" id = "descriptor">Blah</h1>
+  <section id="landingIntro">
+    <h1 class="weAre">We are </h1>
+    <h1 class="weAre" id="descriptor"></h1>
   </section>
   <div class="black-gradient">
 
@@ -50,8 +51,39 @@
 </footer>
 
 <script>
-  let typingArray = ["Trailblazers", "Innovation", "Speed"]
-  
+  let typingArray = ["Trailblazers", "Innovators", "Speed"]
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  const clear = (word) => {
+    return word.slice(0, word.length-1)
+  }
+  const typingInHeader = async () => {
+    for (let i in typingArray) {
+      let isOn = true;
+      for (let char in typingArray[i]) {
+        document.getElementById("descriptor").innerHTML += typingArray[i][char];
+        if (isOn) {
+          
+        }
+        isOn = !isOn;
+        await sleep(150);
+      }
+      await sleep(300);
+      for (let char in typingArray[i] ) {
+      document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML);
+      await sleep(100);
+      }
+      await sleep(200)
+    }
+  }
+  typingInHeader()
+//   for (var i = 0; i < 5; i++){
+//   typingInHeader()
+//   // await sleep(1000);
+// }
+
 </script>
  
 </html>
