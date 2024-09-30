@@ -4,6 +4,25 @@
   font-style: normal;
 }
 
+#landingIntro {
+    background-image: url("img/racecar.png");
+    height: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.weAre {
+  display: inline;
+  font-family: "Ubuntu";
+  color: white;
+  font-weight: 700;
+  font-size: 7em;
+  margin: auto;
+  text-align: center;
+  letter-spacing: .03em;
+}
+
 .ubuntu-regular {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
