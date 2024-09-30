@@ -12,6 +12,12 @@
     background-size: cover;
 }
 
+#underscore {
+  font-weight: 100;
+  top: 10px;
+  font-family: 'Ubuntu';
+}
+
 .weAre {
   display: inline;
   font-family: "Ubuntu";

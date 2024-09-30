@@ -27,7 +27,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-container">
     <div class="container-fluid">
       <a class="navbar-brand navbar-link" href="#">
-        <img src ="img/logo.png" alt="Emotion Logo" />
+        <img src="mg/logo.png" alt="Emotion Logo" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,7 @@
   <section id="landingIntro">
     <h1 class="weAre">We are </h1>
     <h1 class="weAre" id="descriptor"></h1>
+    <h1 class="weAre" id="underscore" >_</h1>
   </section>
 </body>
 <footer>
@@ -54,32 +55,51 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   const clear = (word) => {
-    return word.slice(0, word.length-1)
+    return word.slice(0, word.length - 1)
+  }
+  const turnOffAndOn = async () => {
+    let off = true;
+    for (var i = 0; i < 6; i++) {
+      off = !off;
+      if (!off) {
+        document.getElementById("underscore").style.display = "none";
+        // document.getElementById("underscore").style.color = "red";
+        console.log("editing style")
+      }
+      else {
+        document.getElementById("underscore").style.display = "inline";
+
+      }
+      await sleep(1500 / 6)
+
+    }
+
   }
   const typingInHeader = async () => {
-    for (let i in typingArray) {
-      let isOn = true;
-      for (let char in typingArray[i]) {
-        document.getElementById("descriptor").innerHTML += typingArray[i][char];
-        if (isOn) {
-          
+    for (var i = 0; i < 1000; i++) {
+      for (let i in typingArray) {
+        let isOn = true;
+        for (let char in typingArray[i]) {
+          document.getElementById("descriptor").innerHTML += typingArray[i][char];
+          await sleep(150);
         }
-        isOn = !isOn;
-        await sleep(150);
+        await sleep(300);
+        for (let char in typingArray[i]) {
+          document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML);
+          await sleep(100);
+        }
+        turnOffAndOn()
+        await sleep(1500)
       }
-      await sleep(300);
-      for (let char in typingArray[i] ) {
-      document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML);
-      await sleep(100);
-      }
-      await sleep(200)
     }
   }
   typingInHeader()
-//   for (var i = 0; i < 5; i++){
-//   typingInHeader()
-//   // await sleep(1000);
-// }
+
+  // turnOffAndOn()
+  //   for (var i = 0; i < 5; i++){
+  //   typingInHeader()
+  //   // await sleep(1000);
+  // }
 
 </script>
 
