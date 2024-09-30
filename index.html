@@ -39,9 +39,11 @@
       </div>
   </nav>
   <section id="landingIntro">
+    <!-- <div> -->
     <h1 class="weAre">We are </h1>
     <h1 class="weAre" id="descriptor"></h1>
     <h1 class="weAre" id="underscore" >_</h1>
+  <!-- </div> -->
   </section>
   <div class="black-gradient">
 
@@ -86,13 +88,15 @@
           document.getElementById("descriptor").innerHTML += typingArray[i][char];
           await sleep(150);
         }
-        await sleep(300);
+        // turnOffAndOn()
+
+        await sleep(400);
         for (let char in typingArray[i]) {
           document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML);
-          await sleep(100);
+          await sleep(30);
         }
-        turnOffAndOn()
-        await sleep(1500)
+        // turnOffAndOn()
+        await sleep(400)
       }
     }
   }
