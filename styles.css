@@ -79,9 +79,20 @@
 }
 
 .navbar-link:hover {
-  background-color: #000000;
   color: #FF2C23;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+}
+
+.icon {
+  height: 90px;
+  width: auto;
+}
+
+.black-gradient{
+ 
+    height: 1000px;
+    z-index: 2;
+    position: relative;
+    bottom:800px;
+    background-image: linear-gradient(rgba(255,0,0,0), rgba(0,0,0,1),  rgba(0,0,0,1));
+
 }
