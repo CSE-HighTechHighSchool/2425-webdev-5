@@ -5,7 +5,7 @@
 }
 
 #landingIntro {
-    background-image: url("img/racecar.png");
+    background-image: url("img/racecar1.png");
     height: 1000px;
     background-position: center;
     background-repeat: no-repeat;
@@ -25,9 +25,12 @@
   }
   
   .hover-underline-animation:hover:after {
-    transform: scaleX(1.1);
+    cursor: pointer;
+    transform: scaleX(1);
     /*transform-origin: bottom left;*/
   }
+
+
 
 #underscore {
   font-weight: 100;
