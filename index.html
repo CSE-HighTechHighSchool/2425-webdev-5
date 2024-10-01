@@ -24,26 +24,23 @@
 </head>
 
 <body class="body">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-container">
+  <nav class="navbar navbar-expand-lg navbar bg-body-tertiary navbar-container">
     <div class="container-fluid">
       <a class="navbar-brand navbar-link" href="#">
         <img src="img/logo.png" alt="Emotion Logo"  class="icon"/>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
       <div class="d-flex bd-highlight">
-        <a class="hover-underline-animation p-2 bd-highlight navbar-link ubuntu-regular"><b>History</b></a>
-        <a class="hover-underline-animation p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular"><b>Model</b></a>
+        <a class="p-2 bd-highlight navbar-link ubuntu-regular">History</a>
+        <a class="p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular">Model</a>
       </div>
   </nav>
-  <section id="landingIntro">
-    <!-- <div> -->
+  <section id="landingIntro" class="landingIntroDiv">
     <h1 class="weAre">We are </h1>
     <h1 class="weAre" id="descriptor"></h1>
-    <h1 class="weAre" id="underscore" >|</h1>
-  <!-- </div> -->
   </section>
   <div class="black-gradient">
 
@@ -54,53 +51,40 @@
 </footer>
 
 <script>
+
+
   let typingArray = ["Trailblazers", "Innovators", "Speed"]
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   const clear = (word) => {
-    return word.slice(0, word.length - 1)
-  }
-  const turnOffAndOn = async () => {
-    let off = true;
-    for (var i = 0; i < 6; i++) {
-      off = !off;
-      if (!off) {
-        document.getElementById("underscore").style.display = "none";
-        // document.getElementById("underscore").style.color = "red";
-        console.log("editing style")
-      }
-      else {
-        document.getElementById("underscore").style.display = "inline";
-
-      }
-      await sleep(1500 / 6)
-
-    }
-
+    return word.slice(0, word.length-1)
   }
   const typingInHeader = async () => {
-    for (var i = 0; i < 1000; i++) {
-      for (let i in typingArray) {
-        let isOn = true;
-        for (let char in typingArray[i]) {
-          document.getElementById("descriptor").innerHTML += typingArray[i][char];
-          await sleep(150);
+    for (let i in typingArray) {
+      let isOn = true;
+      for (let char in typingArray[i]) {
+        document.getElementById("descriptor").innerHTML += typingArray[i][char];
+        if (isOn) {
+          
         }
-        // turnOffAndOn()
-
-        await sleep(400);
-        for (let char in typingArray[i]) {
-          document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML);
-          await sleep(30);
-        }
-        // turnOffAndOn()
-        await sleep(400)
+        isOn = !isOn;
+        await sleep(150);
       }
+      await sleep(300);
+      for (let char in typingArray[i] ) {
+      document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML);
+      await sleep(100);
+      }
+      await sleep(200)
     }
   }
-  typingInHeader();
+  typingInHeader()
+//   for (var i = 0; i < 5; i++){
+//   typingInHeader()
+//   // await sleep(1000);
+// }
 
 </script>
  
