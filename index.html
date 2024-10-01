@@ -94,8 +94,8 @@
 
         await sleep(400);
         for (let char in typingArray[i]) {
-          document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML.slice(0, -2), i);
-          await sleep(40);
+          document.getElementById("descriptor").innerHTML = clear(document.getElementById("descriptor").innerHTML.slice(0, -1), i);
+          await sleep(30);
         }
         // turnOffAndOn()
         await sleep(400)
