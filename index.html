@@ -26,8 +26,9 @@
 <body class="body">
   <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-container">
     <div class="container-fluid">
-      <a class="navbar-brand navbar-link" href="#">
-        <img src="img/logo.png" alt="Emotion Logo" class="icon" />
+      <a class="navbar-brand navbar-link" id="navbarlogo" href="#">
+        <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style = "width: 80px; height: 27px;" />
+        <img src="img/redlogo.png" alt="Emotion Logo" id="redlogo" class="icon" style = "width: 80px; height: 27px;" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,8 +49,9 @@
   
     
   </section>
-  
-  
+  <div class="black-gradient">
+
+  </div>
 </body>
 <footer>
 
@@ -103,6 +105,18 @@
       }
     }
   }
+  document.getElementById("redlogo").style.display = "none";
+
+  document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
+    e.preventDefault()
+    document.getElementById("redlogo").style.display = "inline";
+    document.getElementById("plainlogo").style.display = "none";
+  })
+  document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
+    e.preventDefault()
+    document.getElementById("redlogo").style.display = "none";
+    document.getElementById("plainlogo").style.display = "inline";
+  })
   typingInHeader();
 
 </script>
