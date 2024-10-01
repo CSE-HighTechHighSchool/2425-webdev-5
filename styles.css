@@ -25,9 +25,13 @@
   }
   
   .hover-underline-animation:hover:after {
-    transform: scaleX(1.1);
+    cursor: pointer;
+
+    transform: scaleX(1);
     /*transform-origin: bottom left;*/
   }
+
+
 
 #underscore {
   font-weight: 100;
