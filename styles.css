@@ -26,7 +26,6 @@
   
   .hover-underline-animation:hover:after {
     cursor: pointer;
-
     transform: scaleX(1);
     /*transform-origin: bottom left;*/
   }
