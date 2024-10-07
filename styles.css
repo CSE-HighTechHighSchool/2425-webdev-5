@@ -30,7 +30,24 @@
     /*transform-origin: bottom left;*/
   }
 
-
+  body {
+    font-family: Arial, sans-serif;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+@media (max-width: 600px) {
+    td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
 
 #underscore {
   font-weight: 100;
@@ -43,7 +60,7 @@
   font-family: "Ubuntu";
   color: white;
   font-weight: 700;
-  font-size: 7em;
+  font-size: 5em;
   text-align: center;
   letter-spacing: .03em;
 }
