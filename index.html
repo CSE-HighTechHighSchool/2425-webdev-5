@@ -28,14 +28,15 @@
     <div class="container-fluid">
       <a class="navbar-brand navbar-link" id="navbarlogo" href="#">
         <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style = "width: 80px; height: 27px;" />
+        <img src="img/redlogo.png" alt="Emotion Logo" id="redlogo" class="icon" style = "width: 80px; height: 27px;" />
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="d-flex bd-highlight">
-        <a class="hover-underline-animation p-2 bd-highlight navbar-link ubuntu-regular" href = "history.html"><b>History</b></a>
-        <a class="hover-underline-animation p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular" ><b>Model</b></a>
+        <a class="hover-underline-animation p-2 bd-highlight navbar-link ubuntu-regular"><b>History</b></a>
+        <a class="hover-underline-animation p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular"><b>Model</b></a>
       </div>
   </nav>
   <section id="landingIntro" class="landingIntroDiv">
@@ -45,7 +46,33 @@
     <h1 class="weAre" id="descriptor"></h1>
     <!-- <h1 class="weAre" id="underscore" >|</h1> -->
   </div>
-  <div class="textbox">
+  <table>
+    <tr>
+        <td>Row 1, Column 1</td>
+        <td>Row 1, Column 2</td>
+    </tr>
+    <tr>
+        <td>Row 2, Column 1</td>
+        <td>Row 2, Column 2</td>
+    </tr>
+    <tr>
+        <td>Row 3, Column 1</td>
+        <td>Row 3, Column 2</td>
+    </tr>
+    <tr>
+        <td>Row 4, Column 1</td>
+        <td>Row 4, Column 2</td>
+    </tr>
+    <tr>
+        <td>Row 5, Column 1</td>
+        <td>Row 5, Column 2</td>
+    </tr>
+    <tr>
+        <td>Row 6, Column 1</td>
+        <td>Row 6, Column 2</td>
+    </tr>
+</table>
+  <!-- <div class="textbox">
     <h1>What is f1?</h1>
     <div style ="font-size:20px">
     <p>Formula 1 is a global motor sport where 10 team with two drivers each compete in high-speed races known as 
@@ -53,7 +80,8 @@
       The word “formula” in formual 1 refers to technical and sporting regulations given to the teams by the FIA. 
       Short for Fédération Internationale de l'Automobile, the FIA create rules and regulate f1 races
     </p>
-  </div>
+  </div> -->
+  
   </div>
     
   </section>
@@ -111,15 +139,17 @@
       }
     }
   }
+  document.getElementById("redlogo").style.display = "none";
 
   document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
     e.preventDefault()
-    document.getElementById("plainlogo").src = "img/redlogo.png";
+    document.getElementById("redlogo").style.display = "inline";
+    document.getElementById("plainlogo").style.display = "none";
   })
   document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
     e.preventDefault()
-    document.getElementById("plainlogo").src = "img/logo.png";
-
+    document.getElementById("redlogo").style.display = "none";
+    document.getElementById("plainlogo").style.display = "inline";
   })
   typingInHeader();
 
