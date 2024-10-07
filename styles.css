@@ -55,6 +55,10 @@ td {
   font-family: 'Ubuntu';
 }
 
+.index-text{
+  color:white;
+}
+
 .weAre {
   display: inline;
   font-family: "Ubuntu";
