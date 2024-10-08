@@ -15,10 +15,11 @@
         integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous" defer></script>
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"
+        defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer></script>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js" defer></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+        defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F1 Cars</title>
 </head>
@@ -47,35 +48,63 @@
 
     <div style="margin-top: 20px; margin-left: auto; margin-right: auto;">
         <!-- <h1 class="ubuntu-regular" style="color: white; display: inline;"><b>The History of F1<br> -->
-                <!-- <img src="img/historyLogo.png" alt="timeline logo" width="320px"
+        <!-- <img src="img/historyLogo.png" alt="timeline logo" width="320px"
                     style="margin-top: 20px; display: inline;"> -->
-            </b></h1>
+        </b></h1>
     </div>
 
     <!-- 3D Model Viewer -->
     <div style="margin: 50px auto; text-align: center; height: 70%; width: 70%;">
-        <model-viewer alt="A 3D model of an F1 car" src="ferrari.glb" shadow-intensity="2" camera-controls ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1"
-            touch-action="pan-y" style="width: 100%; height: 800px; max-height: 90vh; background-color: #555555;">
-            <button class="Hotspot" slot="hotspot-2" data-position="-0.3523105310403317m 0.8015609611378717m -0.3459110814232682m" data-normal="-0.049210607551191964m 0.3883968859567068m 0.9201772519920146m" data-visibility-attribute="visible">
+        <model-viewer alt="A 3D model of an F1 car" src="ferrari.glb" shadow-intensity="2" id="hotspot-camera-view-demo"
+         camera-controls tone-mapping="neutral"  disable-zoom disable-pan interaction-prompt="none"
+            poster="poster.webp" shadow-intensity="1" touch-action="pan-y"
+            style="width: 100%; height: 800px; max-height: 90vh; background-color: #555555;">
+            <button class="Hotspot" slot="hotspot-2"
+                data-position="-0.3523105310403317m 0.8015609611378717m -0.3459110814232682m"
+                data-normal="-0.049210607551191964m 0.3883968859567068m 0.9201772519920146m"
+                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
+                data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Steering Wheel</div>
-            </button><button class="Hotspot" slot="hotspot-3" data-position="0.9288628017038665m 0.31806941120346705m -1.1681317937641449m" data-normal="0.9982786477398337m 0.05577579953749659m 0.018132888702084207m" data-visibility-attribute="visible">
+            </button>
+
+            <button class="Hotspot" slot="hotspot-3"
+                data-position="0.9288628017038665m 0.31806941120346705m -1.1681317937641449m"
+                data-normal="0.9982786477398337m 0.05577579953749659m 0.018132888702084207m"
+                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
+                data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Wheels</div>
-            </button><button class="Hotspot" slot="hotspot-4" data-position="-0.03950121215604874m 0.13839730135601452m 0.7683582158270084m" data-normal="7.943539855660321e-26m -0.9999279501416428m 0.012003937917716695m" data-visibility-attribute="visible">
+            </button>
+
+            <button class="Hotspot" slot="hotspot-4"
+                data-position="-0.03950121215604874m 0.13839730135601452m 0.7683582158270084m"
+                data-normal="7.943539855660321e-26m -0.9999279501416428m 0.012003937917716695m"
+                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
+                data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Gas Tank</div>
-            </button><button class="Hotspot" slot="hotspot-6" data-position="-0.9151335476236623m 0.8318403358225387m 0.8227888943701323m" data-normal="-0.8998132978423773m 0.4274408897242083m -0.08735167323985625m" data-visibility-attribute="visible">
+            </button>
+
+            <button class="Hotspot" slot="hotspot-6"
+                data-position="-0.9151335476236623m 0.8318403358225387m 0.8227888943701323m"
+                data-normal="-0.8998132978423773m 0.4274408897242083m -0.08735167323985625m"
+                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
+                data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Chassis</div>
-            </button><button class="Hotspot" slot="hotspot-7" data-position="-0.020689744341874983m 0.9704492407782105m 1.696533256072497m" data-normal="-0.022062036078807898m 0.9950423922062291m 0.09697372982701256m" data-orbit="10.89188deg 119.9775deg 0.03543022m" data-target="-0.1053838m 0.01610652m 0.1076345m" data-visibility-attribute="visible">
+            </button>
+
+            <button class="Hotspot" slot="hotspot-7"
+                data-position="-0.020689744341874983m 0.9704492407782105m 1.696533256072497m"
+                data-normal="-0.022062036078807898m 0.9950423922062291m 0.09697372982701256m"
+                data-orbit="1.89188deg 1.9775deg 1.03543022m" data-target="0.120689744341874983m 1.9704492407782105m 2.696533256072497m"
+                data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Engine</div>
             </button>
-            <div class="progress-bar hide" slot="progress-bar">
+            <!-- <div class="progress-bar hide" slot="progress-bar">
                 <div class="update-bar"></div>
-            </div>
+            </div> -->
             <button slot="ar-button" id="ar-button">
                 View in your space
             </button>
-            <div id="ar-prompt">
-                <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
-            </div>
+            
         </model-viewer>
     </div>
 </body>
@@ -94,6 +123,24 @@
         document.getElementById("redlogo").style.display = "none";
         document.getElementById("plainlogo").style.display = "inline";
     })
+
+    // document.querySelectorAll('.Hotspot').forEach(button => {
+    //     button.addEventListener('click', () => {
+    //         const annotation = button.querySelector('.HotspotAnnotation').textContent;
+    //         alert(`You clicked on the ${annotation}`);
+    //     });
+    // });
+    const modelViewer2 = document.querySelector("#hotspot-camera-view-demo");
+    const annotationClicked = (annotation) => {
+        let dataset = annotation.dataset;
+        modelViewer2.cameraTarget = dataset.target;
+        modelViewer2.cameraOrbit = dataset.orbit;
+        // modelViewer2.fieldOfView = '5deg';
+    }
+
+    modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+        hotspot.addEventListener('click', () => annotationClicked(hotspot));
+    });
 </script>
 
 </html>
