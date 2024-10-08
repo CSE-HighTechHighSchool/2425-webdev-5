@@ -4,6 +4,10 @@
   font-style: normal;
 }
 
+* {
+  cursor: pointer;
+}
+
 #landingIntro {
     background-image: url("img/racecar1.png");
     height: 1000px;

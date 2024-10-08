@@ -29,6 +29,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="js/index.js" defer></script>
     <script type="importmap">
       {
         "imports": {
@@ -53,13 +54,6 @@
             src="img/logo.png"
             alt="Emotion Logo"
             id="plainlogo"
-            class="icon hover-underline-animation"
-            style="width: 80px; height: 27px"
-          />
-          <img
-            src="img/redlogo.png"
-            alt="Emotion Logo"
-            id="redlogo"
             class="icon hover-underline-animation"
             style="width: 80px; height: 27px"
           />
@@ -134,71 +128,4 @@
     </section>
   </body>
   <footer></footer>
-
-  <script>
-    let typingArray = ["Trailblazers", "Innovators", "Speed"];
-
-    function sleep(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-    const clear = (word, x) => {
-      return word.slice(0, word.length - 1) + "|";
-    };
-    const turnOffAndOn = async () => {
-      let off = true;
-      for (var i = 0; i < 6; i++) {
-        off = !off;
-        if (!off) {
-          document.getElementById("underscore").style.display = "none";
-          // document.getElementById("underscore").style.color = "red";
-          console.log("editing style");
-        } else {
-          document.getElementById("underscore").style.display = "inline";
-        }
-        await sleep(1500 / 6);
-      }
-    };
-    const typingInHeader = async () => {
-      for (var i = 0; i < 1000; i++) {
-        for (let i in typingArray) {
-          let isOn = true;
-          for (let char in typingArray[i]) {
-            document.getElementById("descriptor").innerHTML =
-              typingArray[i].slice(0, Number(char) + 1) + "|";
-            console.log(typingArray[i].slice(0, char + 1) + "|");
-            await sleep(150);
-          }
-          // turnOffAndOn()
-
-          await sleep(400);
-          for (let char in typingArray[i]) {
-            document.getElementById("descriptor").innerHTML = clear(
-              document.getElementById("descriptor").innerHTML.slice(0, -1),
-              i
-            );
-            await sleep(30);
-          }
-          // turnOffAndOn()
-          await sleep(400);
-        }
-      }
-    };
-    document.getElementById("redlogo").style.display = "none";
-
-    document
-      .getElementById("navbarlogo")
-      .addEventListener("mouseenter", (e) => {
-        e.preventDefault();
-        document.getElementById("redlogo").style.display = "inline";
-        document.getElementById("plainlogo").style.display = "none";
-      });
-    document
-      .getElementById("navbarlogo")
-      .addEventListener("mouseleave", (e) => {
-        e.preventDefault();
-        document.getElementById("redlogo").style.display = "none";
-        document.getElementById("plainlogo").style.display = "inline";
-      });
-    typingInHeader();
-  </script>
 </html>
