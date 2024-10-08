@@ -54,8 +54,28 @@
 
     <!-- 3D Model Viewer -->
     <div style="margin: 50px auto; text-align: center; height: 70%; width: 70%;">
-        <model-viewer alt="A 3D model of an F1 car" src="ferrari.glb" shadow-intensity="2" camera-controls
+        <model-viewer alt="A 3D model of an F1 car" src="ferrari.glb" shadow-intensity="2" camera-controls ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1"
             touch-action="pan-y" style="width: 100%; height: 800px; max-height: 90vh; background-color: #555555;">
+            <button class="Hotspot" slot="hotspot-2" data-position="-0.3523105310403317m 0.8015609611378717m -0.3459110814232682m" data-normal="-0.049210607551191964m 0.3883968859567068m 0.9201772519920146m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Steering Wheel</div>
+            </button><button class="Hotspot" slot="hotspot-3" data-position="0.9288628017038665m 0.31806941120346705m -1.1681317937641449m" data-normal="0.9982786477398337m 0.05577579953749659m 0.018132888702084207m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Wheels</div>
+            </button><button class="Hotspot" slot="hotspot-4" data-position="-0.03950121215604874m 0.13839730135601452m 0.7683582158270084m" data-normal="7.943539855660321e-26m -0.9999279501416428m 0.012003937917716695m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Gas Tank</div>
+            </button><button class="Hotspot" slot="hotspot-6" data-position="-0.9151335476236623m 0.8318403358225387m 0.8227888943701323m" data-normal="-0.8998132978423773m 0.4274408897242083m -0.08735167323985625m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Chassis</div>
+            </button><button class="Hotspot" slot="hotspot-7" data-position="-0.020689744341874983m 0.9704492407782105m 1.696533256072497m" data-normal="-0.022062036078807898m 0.9950423922062291m 0.09697372982701256m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Engine</div>
+            </button>
+            <div class="progress-bar hide" slot="progress-bar">
+                <div class="update-bar"></div>
+            </div>
+            <button slot="ar-button" id="ar-button">
+                View in your space
+            </button>
+            <div id="ar-prompt">
+                <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+            </div>
         </model-viewer>
     </div>
 </body>
