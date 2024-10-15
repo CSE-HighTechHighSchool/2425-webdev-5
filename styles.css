@@ -137,6 +137,11 @@ td {
   color: #FF2C23;
 }
 
+.HotspotAnnotation {
+  --min-hotspot-opacity: 0.99;
+    /* background-color: red; */
+}
+
 .icon {
   height: 90px;
   width: auto;
