@@ -22,7 +22,7 @@ window.addEventListener("scroll", () => {
     i++;
     document.getElementById("historyTitle").innerHTML = historyLabelArray[i];
   }
-  console.log(document.getElementById("circleOutline"));
+  //   console.log(document.getElementById("circleOutline"));
   //   } else {
   //     i = 0;
   //     document.getElementById("historyTitle").innerHTML = historyLabelArray[i];
