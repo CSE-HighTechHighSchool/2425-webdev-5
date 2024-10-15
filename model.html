@@ -55,22 +55,22 @@
 
     <!-- 3D Model Viewer -->
     <div style="margin: 50px auto; text-align: center; height: 70%; width: 70%;">
-        <model-viewer alt="A 3D model of an F1 car" src="ferrari.glb" shadow-intensity="2" id="hotspot-camera-view-demo"
-         camera-controls tone-mapping="neutral"  disable-zoom disable-pan interaction-prompt="none"
-            poster="poster.webp" shadow-intensity="1" touch-action="pan-y"
+        <model-viewer alt="A 3D model of an F1 car" src="rc-13.glb"  id="hotspot-camera-view-demo"
+         camera-controls field-of-view="45deg" min-field-of-view="25deg" max-field-of-view="45deg" interpolation-decay="200" min-camera-orbit="auto auto 5%" tone-mapping="aces" ar touch-action="none"
+             shadow-intensity="1" touch-action="pan-y"
             style="width: 100%; height: 800px; max-height: 90vh; background-color: black; border: 10px; border-color: aliceblue;">
             <button class="Hotspot" slot="hotspot-2"
-                data-position="-0.3523105310403317m 0.8015609611378717m -0.3459110814232682m"
-                data-normal="-0.049210607551191964m 0.3883968859567068m 0.9201772519920146m"
-                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
-                data-visibility-attribute="visible">
+                data-position="0m 1.6015609611378717m 0.3459110814232682m"
+                data-normal="-9.549210607551191964m 3.8883968859567068m 2.4201772519920146m"
+                data-orbit="87.54149deg -15.16209deg 0.0468692m" data-target="0.08566038m 1.1249514m -0.1939646m"
+>
                 <div class="HotspotAnnotation">Steering Wheel</div>
             </button>
 
             <button class="Hotspot" slot="hotspot-3"
-                data-position="0.9288628017038665m 0.31806941120346705m -1.1681317937641449m"
+                data-position="1.9288628017038665m 0.31806941120346705m -3.6681317937641449m"
                 data-normal="0.9982786477398337m 0.05577579953749659m 0.018132888702084207m"
-                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
+                data-orbit="87.54149deg 92.16209deg 0.0468692m" data-target="2.22566038m 1.2249514m -3.5939646m"
                 data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Wheels</div>
             </button>
@@ -78,7 +78,7 @@
             <button class="Hotspot" slot="hotspot-4"
                 data-position="-0.03950121215604874m 0.13839730135601452m 0.7683582158270084m"
                 data-normal="7.943539855660321e-26m -0.9999279501416428m 0.012003937917716695m"
-                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
+                data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="-0.08566038m -4.1249514m -0.1939646m"
                 data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Gas Tank</div>
             </button>
