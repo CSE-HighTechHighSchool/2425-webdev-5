@@ -8,6 +8,11 @@
   cursor: pointer;
 }
 
+
+/* #firstFOneCard {
+  display: 
+} */
+
 #landingIntro {
     background-image: url("img/racecar1.png");
     height: 1000px;
@@ -180,4 +185,15 @@ td {
 .landingIntroDiv{
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 500px) {
+  #firstFOneCard {
+    width:100% !important;
+    margin-left: 0px !important;
+
+  }
+  #historyTitle { 
+    font-size: 1.5em;
+  }
 }
