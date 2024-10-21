@@ -69,12 +69,12 @@ td {
 }
 
 #startingAlert {
-  transition: opacity .5s ease-in, transform 2.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 
-#invisible {
+.invisible {
+  transform: translateY(-30px);
   opacity: 0;
-  transform: translateY(15px);
 }
 
 .index-text{

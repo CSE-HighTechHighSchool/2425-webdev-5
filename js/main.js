@@ -9,6 +9,6 @@ document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   document.getElementById("XMarkOut").addEventListener("click", () => {
-    document.getElementById("startingAlert").style.opacity = 0;
+    document.getElementById("startingAlert").classList.add("invisible") = 0;
   });
 });
