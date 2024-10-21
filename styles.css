@@ -68,6 +68,15 @@ td {
   font-family: 'Ubuntu';
 }
 
+#startingAlert {
+  transition: opacity .5s ease-in, transform 2.5s ease-in;
+}
+
+#invisible {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
 .index-text{
   color:white;
 }
@@ -81,6 +90,7 @@ td {
   text-align: center;
   letter-spacing: .03em;
 }
+
 
 .ubuntu-regular {
   font-family: "Ubuntu", sans-serif;
