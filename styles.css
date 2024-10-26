@@ -266,8 +266,11 @@ td {
 
 @media (max-width: 800px) {
   .navHistory {
-    background-color: rgba(0,0,0,.3);
-    padding: 0px 15px;
-    font-size:12px;
+    display: none;  
+  }
+  #firstFOneCard {
+    width:90% !important;
+
+    display: flex;
   }
 }
