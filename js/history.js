@@ -12,6 +12,8 @@ const jsCode = async () => {
   let historyTwoBottom = 0;
   let historyThreeBottom = 0;
   let historyFourBottom = 0;
+  let historyFiveBottom = 0;
+  let historySixBottom = 0;
   let i = 0;
   let navHistory = document.getElementsByClassName("navHistory");
   navHistory[0].style.borderBottom = "1px solid white";
@@ -31,6 +33,12 @@ const jsCode = async () => {
       .getBoundingClientRect();
     const historyFourRect = document
       .getElementById("historyFourPage")
+      .getBoundingClientRect();
+    const historyFiveRect = document
+      .getElementById("historyFivePage")
+      .getBoundingClientRect();
+    const historySixRect = document
+      .getElementById("historySixPage")
       .getBoundingClientRect();
     for (const key in historyOneRect) {
       if (key === "bottom") {
@@ -60,11 +68,27 @@ const jsCode = async () => {
         console.log("historyFourBottom);");
       }
     }
+    for (const key in historyFiveRect) {
+      if (key === "bottom") {
+        historyFiveBottom = historyFiveRect[key];
+        console.log(historyFiveBottom);
+        console.log("historyFourBottom);");
+      }
+    }
+    for (const key in historySixRect) {
+      if (key === "bottom") {
+        historySixBottom = historySixRect[key];
+        console.log(historySixBottom);
+        console.log("historyFourBottom);");
+      }
+    }
     arr = [
       historyOneBottom,
       historyTwoBottom,
       historyThreeBottom,
       historyFourBottom,
+      historyFiveBottom,
+      historySixBottom,
     ];
     for (let x = 0; x < arr.length; x++) {
       navHistory[x].addEventListener("click", () => {
@@ -92,7 +116,32 @@ const jsCode = async () => {
     // Update the last scroll position with the current one
     lastScrollPosition = currentScrollPosition;
     console.log(window.scrollY);
-    if (window.scrollY + window.innerHeight / 2 > historyThreeBottom) {
+    if (window.scrollY + window.innerHeight / 2 > historyFiveBottom) {
+      console.log(window.scrollY);
+      i = 5;
+      for (var z = 0; z < navHistory.length; z++) {
+        if (z === i) {
+          navHistory[i].style.borderBottom = "1px solid white";
+          navHistory[i].style.fontSize = "18px";
+          continue;
+        }
+        console.log(navHistory[z].innerHTML);
+        navHistory[z].style.borderBottom = "0px";
+        navHistory[z].style.fontSize = "14px";
+      }
+    } else if (window.scrollY + window.innerHeight / 2 > historyFourBottom) {
+      i = 4;
+      for (var z = 0; z < navHistory.length; z++) {
+        if (z === i) {
+          navHistory[i].style.borderBottom = "1px solid white";
+          navHistory[i].style.fontSize = "18px";
+          continue;
+        }
+        console.log(navHistory[z].innerHTML);
+        navHistory[z].style.borderBottom = "0px";
+        navHistory[z].style.fontSize = "14px";
+      }
+    } else if (window.scrollY + window.innerHeight / 2 > historyThreeBottom) {
       i = 3;
       for (var z = 0; z < navHistory.length; z++) {
         if (z === i) {

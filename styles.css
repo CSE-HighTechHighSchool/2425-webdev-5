@@ -82,9 +82,9 @@ td {
 }
 
 .carousel_items {
+  text-align: center;
   display: flex;
-  wrap: nowrap;
-  overflow: hidden;
+  justify-content: center;
 }
 
 .carousel_item {
@@ -95,6 +95,12 @@ td {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.carousel-item img {
+  height: 300px;
+  width: auto; 
+  display: inline-block;
 }
 
 .carousel_text {
@@ -272,5 +278,16 @@ td {
   }
   #historyTitle { 
     font-size: 1.5em;
+  }
+}
+
+@media (max-width: 800px) {
+  .navHistory {
+    display: none;  
+  }
+  #firstFOneCard {
+    width:90% !important;
+
+    display: flex;
   }
 }
