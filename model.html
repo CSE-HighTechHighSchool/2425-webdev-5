@@ -43,13 +43,11 @@
             <div class="d-flex bd-highlight">
                 <a class="hover-underline-animation p-2 bd-highlight navbar-link ubuntu-regular"
                     href="history.html"><b>History</b></a>
-                <a
-                    class="hover-underline-animation p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular" href = "/model.html"><b>Model</b></a>
+                <a class="hover-underline-animation p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular"
+                    href="/model.html"><b>Model</b></a>
             </div>
     </nav>
-    <div
-      class="alert alert-danger ubuntu-regular"
-      style="
+    <div class="alert alert-danger ubuntu-regular" style="
         background-color: #2d0b0e;
         color: #e9868f;
         width: 30%;
@@ -58,12 +56,9 @@
         margin-left: 35%;
         border: 1px solid #212428;
         position: fixed;
-      "
-      role="alert"
-      id="startingAlert"
-    >
-      This website was made for a class project... Don't take it too seriously!
-      <i id="XMarkOut" class="bi bi-x"></i>
+      " role="alert" id="startingAlert">
+        This website was made for a class project... Don't take it too seriously!
+        <i id="XMarkOut" class="bi bi-x"></i>
     </div>
     <div style="margin-top: 20px; margin-left: auto; margin-right: auto;">
         <!-- <h1 class="ubuntu-regular" style="color: white; display: inline;"><b>The History of F1<br> -->
@@ -74,21 +69,23 @@
 
     <!-- 3D Model Viewer -->
     <div style="margin: 50px auto; text-align: center; height: 70%; width: 70%;">
-        <model-viewer alt="A 3D model of an F1 car" src="gulf_mclaren_f1_2022_car.glb"  id="hotspot-camera-view-demo" tone-mapping="neutral" 
-         camera-controls field-of-view="45deg" min-field-of-view="25deg" max-field-of-view="45deg" interpolation-decay="200" min-camera-orbit="auto auto 5%"  ar touch-action="none"
-             shadow-intensity="1" touch-action="pan-y"
-            style="width: 100%; height: 800px; max-height: 90vh; background-color: black; border: 10px; border-color: aliceblue;">
-            <button class="Hotspot" slot="hotspot-2"
+        <model-viewer alt="A 3D model of an F1 car" src="gulf_mclaren_f1_2022_car.glb" id="hotspot-camera-view-demo"
+            tone-mapping="neutral" camera-controls tone-mapping="neutral" interaction-prompt="none" shadow-intensity="1"
+            touch-action="pan-y" ar shadow-intensity="10" camera-orbit="52.04deg 71.56deg 13.09m"
+            field-of-view="21.5deg" interpolation-decay="200" 
+            style="width: 100%; height: 800px; max-height: 90vh; background-color: white; border: 10px; border-color: aliceblue;"
+            ar ar-mode>
+            <!-- <button class="Hotspot" slot="hotspot-2"
                 data-position="1.25m 1.6015609611378717m 0.3459110814232682m"
                 data-normal="-9.549210607551191964m 3.8883968859567068m 2.4201772519920146m"
                 data-orbit="87.54149deg -15.16209deg 0.0468692m" data-target="0.08566038m 1.1249514m -0.1939646m"
->
+>               
                 <div class="HotspotAnnotation">Steering Wheel</div>
             </button>
 
             <button class="Hotspot" slot="hotspot-3"
-            data-position="-1.6254923014781488m 0.5089318869329503m -3.688262859336467m" data-normal="-0.9865323699915648m 0.14165438051755158m 0.08177970065373852m"
-                data-orbit="87.54149deg 92.16209deg 0.0468692m" data-target="2.22566038m 1.2249514m -3.5939646m"
+            data-position="2.9254923014781488m 0.7089318869329503m -2.788262859336467m" data-normal="-0.9865323699915648m 0.14165438051755158m 0.08177970065373852m"
+                data-orbit="87.54149deg 92.16209deg 0.5468692m" data-target="2.22566038m 1.2249514m -3.5939646m"
                 data-visibility-attribute="visible">
                 <div class="HotspotAnnotation"><h3>Wheels</h3>Wheels</div>
             </button>
@@ -98,38 +95,131 @@
                 data-normal="7.943539855660321e-26m -0.9999279501416428m 0.012003937917716695m"
                 data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="-0.08566038m -4.1249514m -0.1939646m"
                 data-visibility-attribute="visible">
-                <div class="HotspotAnnotation">Gas Tank</div>
+                
             </button>
 
-            <button class="Hotspot" slot="hotspot-6"
+            <button class="Hotspot" slot="hotspot-6
                 data-position="-0.9151335476236623m 0.8318403358225387m 0.8227888943701323m"
-                data-normal="-0.8998132978423773m 0.4274408897242083m -0.08735167323985625m"
+                data-normal="-9.8998132978423773m 0.4274408897242083m -0.08735167323985625m"
                 data-orbit="-37.54149deg 82.16209deg 0.0468692m" data-target="0.08566038m 0.1249514m -0.1939646m"
                 data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Chassis</div>
             </button>
 
             <button class="Hotspot" slot="hotspot-7"
-                data-position="-0.020689744341874983m 0.9704492407782105m 1.696533256072497m"
-                data-normal="-0.022062036078807898m 0.9950423922062291m 0.09697372982701256m"
+                data-position="-0.020689744341874983m 0.9704492407782105m 2.4201772519920146m"
+                data-normal="-2.022062036078807898m 0.9950423922062291m 2.4201772519920146m"
                 data-orbit="1.89188deg 1.9775deg 1.03543022m" data-target="0.120689744341874983m 1.9704492407782105m 2.696533256072497m"
                 data-visibility-attribute="visible">
                 <div class="HotspotAnnotation">Engine</div>
+            </button> -->
+            <button class="Hotspot" slot="hotspot-8" id="engineButton"
+                data-position="1.8064211349724832m 0.9526117179899461m -1.4183625249309022m"
+                data-normal="0.6616307852927881m 0.7469620555811052m -0.06551634509722502m"
+                data-orbit="90.21deg 49.86deg -8.90m"
+                data-target="0.6616307852927881m 0.2469620555811052m -1.66551634509722502m" field-of-view="19.15deg"
+                data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Engine
+                    <p style="display: none;" id="engine"></p>
+                </div>
+
+            </button>
+            <button class="Hotspot" slot="hotspot-9" id="wheelsButton"
+                data-position="2.6656551068419745m 0.4541453036713761m 1.8392745085065425m"
+                data-normal="0.23612066138362692m 0.9064822964718294m -0.35005268096518977m"
+                data-orbit="80.4deg 86.23deg -2.515m" data-target="-2.603m 0.09m 0.89m"
+                data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Wheels
+                    <p style="display: none;" id="wheels"></p>
+                </div>
+            </button>
+            <button class="Hotspot" slot="hotspot-10" id="frontButton"
+                data-position="1.3903832577079633m 0.4065925222552746m 3.3267891511905976m"
+                data-normal="0.020185718677417808m 0.9412996410303127m 0.33696813285187754m"
+                data-orbit="6.46deg 84.23deg 9.547m" data-target="1.2m 0.59m -1m" data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Front Wing
+                    <p style="display: none;" id="front"></p>
+                </div>
+            </button>
+            <button class="Hotspot" slot="hotspot-11" id="steeringButton"
+                data-position="1.3868021618724509m 0.875267089026975m 0.38723988171705614m"
+                data-normal="-0.0010264307691269356m 0.003406952476853322m -0.9999936695373111m"
+                data-orbit="196.6deg 49.52deg -20.515m" 
+                data-target="1.616307852927881m -0.6469620555811052m 1.86551634509722502m"
+                data-visibility-attribute="visible"  >
+                <div class="HotspotAnnotation">Steering Wheel
+                    <p style="display: none;" id="steering"></p>
+                </div>
+            </button>
+            <button class="Hotspot" slot="hotspot-12" id="gasButton"
+                data-position="1.330027210419007m 0.11109075333541973m -0.10005778587961517m"
+                data-normal="-0.012047236557983947m -0.9998952483886213m -0.008022240408601658m"
+                data-orbit="640.3deg 124.6deg 8.988m"
+                field-of-view="12.75deg"
+                data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Gas Tank
+                    <p style="display: none;" id="gas"></p>
+                </div>
+            </button>
+            <button class="Hotspot" slot="hotspot-13" id="drsButton"
+                data-position="2.3057708386892237m 1.3519407274244886m -3.541020118528854m"
+                data-normal="0.6809677217088361m 0.5971639522920202m 0.42388462589913684m"
+                data-orbit="107.7deg 78.26deg 2.515m" 
+                data-target="-1.003m 0.49m -2.49m"
+                data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">DRS
+                    <p style="display: none;" id="drs"></p>
+                </div>
+            </button>
+            <button class="Hotspot" slot="hotspot-14" id="chassisButton"
+                data-position="2.0696635149353355m 0.2459911286095251m -1.3487544176935709m"
+                data-normal="0.7028271402920705m 0.6846774637160267m -0.19300461535481306m"
+                data-orbit="468deg 89.11deg 8.515m" field-of-view="12deg"
+                data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Chassis
+                    <p style="display: none;" id="chassis"></p>
+                </div>
+            </button>
+            <button class="Hotspot" slot="hotspot-15" id="haloButton"
+                data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
+                data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
+                data-orbit="377deg 80.89deg 9.157m"
+                
+                data-target="0.003m 0.49m -2.49m"
+                data-visibility-attribute="visible">
+                <div class="HotspotAnnotation">Halo
+                    <p style="display: none;" id="halo"></p>
+                </div>
             </button>
             <!-- <div class="progress-bar hide" slot="progress-bar">
                 <div class="update-bar"></div>
             </div> -->
-            <div class="annotation">This annotation is fixed in screen-space</div>
-            <button slot="ar-button" id="ar-button">
+            <button class="Hotspot" data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
+                data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
+                data-orbit="52.04deg 71.56deg 13.09m" id="home">Home</button>
+            <!-- <button slot="ar-button" id="ar-button">
                 View in your space
-            </button>
-            
+            </button> -->
+
         </model-viewer>
     </div>
 </body>
 
 
 <script>
+    var parts = [
+        { part: "wheels", text: "High-performance wheels designed for speed and durability." },
+        { part: "front", text: "Aerodynamic front wing for enhanced stability." },
+        { part: "steering", text: "Precision steering system for optimal control." },
+        { part: "engine", text: "High-powered engine for maximum performance." },
+        { part: "chassis", text: "Lightweight chassis designed for resilience." },
+        { part: "halo", text: "Protective halo for driver safety." },
+        { part: "gas", text: "Fuel-efficient gas tank." },
+        { part: "drs", text: "Drag Reduction System (DRS) for enhanced aerodynamics." }
+    ];
+
+    var currentPart = "";
+
     document.getElementById("redlogo").style.display = "none";
 
     document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
@@ -142,6 +232,16 @@
         document.getElementById("redlogo").style.display = "none";
         document.getElementById("plainlogo").style.display = "inline";
     })
+    // document.querySelectorAll('.Hotspot').forEach(button => {
+    //     button.addEventListener('click', (event) => {
+    //         const annotationText = event.currentTarget.dataset.annotation; // Get the annotation text
+    //         const textElement = document.getElementById("annotationText"); // Find the p tag
+    //         textElement.textContent = "Heeeeeyyy"; // Set text content
+    //         textElement.style.display = "block"; // Make the p tag visible
+    //     });
+    // });
+
+
 
     // document.querySelectorAll('.Hotspot').forEach(button => {
     //     button.addEventListener('click', () => {
@@ -149,17 +249,82 @@
     //         alert(`You clicked on the ${annotation}`);
     //     });
     // });
+    const descriptionText = (part) => {
+        // Hide the previous part if it exists
+        if (currentPart) {
+            document.getElementById(currentPart).style.display = "none";
+        }
+        const selectedPart = parts.find(item => item.part === part);
+
+        // Display the new part and update currentPart
+        const newPartElement = document.getElementById(part);
+        console.log(selectedPart)
+        if (newPartElement) {
+            newPartElement.innerText = selectedPart.text; // Change text if needed
+            newPartElement.style.display = "block";
+            currentPart = part; // Update currentPart to the new part
+        } else {
+            console.warn(`Element with ID "${part}" not found.`);
+        }
+    };
+
+
     const modelViewer2 = document.querySelector("#hotspot-camera-view-demo");
     const annotationClicked = (annotation) => {
+        const fieldOfView = annotation.getAttribute('data-field-of-view');
         let dataset = annotation.dataset;
         modelViewer2.cameraTarget = dataset.target;
         modelViewer2.cameraOrbit = dataset.orbit;
+        if (fieldOfView) {
+            modelViewer.setAttribute('field-of-view', fieldOfView)
+        }
+        // console.log("gi")
         // modelViewer2.fieldOfView = '5deg';
     }
 
+    document.getElementById('wheelsButton').addEventListener('click', function () {
+        descriptionText("wheels")
+        console.log("clicked")
+    })
+    document.getElementById('home').addEventListener('click', function () {
+        descriptionText("")
+        console.log("clicked")
+    })
+
+    document.getElementById('frontButton').addEventListener('click', function () {
+        descriptionText("front")
+        console.log("clicked")
+    })
+    document.getElementById('drsButton').addEventListener('click', function () {
+        descriptionText("drs")
+        console.log("clicked")
+    })
+    document.getElementById('gasButton').addEventListener('click', function () {
+        descriptionText("gas")
+        console.log("clicked")
+    })
+    document.getElementById('haloButton').addEventListener('click', function () {
+        descriptionText("halo")
+        console.log("clicked")
+    })
+    document.getElementById('steeringButton').addEventListener('click', function () {
+        descriptionText("steering")
+        console.log("clicked")
+    })
+    document.getElementById('chassisButton').addEventListener('click', function () {
+        descriptionText("chassis")
+        console.log("clicked")
+    })
+    document.getElementById('engineButton').addEventListener('click', function () {
+        descriptionText("engine")
+        console.log("clicked")
+    })
+
     modelViewer2.querySelectorAll('button').forEach((hotspot) => {
         hotspot.addEventListener('click', () => annotationClicked(hotspot));
+
     });
+
 </script>
 
 </html>
