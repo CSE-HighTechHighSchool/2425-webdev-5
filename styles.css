@@ -316,9 +316,34 @@ td {
   justify-content: center;
   align-items: center;
 }
+.cardTitle {
+  text-align: center; font-size: 150%;
+  display:none;
+}
+.cardText {
+  font-size: 1em;
+  width: 60%;
+  margin: 0 auto;
+
+}
+
+.historyCards {
+  width: 60%;
+  margin: 0 auto;
+  text-shadow: none;
+  color: white;
+  padding: 15px;
+  border-radius: 20px;
+  bottom: 20px;
+  right: 20px;
+}
+.historyPages {
+  display: flex;
+  align-items: center;
+}
 
 @media (max-width: 500px) {
-  #firstFOneCard {
+  .historyCards {
     width:100% !important;
     margin-left: 0px !important;
 
@@ -332,9 +357,33 @@ td {
   .navHistory {
     display: none;  
   }
-  #firstFOneCard {
-    width:90% !important;
+  .historyCards {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
+  }
+  .cardTitle {
+    text-align: center; font-size: 150%;
+    display:block;
+    margin-bottom: 20px
+  }
+  .historyPages {
     display: flex;
+    align-items: center;
+  }
+  .cardText {
+    font-size: .8em;
+    width: 80%
+  }
+  
+}
+
+@media (max-width: 600px) {
+  #historySixPage {
+    background-image: url('img/hamiltonCropped.png') !important;
+
   }
 }
