@@ -72,6 +72,8 @@ td {
   transition: all 0.5s ease-in;
 }
 
+
+
 .invisible {
   transform: translateY(-30px);
   opacity: 0;
@@ -203,8 +205,18 @@ td {
   color: #FF2C23;
 }
 
+.home{
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+    border-radius: 10px;
+    border: none;
+    /* background-color: transparent; */
+    box-sizing: border-box;
+    /* pointer-events: none; */
+}
+
 .Hotspot {
-  
+
     display: block;
     width: 20px;
     height: 20px;
