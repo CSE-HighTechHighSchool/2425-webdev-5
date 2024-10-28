@@ -311,7 +311,7 @@ td {
     display: none;  
   }
   .historyCards {
-    width:90% !important;
+    width:100%;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -329,6 +329,7 @@ td {
   }
   .cardText {
     font-size: .8em;
+    width: 80%
   }
   
 }
