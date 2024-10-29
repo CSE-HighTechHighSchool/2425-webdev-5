@@ -9,11 +9,12 @@
     rel="stylesheet" />
   <meta charset="UTF-8" />
  
-
+  <!-- Font for our website-->
   <link
       href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
+    <!--different bootstraps that we used-->
     <meta charset="UTF-8" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -51,35 +52,28 @@
 
 <body class="body">
   <nav class="navbar navbar-expand-lg  navbar-container">
-    <!-- <div class="container-fluid"> -->
         <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
             <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style="width: 80px; height: 27px;" />
             <img src="img/redlogo.png" alt="Emotion Logo" id="redlogo" class="icon" style="width: 80px; height: 27px;" />
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" toggle="collapse" data-target=".navbar-collapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         
-        <div class="collapse navbar-collapse " style="width: 100%; text-align: right; margin: 10px; background-color: black;" id="navbarTogglerDemo02">
+        <div class="collapse navbar-collapse" style="width: 100%; text-align: right; margin: 10px; background-color: black;" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ms-auto" >
                     <li class="nav-item" style="align-items: end;">
                         <a class="hover-underline-animation bd-highlight navbar-link ubuntu-regular" href="history.html"><b>History</b></a>
-
                     </li>
                     <li class="nav-item">
                         <a class="hover-underline-animation  bd-highlight navbar-link ubuntu-regular" href="/model.html"><b>Model</b></a>
-
                     </li>
                 </ul>
                 
             
         </div>
-    <!-- </div> -->
 </nav>
-  <div id="preloader">
-    <div class="loader"></div>
-  </div>
-  
+
 
   <div class="alert alert-warning alert-dismissible fade show" style="
   background-color: #2d0b0e;
@@ -101,10 +95,12 @@ This website was made for a class project... Don't take it too seriously!
         <h2 class="weAre" id="descriptor"></h2>
       </div>
     </div>
-    
+    <!--Beginning of the information section for the page-->
     <div class="index-text" style="transform: translateY(550px)">
       <div class="container">
         <div class="row">
+          <!-- col-md-6 allows the two columns to collapse to one when minimized-->
+           <!-- Row 1 Column 1 f1 track image-->
           <div class="col-md-6">
             <div class="card" style="background: none; border:none">
               <div class="card-body ubuntu-regular margin-left">
@@ -112,6 +108,7 @@ This website was made for a class project... Don't take it too seriously!
               </div>
             </div>
           </div>
+          <!-- Row 1 Column 2 information-->
           <div class="col-md-6">
             <div class="card" style="background: none; border: none;">
               <div class="card-body ubuntu-regular">
@@ -130,10 +127,10 @@ This website was made for a class project... Don't take it too seriously!
           </div>
         </div>
       </div>
-      <!-- Row 2 -->
       <div class="container">
         <div class="row">
           <div class="col-md-6">
+            <!-- Row 2 Column 1 information-->
             <div class="card" style="background: none; border: none;">
               <div class="card-body ubuntu-regular">
                 <h5 class="card-title">The cars</h5>
@@ -148,6 +145,7 @@ This website was made for a class project... Don't take it too seriously!
               </div>
             </div>
           </div>
+          <!-- Row 2 Column 2 image-->
           <div class="col-md-6">
             <div class="card" style="background: none; border: none;">
               <div class="card-body ubuntu-regular margin-left">
@@ -160,6 +158,7 @@ This website was made for a class project... Don't take it too seriously!
       <!-- Row 3 -->
       <div class="container">
         <div class="row">
+          <!-- Row 3 Column 1 image-->
           <div class="col-md-6">
             <div class="card" style="background: none; border:none;">
               <div class="card-body ubuntu-regular margin-left">
@@ -167,6 +166,7 @@ This website was made for a class project... Don't take it too seriously!
               </div>
             </div>
           </div>
+          <!-- Row 3 Column 2 text-->
           <div class="col-md-6">
             <div class="card" style="background: none; border:none;">
               <div class="card-body ubuntu-regular">
@@ -192,6 +192,7 @@ This website was made for a class project... Don't take it too seriously!
       </div>
       <div class="container">
         <div class="row">
+          <!-- Row 4 Column 1 text-->
           <div class="col-md-6">
             <div class="card" style="background: none; border:none;">
               <div class="card-body ubuntu-regular">
@@ -208,9 +209,11 @@ This website was made for a class project... Don't take it too seriously!
               </div>
             </div>
           </div>
+          <!-- Row 4 Column 2 carousel -->
           <!-- start of carousel class -->
           <div class="col-md-6"> 
             <div class="card" style="background: none; border: none;">
+              <!-- sets the carousel in the center of the card-->
               <div class="card-body ubuntu-regular d-flex justify-content-center" >
                 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000" 
                   style="height: 300px; width: 50%;" data-bs-ride="carousel"> <!-- use the carousel from bootstrap, data-bs-interval = 4000 makes it so the image changes every 4 seconds-->
@@ -369,6 +372,10 @@ document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
     document.getElementById("plainlogo").style.display = "inline";
 })
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h555rYXK/7HAuoJl+0I4"
+  crossorigin="anonymous"></script>
+<script src="js/main.js" defer></script>
 </body>
 
 </html>
