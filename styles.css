@@ -1,12 +1,22 @@
+
+/* Import the Ubuntu Font */
 .ubuntu-light {
   font-family: "Ubuntu", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
+/* This is the class that translates the alert up and makes it invisible when you click on the x */
+.invisible {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+/* Make the cursor a pointer on the website */
 * {
   cursor: pointer;
 }
+
+/* This sets up transitions for each of the individual elements on our navigator */
 .navHistory {
   width: 140px;
   transition: font-size 0.3s ease, border-bottom 0.3s ease;
@@ -61,13 +71,13 @@ td {
         box-sizing: border-box;
     }
 }
-
+/* Style the "|" on the landing page */
 #underscore {
   font-weight: 100;
   top: 10px;
   font-family: 'Ubuntu';
 }
-
+/* Style the starting alert on the landing page */
 #startingAlert {
   transition: all 0.5s ease-in;
 }
@@ -80,11 +90,6 @@ td {
   font-size:25px;
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.invisible {
-  transform: translateY(-30px);
-  opacity: 0;
 }
 
 .index-text{
@@ -198,7 +203,7 @@ td {
   letter-spacing: .03em;
 }
 
-
+/* This is for our font-families */
 .ubuntu-regular {
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
@@ -240,7 +245,7 @@ td {
   font-weight: 700;
   font-style: italic;
 }
-
+/* Make the navbar black with a height of 80px and make the text large and white */
 .navbar-container {
   background-color: black;
   height: 80px;
@@ -253,7 +258,7 @@ td {
   font-size: 20px;
   
 }
-
+/* If you hover over a navbar element turn it red */
 .navbar-link:hover {
   color: #FF2C23;
 }
@@ -315,7 +320,7 @@ td {
   padding: "80%";
 
 } 
-
+/* This is the icon on the navbar element */
 .icon {
   height: 90px;
   width: auto;
@@ -344,17 +349,19 @@ td {
   justify-content: center;
   align-items: center;
 }
+/* Align the card text and title with a large font size to pop out at the user */
 .cardTitle {
   text-align: center; font-size: 150%;
   display:none;
 }
+
 .cardText {
   font-size: 1em;
   width: 60%;
   margin: 0 auto;
 
 }
-
+/* Each history card should have 60% width and be horizontally center */
 .historyCards {
   width: 60%;
   margin: 0 auto;
@@ -365,12 +372,15 @@ td {
   bottom: 20px;
   right: 20px;
 }
+
+/* Each page could center the card vertically */
 .historyPages {
   display: flex;
   align-items: center;
 }
 
 @media (max-width: 500px) {
+  /* On a small page, make the history titles larger and the cards wider */
   .historyCards {
     width:100% !important;
     margin-left: 0px !important;
@@ -410,6 +420,9 @@ td {
 }
 
 @media (max-width: 600px) {
+  /* 
+  Change the background image on the final page to give more of Hamilton's face
+   */
   #historySixPage {
     background-image: url('img/hamiltonCropped.png') !important;
 
