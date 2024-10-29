@@ -13,12 +13,16 @@
 
 }
 
+.navbar-toggler-icon{
+  filter: invert(1);
+  margin-left: 10px
+}
 /* #firstFOneCard {
   display: 
 } */
 
 #landingIntro {
-    background-image: url("img/racecar1.png");
+    background-image: url("img/f1-bahrain-8y354uaxrhemdg0n.jpg");
     height: 1000px;
     background-position: center;
     background-repeat: no-repeat;
