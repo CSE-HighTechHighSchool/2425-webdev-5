@@ -72,7 +72,15 @@ td {
   transition: all 0.5s ease-in;
 }
 
+.nb-background-color {
+  background-color: black;
+}
 
+.nbMenuItem{               /* navbar link text properties */
+  font-size:25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 .invisible {
   transform: translateY(-30px);
