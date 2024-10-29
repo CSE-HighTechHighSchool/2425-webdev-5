@@ -39,7 +39,7 @@
   </head>
 
   <body style="background-color: black; display: grid">
-    <nav class="navbar navbar-expand-lg  navbar-container">
+    <nav class="navbar navbar-expand-lg navbar-container" data-bs-theme="dark">
       <!-- <div class="container-fluid"> -->
           <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
               <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style="width: 80px; height: 27px;" />
@@ -88,21 +88,27 @@
       id="historyOne"
       class="historyPages"
     >
-      <div></div>
+      <!-- Centrally align the white text 
+        Make it so that the card spans 60% of the screen width 
+        with a good amount of padding.
+        Each page has cards in this format
+      -->
       <div
         class="card-body ubuntu-regular"
         style="
           background-color: transparent;
           text-align: center;
           text-shadow: none;
-          color: white;
           padding: 15px;
-          border-radius: 20px;
 
           width: 60%;
         "
         class="historyCards"
       >
+        <!-- Cooresponding Card
+          Each page/slide has these cards in this format 
+        -->
+
         <h5 class="card-title cardTitle">First Race</h5>
         <p class="card-text cardText">
           This was known as the "Grand Prix of Europe" and it was held on May
@@ -112,6 +118,11 @@
           change...
         </p>
       </div>
+      <!--This is the navigator element to the side that corresponds to the section the 
+      user is on page
+        The position is fixed and halfway down the page. The navbar is positioned 
+        slightly away from the right
+      -->
       <div
         style="
           position: fixed;
@@ -120,6 +131,9 @@
           transform: translateY(-50%);
         "
       >
+        <!-- This navigator is a flexbox that presents elements in column order
+          The z-index makes it overlap with all other elements 
+        -->
         <div
           style="
             display: flex;
@@ -147,36 +161,9 @@
             A Champion
           </div>
         </div>
-        <!-- <svg width="30" height="250" xmlns="http://www.w3.org/2000/svg">
-          <rect
-            width="100%"
-            height="100%"
-            fill="rgba(255,255,255, 0.8)"
-            rx="15"
-            ry="15"
-          />
-
-          <circle cx="15" cy="20" r="5" fill="black" />
-          <circle
-            id="circleOutline"
-            cx="15"
-            cy="20"
-            r="8"
-            fill="none"
-            stroke="#e11d48"
-            stroke-width="2"
-          />
-
-          <circle cx="15" cy="50" r="5" fill="black" />
-          <circle cx="15" cy="80" r="5" fill="black" />
-          <circle cx="15" cy="110" r="5" fill="black" />
-          <circle cx="15" cy="140" r="5" fill="black" />
-          <circle cx="15" cy="170" r="5" fill="black" />
-          <circle cx="15" cy="200" r="5" fill="black" />
-          <circle cx="15" cy="230" r="5" fill="black" />
-        </svg> -->
       </div>
     </div>
+    <!-- This is the Golden Age Page on the history.html -->
     <div
       style="
         width: 100%;
@@ -213,6 +200,8 @@
         </p>
       </div>
     </div>
+    <!-- This is the Into the Billions Page on the history.html page -->
+
     <div
       style="
         width: 100%;
@@ -248,6 +237,8 @@
         </p>
       </div>
     </div>
+    <!-- This is the page on McLaren's Dominance on the history.html page -->
+
     <div
       style="
         width: 100%;
@@ -284,6 +275,8 @@
         </p>
       </div>
     </div>
+    <!-- This is the page on the Tragic Deaths in F1 on the history.html page -->
+
     <div
       style="
         width: 100%;
@@ -319,6 +312,8 @@
         </p>
       </div>
     </div>
+    <!-- This is the page on Lewis Hamilton on the history.html page -->
+
     <div
       style="
         width: 100%;
@@ -362,15 +357,19 @@
     document.getElementById("redlogo").style.display = "none";
     
 
-document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
-    e.preventDefault()
-    document.getElementById("redlogo").style.display = "inline";
-    document.getElementById("plainlogo").style.display = "none";
-})
-document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
-    e.preventDefault()
-    document.getElementById("redlogo").style.display = "none";
-    document.getElementById("plainlogo").style.display = "inline";
-})
+    document
+      .getElementById("navbarlogo")
+      .addEventListener("mouseenter", (e) => {
+        e.preventDefault();
+        document.getElementById("redlogo").style.display = "inline";
+        document.getElementById("plainlogo").style.display = "none";
+      });
+    document
+      .getElementById("navbarlogo")
+      .addEventListener("mouseleave", (e) => {
+        e.preventDefault();
+        document.getElementById("redlogo").style.display = "none";
+        document.getElementById("plainlogo").style.display = "inline";
+      });
   </script>
 </html>
