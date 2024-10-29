@@ -396,6 +396,12 @@ td {
 }
 
 @media (max-width: 800px) {
+  /* Make the alert span 80% of the width of the page */
+  #startingAlert {
+    width: 90% !important;
+  margin-left: 5% !important;
+
+  }
   .navHistory {
     display: none;  
   }
