@@ -72,6 +72,8 @@ td {
   transition: all 0.5s ease-in;
 }
 
+
+
 .invisible {
   transform: translateY(-30px);
   opacity: 0;
@@ -79,6 +81,53 @@ td {
 
 .index-text{
   color:white;
+}
+
+.card {
+  background-color: #1e1e1e; 
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+}
+
+
+
+.card-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #e0e0e0; 
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.card-text {
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.card img {
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  height: auto;
+}
+
+.card img:hover {
+  transform: scale(1.1);
+}
+
+.row.index-text .card {
+  margin: 15px 0; 
+}
+
+@media (max-width: 768px) {
+  .card {
+    margin: 10px 0; 
+  }
 }
 
 .carousel_items {
@@ -117,20 +166,18 @@ td {
   font-weight: bolder;
 }
 
-.item1 {
-  background-image: url("https://images.unsplash.com/photo-1426604966848-d7adac402bff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+.carousel-item img {
+  width: 100%; 
+  height: auto; 
+  max-height: 300px; 
+  display: block;
+  margin: auto;
 }
 
-.item2 {
-  background-image: url("https://images.unsplash.com/photo-1501862700950-18382cd41497?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=519&q=80");
-}
-
-.item3 {
-  background-image: url("https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fHNwYWNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
-}
-
-.item4 {
-  background-image: url("https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8QUl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 200px; 
+  }
 }
 
 .weAre {
@@ -203,8 +250,18 @@ td {
   color: #FF2C23;
 }
 
+.home{
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+    border-radius: 10px;
+    border: none;
+    /* background-color: transparent; */
+    box-sizing: border-box;
+    /* pointer-events: none; */
+}
+
 .Hotspot {
-  
+
     display: block;
     width: 20px;
     height: 20px;
