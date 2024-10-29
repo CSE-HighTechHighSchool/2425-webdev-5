@@ -39,46 +39,33 @@
   </head>
 
   <body style="background-color: black; display: grid">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-container">
-      <div class="container-fluid">
-        <a
-          class="hover-underline-animation navbar-brand navbar-link"
-          id="navbarlogo"
-          href="index.html"
-        >
-          <img
-            src="img/logo.png"
-            alt="Emotion Logo"
-            id="plainlogo"
-            class="icon hover-underline-animation"
-            style="width: 80px; height: 27px"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="d-flex bd-highlight">
-          <a
-            class="hover-underline-animation p-2 bd-highlight navbar-link ubuntu-regular"
-            href="history.html"
-            ><b>History</b></a
-          >
-          <a
-            class="hover-underline-animation p-2 flex-shrink-1 bd-highlight navbar-link ubuntu-regular"
-            href="/model.html"
-            ><b>Model</b></a
-          >
-        </div>
-      </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg  navbar-container" data-bs-theme="dark">
+      <!-- <div class="container-fluid"> -->
+          <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
+              <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style="width: 80px; height: 27px;" />
+              <img src="img/redlogo.png" alt="Emotion Logo" id="redlogo" class="icon" style="width: 80px; height: 27px;" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"  >
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" style="width: 100%;  text-align: left; margin: 10px; background-color: black;;" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav ms-auto" >
+                      <li class="nav-item" style="align-items: end;">
+                          <a class="hover-underline-animation bd-highlight navbar-link ubuntu-regular" href="history.html"><b>History</b></a>
+  
+                      </li>
+                      <li class="nav-item">
+                          <a class="hover-underline-animation  bd-highlight navbar-link ubuntu-regular" href="/model.html"><b>Model</b></a>
+  
+                      </li>
+                  </ul>
+                  
+              
+          </div>
+      <!-- </div> -->
+  </nav>
+  
     <div
       style="
         width: 100%;
@@ -360,4 +347,18 @@
       </div>
     </div>
   </body>
+  <script>
+    document.getElementById("redlogo").style.display = "none";
+
+document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
+    e.preventDefault()
+    document.getElementById("redlogo").style.display = "inline";
+    document.getElementById("plainlogo").style.display = "none";
+})
+document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
+    e.preventDefault()
+    document.getElementById("redlogo").style.display = "none";
+    document.getElementById("plainlogo").style.display = "inline";
+})
+  </script>
 </html>

@@ -257,6 +257,16 @@ td {
 .navbar-link:hover {
   color: #FF2C23;
 }
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5); /* Toggler border color */
+}
+.navbar-toggler-icon{
+  color: white;
+  margin : 5px
+}
+.navbar{
+  width: 100%;
+}
 
 .home{
   display: block;
