@@ -13,9 +13,6 @@
 
 }
 
-/* #firstFOneCard {
-  display: 
-} */
 
 #landingIntro {
     background-image: url("img/racecar1.png");
@@ -40,7 +37,6 @@
   .hover-underline-animation:hover:after {
     cursor: pointer;
     transform: scaleX(1);
-    /*transform-origin: bottom left;*/
   }
 
   body {
@@ -61,6 +57,9 @@ td {
         box-sizing: border-box;
     }
 }
+
+
+
 
 #underscore {
   font-weight: 100;
@@ -210,9 +209,7 @@ td {
     height: 20px;
     border-radius: 10px;
     border: none;
-    /* background-color: transparent; */
     box-sizing: border-box;
-    /* pointer-events: none; */
  
 }
 .HotspotAnnotation {
@@ -235,7 +232,6 @@ td {
   transform: translate3d(-50%, -50%, 0);
   background-color: white;
   position: absolute;
-  /* transform: translate(10px, 10px); */
   border-radius: 10px;
   padding: "80%";
 
@@ -271,7 +267,7 @@ td {
 }
 .cardTitle {
   text-align: center; font-size: 150%;
-  display:none;
+  margin-bottom: 20px;
 }
 .cardText {
   font-size: 1em;
@@ -282,17 +278,41 @@ td {
 
 .historyCards {
   width: 60%;
-  margin: 0 auto;
   text-shadow: none;
   color: white;
   padding: 15px;
   border-radius: 20px;
   bottom: 20px;
   right: 20px;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  flex-direction: column;
 }
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.otherPage {
+  animation: fadeInOut 3s ease-in-out; 
+}
+#currentPage {
+  opacity: 1; 
+}
+
 .historyPages {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
 }
 
 @media (max-width: 500px) {
@@ -318,18 +338,21 @@ td {
     justify-content: center;
 
   }
-  .cardTitle {
-    text-align: center; font-size: 150%;
-    display:block;
-    margin-bottom: 20px
-  }
   .historyPages {
     display: flex;
     align-items: center;
+    flex-direction: column;
   }
   .cardText {
     font-size: .8em;
     width: 80%
   }
   
+}
+
+@media (max-width: 600px) {
+  #historySixPage {
+    background-image: url('img/hamiltonCropped.png') !important;
+
+  }
 }

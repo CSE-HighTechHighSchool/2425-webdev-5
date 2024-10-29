@@ -87,26 +87,27 @@
         background-size: cover;
         text-shadow: black 3px 3px 15px;
       "
-      id="historyOne"
-      class="historyPages"
+      id="currentPage"
+      class="historyPages classList"
     >
-      <div></div>
+      <div class="arrows" id="upArrow">
+        <i class="bi bi-chevron-up" style="color: white; font-size: 3em"></i>
+      </div>
       <div
         class="card-body ubuntu-regular"
         style="
-          background-color: transparent;
-          text-align: center;
-          text-shadow: none;
           color: white;
           padding: 15px;
-          border-radius: 20px;
-
-          width: 60%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          text-align: center;
         "
         class="historyCards"
       >
-        <h5 class="card-title cardTitle">First Race</h5>
-        <p class="card-text cardText">
+        <h5 class="card-title cardTitle" id="currentTitle">First Race</h5>
+        <p class="card-text cardText" id="currentText">
           This was known as the "Grand Prix of Europe" and it was held on May
           13, 1953. The winner of this race was Giuseppe Farina, who was 43 at
           the time. 120, 000 viewers from around the world tuned in to witness
@@ -114,69 +115,9 @@
           change...
         </p>
       </div>
-      <div
-        style="
-          position: fixed;
-          top: 50%;
-          right: 30px;
-          transform: translateY(-50%);
-        "
-      >
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            z-index: 40;
-          "
-        >
-          <div style="color: white" class="ubuntu-regular navHistory">
-            First Race
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            The Golden Age
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            Into the Billions
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            McLaren
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            Tragedy Strikes
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            A Champion
-          </div>
-        </div>
-        <!-- <svg width="30" height="250" xmlns="http://www.w3.org/2000/svg">
-          <rect
-            width="100%"
-            height="100%"
-            fill="rgba(255,255,255, 0.8)"
-            rx="15"
-            ry="15"
-          />
 
-          <circle cx="15" cy="20" r="5" fill="black" />
-          <circle
-            id="circleOutline"
-            cx="15"
-            cy="20"
-            r="8"
-            fill="none"
-            stroke="#e11d48"
-            stroke-width="2"
-          />
-
-          <circle cx="15" cy="50" r="5" fill="black" />
-          <circle cx="15" cy="80" r="5" fill="black" />
-          <circle cx="15" cy="110" r="5" fill="black" />
-          <circle cx="15" cy="140" r="5" fill="black" />
-          <circle cx="15" cy="170" r="5" fill="black" />
-          <circle cx="15" cy="200" r="5" fill="black" />
-          <circle cx="15" cy="230" r="5" fill="black" />
-        </svg> -->
+      <div class="arrows" id="downArrow">
+        <i class="bi bi-chevron-down" style="color: white; font-size: 3em"></i>
       </div>
     </div>
     <div
