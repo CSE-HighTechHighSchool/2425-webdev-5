@@ -61,6 +61,7 @@
   body {
     font-family: Arial, sans-serif;
 }
+/*table css*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -102,6 +103,7 @@ td {
   color:white;
 }
 
+/* style the cards on index page*/
 .card {
   background-color: #1e1e1e; 
   border: none;
@@ -113,7 +115,7 @@ td {
 }
 
 
-
+/* style the title for the cards*/
 .card-title {
   font-size: 1.5em;
   font-weight: 700;
@@ -122,12 +124,14 @@ td {
   text-align: center;
 }
 
+/*style the text for the cards*/
 .card-text {
   color: #fff;
   font-size: 1em;
   line-height: 1.6;
 }
 
+/*style the images on the cards*/
 .card img {
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -135,6 +139,7 @@ td {
   height: auto;
 }
 
+/*expand the card for the cards*/
 .card img:hover {
   transform: scale(1.1);
 }
@@ -149,12 +154,14 @@ td {
   }
 }
 
+/*carousel css*/
 .carousel_items {
   text-align: center;
   display: flex;
   justify-content: center;
 }
 
+/*carousel item css*/
 .carousel_item {
   position: relative;
   min-width: 100%;
@@ -165,12 +172,14 @@ td {
   background-attachment: fixed;
 }
 
+/*css for images in carousel*/
 .carousel-item img {
   height: 300px;
   width: auto; 
   display: inline-block;
 }
 
+/*css for text in carousel*/
 .carousel_text {
   position: absolute;
   bottom: 10%;
@@ -185,6 +194,7 @@ td {
   font-weight: bolder;
 }
 
+/*css for carousel items*/
 .carousel-item img {
   width: 100%; 
   height: auto; 
