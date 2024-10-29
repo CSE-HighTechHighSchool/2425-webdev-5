@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="img/websitelogo.png" />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?famil=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
     <meta charset="UTF-8" />
@@ -41,65 +41,42 @@
   <body style="background-color: black; display: grid">
     <nav class="navbar navbar-expand-lg navbar-container" data-bs-theme="dark">
       <!-- <div class="container-fluid"> -->
-      <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
-        <img
-          src="img/logo.png"
-          alt="Emotion Logo"
-          id="plainlogo"
-          class="icon"
-          style="width: 80px; height: 27px"
-        />
-        <img
-          src="img/redlogo.png"
-          alt="Emotion Logo"
-          id="redlogo"
-          class="icon"
-          style="width: 80px; height: 27px"
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo02"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div
-        class="collapse navbar-collapse"
-        style="
-          width: 100%;
-          text-align: left;
-          margin: 10px;
-          background-color: black;
-        "
-        id="navbarTogglerDemo02"
-      >
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="align-items: end">
-            <a
-              class="hover-underline-animation bd-highlight navbar-link ubuntu-regular"
-              href="history.html"
-              ><b>History</b></a
-            >
-          </li>
-          <li class="nav-item">
-            <a
-              class="hover-underline-animation bd-highlight navbar-link ubuntu-regular"
-              href="/model.html"
-              ><b>Model</b></a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- Early History Page -->
-    <!-- For each page/slide make it so that the div spans the full 
-      with of the screen with a tinted background image and 
-      add a text-shadow for readability.
-
-      -->
+          <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
+              <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style="width: 80px; height: 27px;" />
+              <img src="img/redlogo.png" alt="Emotion Logo" id="redlogo" class="icon" style="width: 80px; height: 27px;" />
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" style="width: 100%; text-align: right; margin: 10px; background-color: black;" id="navbarTogglerDemo02">
+                  <ul class="navbar-nav ms-auto" >
+                      <li class="nav-item" style="align-items: end;">
+                          <a class="hover-underline-animation bd-highlight navbar-link ubuntu-regular" href="history.html"><b>History</b></a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="hover-underline-animation  bd-highlight navbar-link ubuntu-regular" href="/model.html"><b>Model</b></a>
+                      </li>
+                  </ul>
+                  
+              
+          </div>
+      <!-- </div> -->
+  </nav>
+  <div class="alert alert-warning alert-dismissible fade show" style="
+        background-color: #2d0b0e;
+        color: #e9868f;
+        width: 30%;
+        text-align: center;
+        margin-top: 1%;
+        margin-left: 35%;
+        border: 1px solid #212428;
+        position: absolute;
+      " role="alert" id="startingAlert">
+    This website was made for a class project... Don't take it too seriously!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+  
     <div
       style="
         width: 100%;
@@ -378,6 +355,7 @@
   </body>
   <script>
     document.getElementById("redlogo").style.display = "none";
+    
 
     document
       .getElementById("navbarlogo")

@@ -22,12 +22,15 @@
 </head>
 
 <body style="background-color: black; display: grid;">
+
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg  navbar-container">
-        <!-- <div class="container-fluid"> -->
+        <!-- Logo -->
             <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
                 <img src="img/logo.png" alt="Emotion Logo" id="plainlogo" class="icon" style="width: 80px; height: 27px;" />
                 <img src="img/redlogo.png" alt="Emotion Logo" id="redlogo" class="icon" style="width: 80px; height: 27px;" />
             </a>
+            <!-- Hamburger button -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" >
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,10 +38,12 @@
             <div class="collapse navbar-collapse" style="width: 100%; text-align: right; margin: 10px; background-color: black;" id="navbarTogglerDemo02">
                     <ul class="navbar-nav ms-auto" >
                         <li class="nav-item" style="align-items: end;">
+                            <!-- History Link -->
                             <a class="hover-underline-animation bd-highlight navbar-link ubuntu-regular" href="history.html"><b>History</b></a>
     
                         </li>
                         <li class="nav-item">
+                            <!-- Model Link -->
                             <a class="hover-underline-animation  bd-highlight navbar-link ubuntu-regular" href="/model.html"><b>Model</b></a>
     
                         </li>
@@ -49,7 +54,7 @@
         <!-- </div> -->
     </nav>
     
-
+<!-- Alert to show how the website is not real -->
     <div class="alert alert-warning alert-dismissible fade show" style="
         background-color: #2d0b0e;
         color: #e9868f;
@@ -74,15 +79,18 @@
     <div style="margin: 50px 50px; text-align: center;  display: flex; flex-direction: row;">
 
         <div style="flex:4">
+            <!-- Title -->
             <h1 style="color: white">Parts</h1>
             <h6 style="color: white">Click on the annotation to see a close up of the part, click on the text to go to
                 more resources</h6>
+
             <model-viewer alt="A 3D model of an F1 car" src="gulf_mclaren_f1_2022_car.glb" id="hotspot-camera-view-demo"
                 tone-mapping="neutral" camera-controls tone-mapping="neutral" interaction-prompt="none"
                 shadow-intensity="1" touch-action="pan-y" ar shadow-intensity="10"
                 camera-orbit="52.04deg 71.56deg 13.09m" field-of-view="23deg" interpolation-decay="200"
                 style="width: 100%; height: 800px; max-height: 90vh;  background-color: black; border: 10px; border-color: aliceblue;"
                 ar ar-mode>
+                <!-- Engine Annotation -->
                 <button class="Hotspot" slot="hotspot-8" id="engineButton"
                     data-position="1.8064211349724832m 0.9526117179899461m -1.4183625249309022m"
                     data-normal="0.6616307852927881m 0.7469620555811052m -0.06551634509722502m"
@@ -101,6 +109,7 @@
                     </div>
 
                 </button>
+                <!-- Wheels Annotation -->
                 <button class="Hotspot" slot="hotspot-9" id="wheelsButton"
                     data-position="2.6656551068419745m 0.4541453036713761m 1.8392745085065425m"
                     data-normal="0.23612066138362692m 0.9064822964718294m -0.35005268096518977m"
@@ -114,6 +123,7 @@
                         </a>
                     </div>
                 </button>
+                <!-- Front Wing Annotation -->
                 <button class="Hotspot" slot="hotspot-10" id="frontButton"
                     data-position="1.3903832577079633m 0.4065925222552746m 3.3267891511905976m"
                     data-normal="0.020185718677417808m 0.9412996410303127m 0.33696813285187754m"
@@ -129,6 +139,7 @@
                         </a>
                     </div>
                 </button>
+                <!-- Steering Annotation -->
                 <button class="Hotspot" slot="hotspot-11" id="steeringButton"
                     data-position="1.3868021618724509m 0.875267089026975m 0.38723988171705614m"
                     data-normal="-0.0010264307691269356m 0.003406952476853322m -0.9999936695373111m"
@@ -144,6 +155,7 @@
                         </a>
                     </div>
                 </button>
+                <!-- Gas Tank Annotation -->
                 <button class="Hotspot" slot="hotspot-12" id="gasButton"
                     data-position="1.330027210419007m 0.11109075333541973m -0.10005778587961517m"
                     data-normal="-0.012047236557983947m -0.9998952483886213m -0.008022240408601658m"
@@ -157,6 +169,7 @@
                         </a>
                     </div>
                 </button>
+                <!-- DRS Annotation -->
                 <button class="Hotspot" slot="hotspot-13" id="drsButton"
                     data-position="2.3057708386892237m 1.3519407274244886m -3.541020118528854m"
                     data-normal="0.6809677217088361m 0.5971639522920202m 0.42388462589913684m"
@@ -172,6 +185,7 @@
                         </a>
                     </div>
                 </button>
+                <!-- Chassis Annotation -->
                 <button class="Hotspot" slot="hotspot-14" id="chassisButton"
                     data-position="2.0696635149353355m 0.2459911286095251m -1.3487544176935709m"
                     data-normal="0.7028271402920705m 0.6846774637160267m -0.19300461535481306m"
@@ -186,6 +200,7 @@
                         </a>
                     </div>
                 </button>
+                <!-- Halo Annotation -->
                 <button class="Hotspot" slot="hotspot-15" id="haloButton"
                     data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
                     data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
@@ -200,17 +215,14 @@
                         </a>
                     </div>
                 </button>
-                <!-- <div class="progress-bar hide" slot="progress-bar">
-                <div class="update-bar"></div>
-            </div> -->
+                
+            <!-- Halo Annotation -->
                 <button class="home" data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
                     data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
                     data-orbit="52.04deg 71.56deg 13.09m" id="home" style="margin:25px">Home</button>
 
 
-                <!-- <button slot="ar-button" id="ar-button">
-                View in your space
-            </button> -->
+        
 
             </model-viewer>
 
@@ -222,6 +234,7 @@
 
 
 <script>
+    // This is where the part description are written
     var parts = [
         { part: "wheels", text: "High-performance wheels designed for speed and durability." },
         { part: "front", text: "Aerodynamic front wing for enhanced stability." },
@@ -232,38 +245,27 @@
         { part: "gas", text: "Fuel-efficient gas tank." },
         { part: "drs", text: "Drag Reduction System (DRS) for enhanced aerodynamics." }
     ];
-
+    // Stores what the currentPart
     var currentPart = "";
 
+    // hides the red logo
     document.getElementById("redlogo").style.display = "none";
 
+    // hides the plain logo when mouse hovers and shows the red logo 
     document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
         e.preventDefault()
         document.getElementById("redlogo").style.display = "inline";
         document.getElementById("plainlogo").style.display = "none";
     })
+
+    // hides the red logo when mouse hovers and shows the plain logo 
     document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
         e.preventDefault()
         document.getElementById("redlogo").style.display = "none";
         document.getElementById("plainlogo").style.display = "inline";
     })
-    // document.querySelectorAll('.Hotspot').forEach(button => {
-    //     button.addEventListener('click', (event) => {
-    //         const annotationText = event.currentTarget.dataset.annotation; // Get the annotation text
-    //         const textElement = document.getElementById("annotationText"); // Find the p tag
-    //         textElement.textContent = "Heeeeeyyy"; // Set text content
-    //         textElement.style.display = "block"; // Make the p tag visible
-    //     });
-    // });
-
-
-
-    // document.querySelectorAll('.Hotspot').forEach(button => {
-    //     button.addEventListener('click', () => {
-    //         const annotation = button.querySelector('.HotspotAnnotation').textContent;
-    //         alert(`You clicked on the ${annotation}`);
-    //     });
-    // });
+    
+    // shows the description text when clicked
     const descriptionText = (part) => {
         // Hide the previous part if it exists
         if (currentPart) {
@@ -279,62 +281,80 @@
             newPartElement.style.display = "block";
             currentPart = part; // Update currentPart to the new part
         } else {
-            console.warn(`Element with ID "${part}" not found.`);
+            // error code 
+            console.warn(`Element with id "${part}" not found.`);
         }
     };
 
-
+    // selects the model viewer so you can alter the view point with javscript
     const modelViewer2 = document.querySelector("#hotspot-camera-view-demo");
+
+    // get the annotation values and replaces the target and orbit with the annotations values
     const annotationClicked = (annotation) => {
         const fieldOfView = annotation.getAttribute('data-field-of-view');
         let dataset = annotation.dataset;
+        // get the values
         modelViewer2.cameraTarget = dataset.target;
         modelViewer2.cameraOrbit = dataset.orbit;
         if (fieldOfView) {
             modelViewer.setAttribute('field-of-view', fieldOfView)
         }
-        // console.log("gi")
-        // modelViewer2.fieldOfView = '5deg';
+        // sets the values on the modelViewer
     }
 
+    // makes a listener on the wheel button and shows the descriptionText
     document.getElementById('wheelsButton').addEventListener('click', function () {
         descriptionText("wheels")
         console.log("clicked")
     })
+    // makes a listener on the home button
     document.getElementById('home').addEventListener('click', function () {
         descriptionText("")
         console.log("clicked")
     })
+    // makes a listener on the front button and shows the descriptionText
 
     document.getElementById('frontButton').addEventListener('click', function () {
         descriptionText("front")
         console.log("clicked")
     })
+        // makes a listener on the drs button and shows the descriptionText
+
     document.getElementById('drsButton').addEventListener('click', function () {
         descriptionText("drs")
         console.log("clicked")
     })
+        // makes a listener on the gas button and shows the descriptionText
+
     document.getElementById('gasButton').addEventListener('click', function () {
         descriptionText("gas")
         console.log("clicked")
     })
+        // makes a listener on the halo button and shows the descriptionText
+
     document.getElementById('haloButton').addEventListener('click', function () {
         descriptionText("halo")
         console.log("clicked")
     })
+        // makes a listener on the steering button and shows the descriptionText
+
     document.getElementById('steeringButton').addEventListener('click', function () {
         descriptionText("steering")
         console.log("clicked")
     })
+        // makes a listener on the chassis button and shows the descriptionText
+
     document.getElementById('chassisButton').addEventListener('click', function () {
         descriptionText("chassis")
         console.log("clicked")
     })
+        // makes a listener on the engine button and shows the descriptionText
+
     document.getElementById('engineButton').addEventListener('click', function () {
         descriptionText("engine")
         console.log("clicked")
     })
-
+    
     modelViewer2.querySelectorAll('button').forEach((hotspot) => {
         hotspot.addEventListener('click', () => annotationClicked(hotspot));
 
