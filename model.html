@@ -44,7 +44,7 @@
                         </li>
                         <li class="nav-item">
                             <!-- Model Link -->
-                            <a class="hover-underline-animation  bd-highlight navbar-link ubuntu-regular" href="model.html"><b>Model</b></a>
+                            <a class="hover-underline-animation  bd-highlight navbar-link ubuntu-regular" href="/model.html"><b>Model</b></a>
     
                         </li>
                     </ul>
@@ -54,8 +54,20 @@
         <!-- </div> -->
     </nav>
     
-
-    
+<!-- Alert to show how the website is not real -->
+    <div class="alert alert-warning alert-dismissible fade show" style="
+        background-color: #2d0b0e;
+        color: #e9868f;
+        width: 30%;
+        text-align: center;
+        margin-top: 1%;
+        margin-left: 35%;
+        border: 1px solid #212428;
+        position: absolute;
+      " role="alert" id="startingAlert">
+    This website was made for a class project... Don't take it too seriously!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
     <div style="margin-top: 20px; margin-left: auto; margin-right: auto;">
         <!-- <h1 class="ubuntu-regular" style="color: white; display: inline;"><b>The History of F1<br> -->
         <!-- <img src="img/historyLogo.png" alt="timeline logo" width="320px"
@@ -218,25 +230,6 @@
 
 
     </div>
-    <!-- Footer code-->
-    <footer style = "background-color: #131316; border-radius: 20px;">
-        <div class="container">
-          <div class="row">
-            <div class="col ubuntu-regular " style = " color: white; text-align: center; padding: 15px 0">
-              Phone Number: 732-###-####
-            </div>
-            <div class="col ubuntu-regular" style = " color: white; text-align: center; padding: 15px 0">
-              Email us at _____@gmail.com
-            </div>
-          </div>
-          <hr>
-          <div class="ubuntu-regular" style = "  color: white; text-align: center; margin: 0 auto; padding: 20px 0px; font-size: 1.3em">
-           <b>
-            &copy; SE 2024
-           </b>
-          </div>
-        </div>
-      </footer>
 </body>
 
 
@@ -361,7 +354,7 @@
         descriptionText("engine")
         console.log("clicked")
     })
-
+    
     modelViewer2.querySelectorAll('button').forEach((hotspot) => {
         hotspot.addEventListener('click', () => annotationClicked(hotspot));
 
