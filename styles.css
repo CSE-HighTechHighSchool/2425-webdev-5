@@ -31,6 +31,7 @@
   display: 
 } */
 
+/* This is the first image we see, it is styles on a div that would have a background image */
 #landingIntro {
     background-image: url("img/f1-bahrain-8y354uaxrhemdg0n.jpg");
     height: 1000px;
@@ -89,6 +90,7 @@ td {
 .nb-background-color {
   background-color: black;
 }
+
 
 .nbMenuItem{               /* navbar link text properties */
   font-size:25px;
@@ -299,6 +301,7 @@ td {
     /* pointer-events: none; */
  
 }
+/* This is the annotation on the model viewer */
 .HotspotAnnotation {
   background: #fff;
   border-radius: 4px;
@@ -329,9 +332,11 @@ td {
   height: 90px;
   width: auto;
 }
+/* makes the background black */
 .body{
   background-color: black;
 }
+/* makes the div a black gradient */
 .black-gradient{
  
     height: 1000px;
@@ -341,6 +346,7 @@ td {
     background-image: linear-gradient(rgba(255,0,0,0), rgba(0,0,0,1),  rgba(0,0,0,1));
 }
 
+/* makes the textbox o*/
 .textbox{
   color:white;
   margin-top:700px;
