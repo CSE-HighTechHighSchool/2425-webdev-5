@@ -33,7 +33,8 @@
       defer
     ></script>
     <link rel="stylesheet" href="styles.css" />
-    <script src="js/index.js" defer></script>
+    <!-- <script src="js/index.js" defer></script> -->
+    <script src="js/firebase/signIn.js" defer></script>
     <script src="js/main.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
@@ -42,7 +43,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script type="module" src="js/register.js" defer></script>
+    <!-- <script type="module" src="js/register.js" defer></script> -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"
       integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ=="
@@ -132,15 +133,26 @@
           />
           <button
             type="button"
-            id="submitData"
+            id="signIn"
             name="submitData"
             class="btn btn-outline-primary mb-3 w-100"
           >
             Sign In
           </button>
-          <a href="signIn.html" class="w-100" id="alreadyHave"
-            >Already have an account?</a
-          >
+          <div class="form-check form-switch mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="keepLoggedInSwitch"
+            />
+            <label
+              class="form-check-label"
+              for="flexSwitchCheckDefault"
+              style="color: white"
+              >Keep me signed in</label
+            >
+          </div>
         </form>
       </div>
     </div>
