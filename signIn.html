@@ -58,6 +58,7 @@
     <nav
       class="d-flex flex-row align-items-center justify-content-between px-3"
     >
+      <!-- Logo -->
       <a id="navbarlogo" href="index.html">
         <img
           src="img/logo.png"
@@ -68,25 +69,41 @@
         />
       </a>
 
-      <div id="navbarTogglerDemo02">
-        <a
-          class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-          href="history.html"
-        >
-          <b><i class="bi bi-clock-history"></i> History</b>
-        </a>
-        <a
-          class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-          href="history.html"
-        >
-          <b><i class="bi bi-box-arrow-in-right"></i> Sign In</b>
-        </a>
-        <a
-          class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-          href="history.html"
-        >
-          <b><i class="bi bi-box-arrow-right"></i> Register</b>
-        </a>
+      <!-- Navbar Links -->
+      <div id="navbarTogglerDemo02" class="d-flex flex-row align-items-center">
+        <!-- Left-Aligned Links -->
+        <div class="d-flex flex-row align-items-center navbar">
+          <a
+            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
+            href="history.html"
+          >
+            <b><i class="bi bi-clock-history"></i> History</b>
+          </a>
+          <a
+            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
+            href="history.html"
+            id="signIn"
+          >
+            <b><i class="bi bi-box-arrow-in-right"></i> Sign In</b>
+          </a>
+          <a
+            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
+            href="history.html"
+            id="register"
+          >
+            <b><i class="bi bi-box-arrow-right"></i> Register</b>
+          </a>
+          <a
+            class="hover-underline-animation text-decoration-none me-2 navbar-link ubuntu-regular"
+            href="user.html"
+            style="display: none"
+            id="user"
+          >
+            <b><i class="bi bi-person-circle"></i> User</b>
+          </a>
+        </div>
+
+        <!-- Right-Aligned Links -->
         <a
           class="hover-underline-animation text-decoration-none navbar-link ubuntu-regular"
           href="model.html"
@@ -109,6 +126,7 @@
         </a>
       </div>
     </nav>
+
     <div id="formContainer">
       <div class="container">
         <br />
