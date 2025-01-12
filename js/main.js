@@ -17,9 +17,18 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("signIn").style.display = "none";
     document.getElementById("register").style.display = "none";
     document.getElementById("user").style.display = "block";
+    document.getElementById("signOut").style.display = "block";
     document.getElementById(
       "user"
-    ).innerHTML = `<b><i class="bi bi-people">${user.firstname}</i></b>`;
+    ).innerHTML = `<b><i class="bi bi-people"></i>  ${user.firstname}</b>`;
+    document.getElementById(
+      "signOut"
+    ).innerHTML = `<b><i class="bi bi-box-arrow-left"></i>  Sign Out</b>`;
+    document.getElementById("signOut").onclick = function () {
+      localStorage.removeItem("user");
+      window.location.href = "/";
+    };
+  } else {
   }
 
   document.getElementById("XMarkOut").addEventListener("click", () => {

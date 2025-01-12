@@ -36,9 +36,12 @@ const auth = getAuth();
 
 const db = getDatabase(app);
 // ---------------------- Sign-In User ---------------------------------------//
-
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("user") != null) {
+    window.location.href = "/index.html";
+  }
+});
 document.getElementById("signIn").onclick = function () {
-  alert("drake");
   // Get suer's email and password for sign in
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
@@ -67,7 +70,6 @@ document.getElementById("signIn").onclick = function () {
             .catch((error) => {
               console.error(error);
             });
-          alert("Logged In");
         })
         .catch((error) => {
           alert("Not Logged In");
@@ -87,9 +89,29 @@ function logIn(user) {
   let keepLoggedIn = document.getElementById("keepLoggedInSwitch").checked;
   console.log(keepLoggedIn);
   if (keepLoggedIn) {
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        password: encryptPass(pw),
+        uid: user.uid,
+        last_login: new Date().toISOString(), // Add or update the last_login field
+      })
+    );
   } else {
-    sessionStorage.setItem("user", JSON.stringify(user));
+    sessionStorage.setItem(
+      "user",
+      JSON.stringify({
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        password: encryptPass(pw),
+        uid: user.uid,
+        last_login: new Date().toISOString(), // Add or update the last_login field
+      })
+    );
   }
   window.location.href = "index.html";
 }

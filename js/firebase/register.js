@@ -32,10 +32,13 @@ const auth = getAuth();
 
 // Return an instance of the database
 const db = getDatabase(app);
-
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("user") != null) {
+    window.location.href = "/index.html";
+  }
+});
 document.getElementById("submitData").onclick = () => {
   console.log("running 38");
-  alert("Drake");
   const firstName = document.getElementById("firstName").value;
   const lastName = document.getElementById("lastName").value;
   const email = document.getElementById("userEmail").value;
@@ -49,11 +52,14 @@ document.getElementById("submitData").onclick = () => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+
         // Add user info to realtime db
-        // set will create a new ref or completely repalce an existing one
+        // set will create a new ref or completely replace an existing one
         // each new user will be placed under the "users" node
         // update will just update an existing doc
         // ...
+
+        console.log(user);
         set(ref(db, "users/" + user.uid + "/accountInfo"), {
           uid: user.uid, // Once logged in, pass user id to registration page
           firstname: firstName,
@@ -61,13 +67,34 @@ document.getElementById("submitData").onclick = () => {
           email: email,
           password: encryptPass(pw),
         });
+
+        // Update the user object with the new firstname
+
+        // Store updated user object in localStorage
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            firstname: firstName,
+            lastname: lastName,
+            email: email,
+            password: encryptPass(pw),
+            uid: user.uid,
+            last_login: new Date().toISOString(), // Add or update the last_login field
+          })
+        );
+
+        // Log localStorage content to verify the update
         console.log("We're on");
+        console.log(localStorage.getItem("user"));
+        console.log(JSON.parse(localStorage.getItem("user")));
+        console.log(JSON.parse(localStorage.getItem("user")).firstname);
       })
       .then(() => {
         console.log("New account made!");
+        window.location.href = "/index.html";
       })
       .catch((err) => {
-        alert(err.message);
+        console.error(err.message);
       });
   }
   // Create new app user using email.password auth
@@ -98,12 +125,15 @@ const validation = (firstName, lastName, email, pw) => {
   }
   if (!fNameRegex.test(firstName)) {
     alert("First name should only contain letters");
+    return false;
   }
   if (!lNameRegex.test(lastName)) {
     alert("Last name should only contain letters");
+    return false;
   }
   if (!emailRegex.test(email)) {
     alert("Please enter a valid email address: letters + ctemc.org");
+    return false;
   }
   return true;
 };
