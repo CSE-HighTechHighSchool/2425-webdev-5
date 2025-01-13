@@ -1,0 +1,32 @@
+form {
+  width: 50%;
+  margin: auto;
+}
+* {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+body {
+  background-color: black;
+    
+}
+
+h2 {
+    color:white;
+}
+#formContainer {
+    display:grid;
+}
+#alreadyHave {
+    padding: 10px;
+    color:white;
+}
+
+@media (max-width: 768px) {
+  form {
+    width: 80%;
+  }
+}
