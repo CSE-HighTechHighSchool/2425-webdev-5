@@ -33,7 +33,10 @@ const auth = getAuth();
 // Return an instance of the database
 const db = getDatabase(app);
 window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("user") != null) {
+  if (
+    localStorage.getItem("user") != null ||
+    sessionStorage.getItem("user") != null
+  ) {
     window.location.href = "/index.html";
   }
 });
@@ -44,10 +47,10 @@ document.getElementById("submitData").onclick = () => {
   const email = document.getElementById("userEmail").value;
   const pw = document.getElementById("userPass").value;
   if (!validation(firstName, lastName, email, pw)) {
-    alert("Bad data ");
+    // alert("Bad data ");
     return;
   } else {
-    alert("here");
+    // alert("here");
     createUserWithEmailAndPassword(auth, email, pw)
       .then((userCredential) => {
         // Signed up
@@ -91,7 +94,7 @@ document.getElementById("submitData").onclick = () => {
       })
       .then(() => {
         console.log("New account made!");
-        window.location.href = "/index.html";
+        // window.location.href = "/index.html";
       })
       .catch((err) => {
         console.error(err.message);
