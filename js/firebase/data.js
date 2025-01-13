@@ -71,34 +71,20 @@ const setData = (userId, year, race, playersData, scoreData) => {
         });
 };
 
-const getDataScore = (userId, year, round) => {
-    console.log("users/" + userId + "/data/" + year + "/" + round);
-    get(child(dbref, "users/" + userId + "/data/" + year + "/" + round + "/score"))
-        .then((snap) => {
-            if (snap.exists()) {
-                console.log("users/" + userId + "/data/" + year + "/" + round);
-
-                // yearVal.textContent = year;
-                console.log(snap.val());
-
-                return snap.val();
-
-
-            } else {
-                console.log("users/" + userId + "/data/" + year + "/" + round);
-
-                // console.log(snap);
-                console.log("users/" + userId + "/data/" + year + "/" + round);
-            }
-        })
-        .catch((err) => {
-            //   alert("Unsuccessful");
-            console.error(err.message);
-
-            return -1;
-        });
-
-
+const getDataScore = async (userId, year, round) => {
+    try {
+        const snapshot = await get(child(dbref, `users/${userId}/data/${year}/${round}/score`));
+        if (snapshot.exists()) {
+            console.log("Data found:", snapshot.val());
+            return snapshot.val(); // Return resolved value
+        } else {
+            console.log("No players data found at path:", `users/${userId}/data/${year}/${round}/score`);
+            return null; // Explicitly return null if no data exists
+        }
+    } catch (err) {
+        console.error("Error retrieving players data:", err.message);
+        throw err; // Rethrow the error to handle upstream
+    }
 };
 const getDataPlayers = async (userId, year, round) => {
     try {
