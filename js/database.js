@@ -57,10 +57,12 @@ const guessButton = document.getElementById("guessButton");
 let selectedItem = null;
 
 // Function to render the list
-function renderList() {
+function renderList(dataArrayPlayers) {
+  contextArray = dataArrayPlayers;
+  console.log("Rendering list:", dataArrayPlayers);
   list.innerHTML = "";
 
-  contextArray.forEach((driver, index) => {
+  dataArrayPlayers.forEach((driver, index) => {
     const li = document.createElement("li");
     li.dataset.index = index;
 
@@ -82,11 +84,22 @@ function renderList() {
   });
 }
 
+function getOrderedPlayerNames() {
+  const listItems = list.querySelectorAll("li"); // Select all <li> elements in the list
+  const playerNames = Array.from(listItems)
+    .map((item) => {
+      const nameSpan = item.querySelector("span:last-child"); // Select the <span> containing the name
+      return nameSpan ? nameSpan.textContent : null;
+    })
+    .filter((name) => name !== null); // Remove null values if any
+  return playerNames;
+}
+
 // Fetch and render drivers
 getDriversList(2024, 1)
   .then((drivers) => {
     contextArray = drivers;
-    renderList();
+    renderList(contextArray);
   })
   .catch((error) => {
     console.error("Error fetching drivers:", error);
@@ -148,6 +161,7 @@ async function compareStandings() {
   const finalScore = 400 - totalDifference;
   console.log(`Total Difference: ${totalDifference}`);
   console.log(`Final Score: ${finalScore}`);
+  return finalScore;
 }
 
 document.addEventListener("keydown", (event) => {
@@ -165,14 +179,11 @@ function moveUp() {
     const index = parseInt(selectedItem.dataset.index, 10);
 
     if (index > 0) {
-      // Swap the current item with the one above it in the array
       [contextArray[index - 1], contextArray[index]] = [
         contextArray[index],
         contextArray[index - 1],
       ];
-
-      renderList();
-
+      renderList(contextArray);
       selectItem(list.children[index - 1]);
     }
   }
@@ -186,16 +197,11 @@ function moveDown() {
     const index = parseInt(selectedItem.dataset.index, 10);
 
     if (index < contextArray.length - 1) {
-      // Swap the current item with the one below it in the contextArray
       [contextArray[index], contextArray[index + 1]] = [
         contextArray[index + 1],
         contextArray[index],
       ];
-
-      // Call the function
-      renderList();
-
-      // Select the new item
+      renderList(contextArray);
       selectItem(list.children[index + 1]);
     }
   }
@@ -203,5 +209,7 @@ function moveDown() {
 
 // Add click event for the "Guess" button to compare standings
 guessButton.addEventListener("click", () => {
-  compareStandings();
+  // getOrderedPlayerNames();
+  // compareStandings();
+  // setPlayerList();
 });
