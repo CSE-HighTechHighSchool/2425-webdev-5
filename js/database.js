@@ -103,7 +103,10 @@ function getOrderedPlayerNames() {
 // Fetch and render drivers
 getDriversList(2024, 1)
   .then((drivers) => {
+    console.log("ContextArray", contextArray);
     contextArray = drivers;
+    console.log("Drivers", drivers);
+    getPlayerList();
     renderList(contextArray);
   })
   .catch((error) => {

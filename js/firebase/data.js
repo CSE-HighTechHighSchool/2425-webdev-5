@@ -41,19 +41,17 @@ const db = getDatabase(app);
 const dbref = ref(db);
 
 // ---------------------// Get reference values -----------------------------
-let guessButton = document.getElementById("guessButton"); //guessButton is the button that the user clicks to submit their guess
-let cancelButton = document.getElementById("cancelButton"); //cancelButton is the button that the user clicks to cancel their guess
 let currentUser = null; //Initialize current user to null
 
 // ----------------------- Get User's Name'Name ------------------------------
 function getUserName() {
-  let keepLoggedIn = localStorage.getItem("keepLoggedIn");
-  console.log(keepLoggedIn);
-  if (keepLoggedIn === "yes") {
+  console.log("Get User Name");
+  if (localStorage.getItem("user") != null) {
     currentUser = JSON.parse(localStorage.getItem("user"));
   } else {
     currentUser = JSON.parse(sessionStorage.getItem("user"));
   }
+  console.log();
   if (currentUser) {
     console.log("User retrieved:", currentUser);
     return currentUser.uid;
@@ -166,19 +164,10 @@ const setPlayerList = async (year, round) => {
   // console.log('playersString', playersString)
   let score = await compareStandings();
   console.log(players, score);
-
   setData(currentUser.uid, year, round, players, score);
 };
 
 // ----------------- Event Listeners ------------------------//
-
-guessButton.addEventListener("click", () => {
-  setPlayerList(2024, 5);
-});
-
-cancelButton.addEventListener("click", () => {
-  deleteData(currentUser.uid, 2024, 5);
-});
 
 async function renderInitList() {
   try {
@@ -206,7 +195,17 @@ async function renderInitList() {
   }
 }
 window.addEventListener("DOMContentLoaded", () => {
+  let guessButton = document.getElementById("guessButton"); //guessButton is the button that the user clicks to submit their guess
+  // /cancelButton is the button that the user clicks to cancel their guess
+  let cancelButton = document.getElementById("cancelButton");
   getUserName();
+  guessButton.addEventListener("click", () => {
+    setPlayerList(2024, 5);
+  });
+
+  cancelButton.addEventListener("click", () => {
+    deleteData(currentUser.uid, 2024, 5);
+  });
   if (currentUser) {
     console.log("User found");
   } else {

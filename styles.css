@@ -462,7 +462,18 @@ td {
   }
   
 }
-
+#chart-wrapper{
+  margin: 0px;
+  padding: 10px;
+  /* If nesting a chart's container within another container, remove the 
+     height and width values.  The outer container will control the dimensions */ 
+  height: 80vh; 
+  width:  100vw;
+  min-height: 400px;
+  background-color: whitesmoke !important;
+  justify-content: center;
+  align-items: center;  
+}
 @media (max-width: 600px) {
   /* 
   Change the background image on the final page to give more of Hamilton's face

@@ -1,4 +1,3 @@
-
 /*
  File name: database.js
  Purpose: Renders the chart based on given data.
@@ -38,7 +37,10 @@ var data = [
   246, 105, 22, 52, 154, 204, 340, 115, 170, 31, 237, 349, 176, 342, 134, 221,
   128, 341, 371, 84, 171, 266, 163, 59,
 ];
-let currentUser = null;
+let currentUser =
+  localStorage.getItem("user") != null
+    ? localStorage.getItem("user")
+    : sessionStorage.getItem("user");
 
 const getDataScore = async (userId, year, round) => {
   try {
@@ -59,19 +61,12 @@ const getDataScore = async (userId, year, round) => {
     console.error("Error retrieving players data:", err.message);
     throw err; // Rethrow the error to handle upstream
   }
-  
 };
 
-
-
 function getUserName() {
-  let keepLoggedIn = localStorage.getItem("keepLoggedIn");
-  console.log(keepLoggedIn);
-  if (keepLoggedIn === "yes") {
-    console.log("keepLoggedIn");
+  if (localStorage.getItem("user") != null) {
     currentUser = JSON.parse(localStorage.getItem("user"));
   } else {
-    console.log("keepLoggedIn");
     currentUser = JSON.parse(sessionStorage.getItem("user"));
   }
   if (currentUser) {
@@ -85,41 +80,63 @@ function getUserName() {
 async function getChartData(userId, year) {
   let chartData = [];
   const chartRaces = [
-    'Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 'Emilia Romagna', 'Monaco', 'Canada', 'Spain',
-    'Austria', 'Britain', 'Hungary', 'Belgium', 'Netherlands', 'Italy', 'Azerbaijan', 'Singapore', 'United States', 'Mexico City',
-    'Sao Paulo', 'Las Vegas', 'Qatar', 'Abu Dhabi'
+    "Bahrain",
+    "Saudi Arabia",
+    "Australia",
+    "Japan",
+    "China",
+    "Miami",
+    "Emilia Romagna",
+    "Monaco",
+    "Canada",
+    "Spain",
+    "Austria",
+    "Britain",
+    "Hungary",
+    "Belgium",
+    "Netherlands",
+    "Italy",
+    "Azerbaijan",
+    "Singapore",
+    "United States",
+    "Mexico City",
+    "Sao Paulo",
+    "Las Vegas",
+    "Qatar",
+    "Abu Dhabi",
   ];
   console.log("Chart data:", chartData);
-
 
   // Fetch score data for each race
   for (let i = 0; i < chartRaces.length; i++) {
     try {
       // Fetch the score data for the race
-      const scoreData = await getDataScore(userId, year, i+1);
+      console.log("user", userId);
+      const scoreData = await getDataScore(userId, year, i + 1);
       console.log("Score data:", scoreData);
       if (scoreData !== null) {
-        chartData.push(scoreData);  // Add the score data for the race
+        chartData.push(scoreData); // Add the score data for the race
       } else {
-        // chartData.push(0);  // If no data, add 0
+        chartData.push(0); // If no data, add 0
       }
+      console.log(chartData);
     } catch (err) {
-      console.error(`Error fetching score data for race ${chartRaces[i]}:`, err.message);
-      // chartData.push(0);  // If an error occurs, add 0
+      console.error(
+        `Error fetching score data for race ${chartRaces[i]}:`,
+        err.message
+      );
+      chartData.push(0); // If an error occurs, add 0
     }
   }
-
-  if(chartData === null || chartData.length === 0){ {
-    chartData = data;
-  }
-
   console.log("Chart data:", chartData);
-  return { chartData, chartRaces };
-}
+  if (chartData != null || chartData.length === 0) {
+    console.log("Chart data:", chartData);
+    return { chartData, chartRaces };
+  }
 }
 // Modify createChart to fetch and use data from Firebase
 async function createChart() {
-  const lineChart = document.getElementById("lineChart");
+  const lineChart = document.getElementById("lineChart").getContext("2d");
 
   let uid = getUserName();
   if (currentUser) {
@@ -129,7 +146,9 @@ async function createChart() {
   }
   // Fetch data from Firebase
   const { chartData, chartRaces } = await getChartData(uid, 2024);
-
+  console.log("my chart data", chartData);
+  console.log(Array.isArray(chartData));
+  console.log(chartRaces);
   Chart.defaults.font.family = "Ubuntu-light";
 
   const myChart = new Chart(lineChart, {
@@ -150,8 +169,6 @@ async function createChart() {
       ],
     },
     options: {
-      responsive: true, // resize based on screen size
-      maintainAspectRatio: true,
       scales: {
         // display options for x & y axes
         x: {

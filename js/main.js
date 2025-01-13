@@ -51,7 +51,14 @@ window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("signOut").style.display = "none";
     document.getElementById("predict").style.display = "none";
   }
-
+  document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
+    e.preventDefault();
+    document.getElementById("plainlogo").src = "img/redlogo.png";
+  });
+  document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
+    e.preventDefault();
+    document.getElementById("plainlogo").src = "img/logo.png";
+  });
   document.getElementById("XMarkOut")?.addEventListener("click", () => {
     // When you click on the X in the alert, make it invisible by adding it to a class
     document.getElementById("startingAlert").classList.add("invisible");
