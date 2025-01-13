@@ -1,3 +1,8 @@
+/*
+ File name: register.js
+ Purpose: Allows the user to register for the website and adds user info to the firebase.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
 // This JS file is for registering a new app user ---------------------------//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import {

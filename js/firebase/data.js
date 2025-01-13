@@ -1,3 +1,8 @@
+/*
+ File name: data.js
+ Purpose: Contains code that interacts with the database to provide an interactive user experience.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
 // ----------------- Data Page --------------------------------------//
 
 // ----------------- Firebase Setup & Initialization ------------------------//
@@ -56,7 +61,7 @@ function getUserName() {
     console.log("No user found in storage");
   }
 }
-
+// Once the user makes a guess, set that value in the db
 const setData = (userId, year, race, playersData, scoreData) => {
   set(ref(db, "users/" + userId + "/data/" + year + "/" + race), {
     players: playersData,
@@ -69,7 +74,7 @@ const setData = (userId, year, race, playersData, scoreData) => {
       alert("There was an error. Error: " + err.message);
     });
 };
-
+// Get the data for a specific year and round from the db for a user
 const getDataScore = async (userId, year, round) => {
   try {
     const snapshot = await get(
@@ -90,6 +95,7 @@ const getDataScore = async (userId, year, round) => {
     throw err; // Rethrow the error to handle upstream
   }
 };
+// Get the players on a certain year and round
 const getDataPlayers = async (userId, year, round) => {
   try {
     const snapshot = await get(
@@ -111,6 +117,7 @@ const getDataPlayers = async (userId, year, round) => {
   }
 };
 
+// Deletes the saved player order and score
 const deleteData = (userID, year, race) => {
   remove(
     ref(db, "users/" + userID + "/data/" + year + "/" + race + "/" + "players")
@@ -140,7 +147,7 @@ const deleteData = (userID, year, race) => {
       console.error("Error fetching drivers:", error);
     });
 };
-
+// gets a list of players for a given year and round
 const getPlayerList = async (year, round) => {
   try {
     const result = await getDataPlayers(currentUser.uid, year, round);
@@ -152,6 +159,7 @@ const getPlayerList = async (year, round) => {
   }
 };
 
+// Changes what the list render looks like
 const setPlayerList = async (year, round) => {
   let players = getOrderedPlayerNames();
   // const playersString = players.map(player => `${player}`).join(',');

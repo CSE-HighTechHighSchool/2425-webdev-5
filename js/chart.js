@@ -1,3 +1,10 @@
+
+/*
+ File name: database.js
+ Purpose: Renders the chart based on given data.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
 
@@ -26,6 +33,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const dbref = ref(db);
+
 var data = [
   246, 105, 22, 52, 154, 204, 340, 115, 170, 31, 237, 349, 176, 342, 134, 221,
   128, 341, 371, 84, 171, 266, 163, 59,

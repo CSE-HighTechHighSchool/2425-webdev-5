@@ -1,3 +1,8 @@
+/*
+ File name: signIn.js
+ Purpose: Allows the user to sign in.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
 // ----------------- User Sign-In Page --------------------------------------//
 
 // ----------------- Firebase Setup & Initialization ------------------------//
