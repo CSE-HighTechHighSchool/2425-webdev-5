@@ -1,10 +1,3 @@
-/*
- File name: main.js
- Purpose: Contains code that runs on the history page. 
- This includes sidebar navigation and the resizing of 
- the different words as you scroll down.
- Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
- */
 // Scroll to the beginning of the page when the page loads
 window.scrollTo(0, 0);
 

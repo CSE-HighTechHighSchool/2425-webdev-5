@@ -51,6 +51,11 @@
       font-size: 3rem !important;
     }
   }
+  @media (max-width: 600px) {
+    .weAre {
+      font-size: 2.5rem !important;
+    }
+  }
   .hover-underline-animation::after {
     content: "";
     position: absolute;
