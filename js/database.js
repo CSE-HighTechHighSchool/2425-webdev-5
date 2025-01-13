@@ -16,11 +16,6 @@ async function getDriverStandings(year, round) {
         points: driver.points,
       }));
   
-      console.log(`Fetched Driver Standings for ${year} Round ${round}:`);
-      standings.forEach((driver) => {
-        console.log(`${driver.position}: ${driver.name} - ${driver.points} points`);
-      });
-  
       return standings;
     } catch (error) {
       console.error(`Error fetching data: ${error.message}`);
@@ -103,7 +98,7 @@ async function getDriverStandings(year, round) {
     selectedItem.classList.add('selected');
   }
   
-  // Function to compare user guesses with real standings
+  // Function to compare user guesses with real standings and calculate scores
   async function compareStandings() {
     const realStandings = await getDriverStandings(2024, 1);
   
@@ -113,19 +108,31 @@ async function getDriverStandings(year, round) {
     }
   
     console.log('Comparing User Guesses with Real Standings:');
-    realStandings.forEach((realDriver, index) => {
-      const guessedDriver = contextArray[index];
+    let totalDifference = 0;
   
-      if (guessedDriver && realDriver.name === guessedDriver.name) {
-        console.log(`${realDriver.position}: ${realDriver.name} - Correct!`);
-      } else {
+    realStandings.forEach((realDriver, index) => {
+      const guessedDriver = contextArray.find((driver) => driver.name === realDriver.name);
+      const userPosition = guessedDriver ? contextArray.indexOf(guessedDriver) + 1 : null;
+      const realPosition = realDriver.position;
+  
+      if (guessedDriver) {
+        const positionDifference = Math.abs(userPosition - realPosition);
+        totalDifference += positionDifference;
+  
         console.log(
-          `${realDriver.position}: ${realDriver.name} - Incorrect! Your guess: ${
-            guessedDriver ? guessedDriver.name : 'No guess'
-          }`
+          `${realPosition}: ${realDriver.name} - Your guess: ${
+            userPosition ? userPosition : 'No guess'
+          } - Difference: ${positionDifference}`
         );
+      } else {
+        console.log(`${realPosition}: ${realDriver.name} - No guess - Difference: Not included`);
       }
     });
+  
+    // Final score calculation
+    const finalScore = 400 - totalDifference;
+    console.log(`Total Difference: ${totalDifference}`);
+    console.log(`Final Score: ${finalScore}`);
   }
   
   // Add click event for the "Guess" button to compare standings
