@@ -582,3 +582,20 @@ ol {
 #contextList li.selected a {
   color: #000; /* Ensure link text is black when selected */
 }
+
+
+model-viewer {
+  width: 100%;  /* 100% of the container width */
+  height: 80vh;  /* 80% of the viewport height */
+  max-height: 90vh;
+  background-color: black;
+  border: 10px solid aliceblue;
+}
+
+.HotspotAnnotation h5 {
+  font-size: 1.1vw; /* Scale based on viewport width */
+}
+
+.HotspotAnnotation p {
+  font-size: 0.95vw; /* Smaller text size */
+}

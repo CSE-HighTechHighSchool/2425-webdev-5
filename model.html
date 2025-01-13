@@ -129,7 +129,7 @@
                     more resources</h6>
     
                 <model-viewer alt="A 3D model of an F1 car" src="gulf_mclaren_f1_2022_car.glb" id="hotspot-camera-view-demo"
-                    tone-mapping="neutral" camera-controls tone-mapping="neutral" interaction-prompt="none"
+                    tone-mapping="neutral" disable-zoom tone-mapping="neutral" interaction-prompt="none"
                     shadow-intensity="1" touch-action="pan-y" ar shadow-intensity="10"
                     camera-orbit="52.04deg 71.56deg 13.09m" field-of-view="23deg" interpolation-decay="200"
                     style="width: 100%; height: 800px; max-height: 90vh;  background-color: black; border: 10px; border-color: aliceblue;"
@@ -405,6 +405,32 @@
         hotspot.addEventListener('click', () => annotationClicked(hotspot));
 
     });
+
+    function adjustHotspotPositions() {
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+
+  // Example: Modify hotspot positions relative to window size
+  document.querySelectorAll('.Hotspot').forEach((hotspot) => {
+    var position = hotspot.getAttribute('data-position').split(' '); // Get position
+    var x = parseFloat(position[0]);
+    var y = parseFloat(position[1]);
+    var z = parseFloat(position[2]);
+
+    // Scale position based on window size
+    x = x * (width / 1920); // Example: Scale for 1920px wide screen
+    y = y * (height / 1080); // Example: Scale for 1080px height screen
+
+    // Update position dynamically
+    hotspot.setAttribute('data-position', `${x}m ${y}m ${z}m`);
+  });
+}
+
+// Listen to window resize events
+window.addEventListener('resize', adjustHotspotPositions);
+
+// Call once on page load
+adjustHotspotPositions();
 
 </script>
 
