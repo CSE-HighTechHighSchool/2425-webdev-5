@@ -40,23 +40,30 @@
     background-size: cover;
 
   }
-  .hover-underline-animation:after {
+  .hover-underline-animation {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .hover-underline-animation::after {
     content: "";
     position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
+    bottom: -5px; /* Adjust this value to control the distance below the text */
     left: 0;
+    width: 100%;
+    height: 2px;
     background-color: white;
+    transform: scaleX(0);
+    transform-origin: bottom left;
     transition: transform 0.35s ease-out;
   }
   
-  .hover-underline-animation:hover:after {
-    cursor: pointer;
+  .hover-underline-animation:hover::after {
     transform: scaleX(1);
-    /*transform-origin: bottom left;*/
   }
+  
 
   body {
     font-family: Arial, sans-serif;
