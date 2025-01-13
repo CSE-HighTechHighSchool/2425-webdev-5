@@ -51,6 +51,7 @@ function getUserName() {
   }
   if (currentUser) {
     console.log("User retrieved:", currentUser);
+    return currentUser.uid;
   } else {
     console.log("No user found in storage");
   }
