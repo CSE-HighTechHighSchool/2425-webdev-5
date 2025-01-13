@@ -291,11 +291,17 @@ td {
 
 .home{
   display: block;
+
   font-family: "Ubuntu", sans-serif;
     border-radius: 10px;
     border: none;
-    /* background-color: transparent; */
+    background-color: #fff;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: Futura, Helvetica Neue, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
     box-sizing: border-box;
+  justify-self: end;
     /* pointer-events: none; */
 }
 
@@ -454,4 +460,118 @@ td {
     background-image: url('img/hamiltonCropped.png') !important;
 
   }
+}
+
+
+
+
+ol {
+      padding-left: 20px;
+    }
+
+    ol li {
+      background-color: #333;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      list-style-type: none;
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    button {
+      background-color: #f5a623;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff8e00;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    
+
+    /* #contextList a:hover {
+      text-decoration: underline; Optionally add underline on hover
+    } */
+
+    /* Highlight selected item */
+    
+    
+    .selected a {
+      color: black; /* Ensure the link text is black when selected */
+    }
+    
+    #contextList a {
+      color: #f0f0f0; /* Default link color */
+      text-decoration: none;
+    }
+    
+    #contextList li.selected {
+      color: black; /* Make the text color black when selected */
+      background-color: #f0f0f0;
+    }
+    
+    #contextList li.selected a {
+      color: black; /* Ensure the link text is black */
+    }
+    #contextList {
+      max-height: 600px; /* Set a fixed height for the scrollable list */
+      max-width: 600px; /* Set a fixed width for the scrollable list */
+      overflow-y: scroll; /* Allow vertical scrolling */
+      padding-left: 0; /* Remove default padding for ordered list */
+      list-style: none; /* Remove default numbering */
+    }
+
+    #contextList li {
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #333; /* Optional border between list items */
+    }
+
+    #contextList li a {
+      text-decoration: none;
+      color: #f0f0f0;
+      flex-grow: 1; /* Make the link take up all available space */
+    }
+
+    #contextList li .number {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    /* Add space between the number and name */
+    #contextList li span.number {
+      margin-right: 15px;
+    }
+
+    /* Style for the selected list item */
+.selected {
+  background-color: #f0f0f0;
+}
+
+/* Default link styles */
+#contextList a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#contextList a:hover {
+  text-decoration: underline;
+}
+
+/* Override link styles within selected items */
+#contextList li.selected a {
+  color: #000; /* Ensure link text is black when selected */
 }
