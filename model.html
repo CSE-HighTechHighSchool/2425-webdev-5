@@ -25,6 +25,7 @@
    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
  />
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/index.css">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" defer></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
         defer></script>
@@ -36,84 +37,254 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h555rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
     <script src="js/main.js" defer></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
     <title>F1 Cars</title>
 </head>
 
 <body style="background-color: black; display: grid;">
 
     <!-- Navbar -->
-    <nav
-      class="d-flex flex-row align-items-center justify-content-between px-3"
-    >
-      <!-- Logo -->
-      <a id="navbarlogo" href="index.html">
-        <img
-          src="img/logo.png"
-          alt="Emotion Logo"
-          id="plainlogo"
-          class="icon"
-          style="width: 80px; height: 27px"
-        />
-      </a>
-
-      <!-- Navbar Links -->
-      <div id="navbarTogglerDemo02" class="d-flex flex-row align-items-center">
-        <!-- Left-Aligned Links -->
-        <div class="d-flex flex-row align-items-center navbar">
-          <a
-            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-            href="history.html"
-          >
-            <b><i class="bi bi-clock-history"></i> History</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-            href="signIn.html"
-            id="signIn"
-          >
-            <b><i class="bi bi-box-arrow-in-right"></i> Sign In</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-            href="register.html"
-            id="register"
-          >
-            <b><i class="bi bi-box-arrow-right"></i> Register</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none me-2 navbar-link ubuntu-regular"
-            href="index.html"
-            style="display: none"
-            id="user"
-          >
-            <b><i class="bi bi-person-circle"></i> User</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none navbar-link ubuntu-regular"
-            href="model.html"
-          >
-            <b
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                fill="currentColor"
-                class="bi bi-box"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"
+    <aside>
+        <nav>
+          <ul>
+            <li>
+              <p id="navbarlogo" href="index.html">
+                <img
+                  src="img/logo.png"
+                  alt="Emotion Logo"
+                  id="plainlogo"
+                  class="icon"
+                  style="width: 60px; height: 20px"
                 />
-              </svg>
-              Model</b
-            >
-          </a>
-        </div>
+              </p>
+            </li>
+  
+            <li>
+              <a href="index.html">
+                <i class="bx bx-home-alt"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="model.html" class="active">
+                <i class="bx bx-cube"></i>
+                <span>Model</span>
+              </a>
+            </li>
+            <li>
+              <a href="history.html" >
+                <i class="bx bx-history"></i>
+                <span>History</span>
+              </a>
+            </li>
+            <li id="register">
+              <a href="register.html">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Register</span>
+              </a>
+            </li>
+            <li>
+              <a href="signIn.html" id="signIn">
+                <i class="bx bx-clipboard"></i>
+                <span>Login </span>
+              </a>
+            </li>
+            <li id="user">
+              <a href="index.html">
+                <i class="bi bi-person-circle"></i>
+                <span id="username"></span>
+              </a>
+            </li>
+            <li id="signOut">
+              <a href="#">
+                <i class="bx bx-log-out-circle"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+            <li>
+              <a href="pred.html" id="predict">
+                <i class="bx bxs-flag-checkered"></i>
+                <span>Predict</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" data-resize-btn>
+                <i class="bx bx-chevrons-right"></i>
+                <span>Collapse</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    <main>
 
-        <!-- Right-Aligned Links -->
-      </div>
-    </nav>
+        <div style="margin-top: 20px; margin-left: auto; margin-right: auto;">
+            <!-- <h1 class="ubuntu-regular" style="color: white; display: inline;"><b>The History of F1<br> -->
+            <!-- <img src="img/historyLogo.png" alt="timeline logo" width="320px"
+                        style="margin-top: 20px; display: inline;"> -->
+            </b></h1>
+        </div>
     
+        <!-- 3D Model Viewer -->
+        <div style="margin: 50px 50px; text-align: center;  display: flex; flex-direction: row;">
+    
+            <div style="flex:4">
+                <!-- Title -->
+                <h1 style="color: white">Parts</h1>
+                <h6 style="color: white">Click on the annotation to see a close up of the part, click on the text to go to
+                    more resources</h6>
+    
+                <model-viewer alt="A 3D model of an F1 car" src="gulf_mclaren_f1_2022_car.glb" id="hotspot-camera-view-demo"
+                    tone-mapping="neutral" camera-controls tone-mapping="neutral" interaction-prompt="none"
+                    shadow-intensity="1" touch-action="pan-y" ar shadow-intensity="10"
+                    camera-orbit="52.04deg 71.56deg 13.09m" field-of-view="23deg" interpolation-decay="200"
+                    style="width: 100%; height: 800px; max-height: 90vh;  background-color: black; border: 10px; border-color: aliceblue;"
+                    ar ar-mode>
+                    <!-- Engine Annotation -->
+                    <button class="Hotspot" slot="hotspot-8" id="engineButton"
+                        data-position="1.8064211349724832m 0.9526117179899461m -1.4183625249309022m"
+                        data-normal="0.6616307852927881m 0.7469620555811052m -0.06551634509722502m"
+                        data-orbit="90.21deg 49.86deg -8.90m"
+                        data-target="0.6616307852927881m 0.2469620555811052m -1.66551634509722502m" field-of-view="19.15deg"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Engine</h5>
+    
+                            <a target="_blank"
+                                href="https://en.wikipedia.org/wiki/Formula_One_engines#:~:text=Formula%20One%20currently%20uses%201.6,camshaft%20(DOHC)%20reciprocating%20engines."
+                                style="text-decoration: none; color: black">
+                                <p style="display: none;" id="engine"></p>
+                            </a>
+    
+                        </div>
+    
+                    </button>
+                    <!-- Wheels Annotation -->
+                    <button class="Hotspot" slot="hotspot-9" id="wheelsButton"
+                        data-position="2.6656551068419745m 0.4541453036713761m 1.8392745085065425m"
+                        data-normal="0.23612066138362692m 0.9064822964718294m -0.35005268096518977m"
+                        data-orbit="80.4deg 86.23deg -2.515m" data-target="-2.603m 0.09m 0.89m"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Wheels</h5>
+                            <a target="_blank" href="https://en.wikipedia.org/wiki/Formula_One_tyres"
+                                style="text-decoration: none; color: black">
+                                <p style="display: none;" id="wheels"></p>
+                            </a>
+                        </div>
+                    </button>
+                    <!-- Front Wing Annotation -->
+                    <button class="Hotspot" slot="hotspot-10" id="frontButton"
+                        data-position="1.3903832577079633m 0.4065925222552746m 3.3267891511905976m"
+                        data-normal="0.020185718677417808m 0.9412996410303127m 0.33696813285187754m"
+                        data-orbit="6.46deg 84.23deg 9.547m" data-target="1.2m 0.59m -1m"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Front Wing</h5>
+                            <a target="_blank"
+                                href="https://motorsportengineer.net/the-art-of-designing-the-perfect-front-wing-in-formula-1/"
+                                style="text-decoration: none; color: black">
+    
+                                <p style="display: none;" id="front"></p>
+                            </a>
+                        </div>
+                    </button>
+                    <!-- Steering Annotation -->
+                    <button class="Hotspot" slot="hotspot-11" id="steeringButton"
+                        data-position="1.3868021618724509m 0.875267089026975m 0.38723988171705614m"
+                        data-normal="-0.0010264307691269356m 0.003406952476853322m -0.9999936695373111m"
+                        data-orbit="196.6deg 49.52deg -20.515m"
+                        data-target="1.616307852927881m -0.6469620555811052m 1.86551634509722502m"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Steering</h5>
+                            <a target="_blank" href="https://www.redbull.com/au-en/f1-technician-cockpit-driver"
+                                style="text-decoration: none; color: black">
+    
+                                <p style="display: none;" id="steering"></p>
+                            </a>
+                        </div>
+                    </button>
+                    <!-- Gas Tank Annotation -->
+                    <button class="Hotspot" slot="hotspot-12" id="gasButton"
+                        data-position="1.330027210419007m 0.11109075333541973m -0.10005778587961517m"
+                        data-normal="-0.012047236557983947m -0.9998952483886213m -0.008022240408601658m"
+                        data-orbit="640.3deg 124.6deg 8.988m" field-of-view="12.75deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Gas Tank</h5>
+                            <a target="_blank" href="https://www.redbullracing.com/int-en/bulls-guide-to-fuel"
+                                style="text-decoration: none; color: black">
+    
+                                <p style="display: none;" id="gas"></p>
+                            </a>
+                        </div>
+                    </button>
+                    <!-- DRS Annotation -->
+                    <button class="Hotspot" slot="hotspot-13" id="drsButton"
+                        data-position="2.3057708386892237m 1.3519407274244886m -3.541020118528854m"
+                        data-normal="0.6809677217088361m 0.5971639522920202m 0.42388462589913684m"
+                        data-orbit="107.7deg 78.26deg 2.515m" data-target="-1.003m 0.49m -2.49m"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>DRS</h5>
+                            <a target="_blank"
+                                href="https://www.espn.com/espn/feature/story/_/id/36180474/f1-terms-explained#:~:text=The%20DRS%20is%20a%20movable,limiting%20the%20car's%20top%20speed."
+                                style="text-decoration: none; color: black">
+    
+                                <p style="display: none;" id="drs"></p>
+                            </a>
+                        </div>
+                    </button>
+                    <!-- Chassis Annotation -->
+                    <button class="Hotspot" slot="hotspot-14" id="chassisButton"
+                        data-position="2.0696635149353355m 0.2459911286095251m -1.3487544176935709m"
+                        data-normal="0.7028271402920705m 0.6846774637160267m -0.19300461535481306m"
+                        data-orbit="468deg 89.11deg 8.515m" field-of-view="12deg" data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Chassis</h5>
+                            <a target="_blank"
+                                href="https://motorsportengineer.net/from-concept-to-track-chassis-design-engineering-in-formula-1/"
+                                style="text-decoration: none; color: black">
+    
+                                <p style="display: none;" id="chassis"></p>
+                            </a>
+                        </div>
+                    </button>
+                    <!-- Halo Annotation -->
+                    <button class="Hotspot" slot="hotspot-15" id="haloButton"
+                        data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
+                        data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
+                        data-orbit="377deg 80.89deg 9.157m" data-target="0.003m 0.49m -2.49m"
+                        data-visibility-attribute="visible">
+                        <div class="HotspotAnnotation">
+                            <h5>Halo</h5>
+                            <a target="_blank" href="https://en.wikipedia.org/wiki/Halo_(safety_device)"
+                                style="text-decoration: none; color: black">
+    
+                                <p style="display: none;" id="halo"></p>
+                            </a>
+                        </div>
+                    </button>
+                    
+                <!-- Halo Annotation -->
+                    <button class="home" data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
+                        data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
+                        data-orbit="52.04deg 71.56deg 13.09m" id="home" style="margin:25px">Home</button>
+    
+    
+            
+    
+                </model-viewer>
+    
+            </div>
+    
+    
+        </div>
+    </main>
 <!-- Alert to show how the website is not real -->
     <div class="alert alert-warning alert-dismissible fade show" style="
         background-color: #2d0b0e;
@@ -128,168 +299,6 @@
     This website was made for a class project... Don't take it too seriously!
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
-    <div style="margin-top: 20px; margin-left: auto; margin-right: auto;">
-        <!-- <h1 class="ubuntu-regular" style="color: white; display: inline;"><b>The History of F1<br> -->
-        <!-- <img src="img/historyLogo.png" alt="timeline logo" width="320px"
-                    style="margin-top: 20px; display: inline;"> -->
-        </b></h1>
-    </div>
-
-    <!-- 3D Model Viewer -->
-    <div style="margin: 50px 50px; text-align: center;  display: flex; flex-direction: row;">
-
-        <div style="flex:4">
-            <!-- Title -->
-            <h1 style="color: white">Parts</h1>
-            <h6 style="color: white">Click on the annotation to see a close up of the part, click on the text to go to
-                more resources</h6>
-
-            <model-viewer alt="A 3D model of an F1 car" src="gulf_mclaren_f1_2022_car.glb" id="hotspot-camera-view-demo"
-                tone-mapping="neutral" camera-controls tone-mapping="neutral" interaction-prompt="none"
-                shadow-intensity="1" touch-action="pan-y" ar shadow-intensity="10"
-                camera-orbit="52.04deg 71.56deg 13.09m" field-of-view="23deg" interpolation-decay="200"
-                style="width: 100%; height: 800px; max-height: 90vh;  background-color: black; border: 10px; border-color: aliceblue;"
-                ar ar-mode>
-                <!-- Engine Annotation -->
-                <button class="Hotspot" slot="hotspot-8" id="engineButton"
-                    data-position="1.8064211349724832m 0.9526117179899461m -1.4183625249309022m"
-                    data-normal="0.6616307852927881m 0.7469620555811052m -0.06551634509722502m"
-                    data-orbit="90.21deg 49.86deg -8.90m"
-                    data-target="0.6616307852927881m 0.2469620555811052m -1.66551634509722502m" field-of-view="19.15deg"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Engine</h5>
-
-                        <a target="_blank"
-                            href="https://en.wikipedia.org/wiki/Formula_One_engines#:~:text=Formula%20One%20currently%20uses%201.6,camshaft%20(DOHC)%20reciprocating%20engines."
-                            style="text-decoration: none; color: black">
-                            <p style="display: none;" id="engine"></p>
-                        </a>
-
-                    </div>
-
-                </button>
-                <!-- Wheels Annotation -->
-                <button class="Hotspot" slot="hotspot-9" id="wheelsButton"
-                    data-position="2.6656551068419745m 0.4541453036713761m 1.8392745085065425m"
-                    data-normal="0.23612066138362692m 0.9064822964718294m -0.35005268096518977m"
-                    data-orbit="80.4deg 86.23deg -2.515m" data-target="-2.603m 0.09m 0.89m"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Wheels</h5>
-                        <a target="_blank" href="https://en.wikipedia.org/wiki/Formula_One_tyres"
-                            style="text-decoration: none; color: black">
-                            <p style="display: none;" id="wheels"></p>
-                        </a>
-                    </div>
-                </button>
-                <!-- Front Wing Annotation -->
-                <button class="Hotspot" slot="hotspot-10" id="frontButton"
-                    data-position="1.3903832577079633m 0.4065925222552746m 3.3267891511905976m"
-                    data-normal="0.020185718677417808m 0.9412996410303127m 0.33696813285187754m"
-                    data-orbit="6.46deg 84.23deg 9.547m" data-target="1.2m 0.59m -1m"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Front Wing</h5>
-                        <a target="_blank"
-                            href="https://motorsportengineer.net/the-art-of-designing-the-perfect-front-wing-in-formula-1/"
-                            style="text-decoration: none; color: black">
-
-                            <p style="display: none;" id="front"></p>
-                        </a>
-                    </div>
-                </button>
-                <!-- Steering Annotation -->
-                <button class="Hotspot" slot="hotspot-11" id="steeringButton"
-                    data-position="1.3868021618724509m 0.875267089026975m 0.38723988171705614m"
-                    data-normal="-0.0010264307691269356m 0.003406952476853322m -0.9999936695373111m"
-                    data-orbit="196.6deg 49.52deg -20.515m"
-                    data-target="1.616307852927881m -0.6469620555811052m 1.86551634509722502m"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Steering</h5>
-                        <a target="_blank" href="https://www.redbull.com/au-en/f1-technician-cockpit-driver"
-                            style="text-decoration: none; color: black">
-
-                            <p style="display: none;" id="steering"></p>
-                        </a>
-                    </div>
-                </button>
-                <!-- Gas Tank Annotation -->
-                <button class="Hotspot" slot="hotspot-12" id="gasButton"
-                    data-position="1.330027210419007m 0.11109075333541973m -0.10005778587961517m"
-                    data-normal="-0.012047236557983947m -0.9998952483886213m -0.008022240408601658m"
-                    data-orbit="640.3deg 124.6deg 8.988m" field-of-view="12.75deg" data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Gas Tank</h5>
-                        <a target="_blank" href="https://www.redbullracing.com/int-en/bulls-guide-to-fuel"
-                            style="text-decoration: none; color: black">
-
-                            <p style="display: none;" id="gas"></p>
-                        </a>
-                    </div>
-                </button>
-                <!-- DRS Annotation -->
-                <button class="Hotspot" slot="hotspot-13" id="drsButton"
-                    data-position="2.3057708386892237m 1.3519407274244886m -3.541020118528854m"
-                    data-normal="0.6809677217088361m 0.5971639522920202m 0.42388462589913684m"
-                    data-orbit="107.7deg 78.26deg 2.515m" data-target="-1.003m 0.49m -2.49m"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>DRS</h5>
-                        <a target="_blank"
-                            href="https://www.espn.com/espn/feature/story/_/id/36180474/f1-terms-explained#:~:text=The%20DRS%20is%20a%20movable,limiting%20the%20car's%20top%20speed."
-                            style="text-decoration: none; color: black">
-
-                            <p style="display: none;" id="drs"></p>
-                        </a>
-                    </div>
-                </button>
-                <!-- Chassis Annotation -->
-                <button class="Hotspot" slot="hotspot-14" id="chassisButton"
-                    data-position="2.0696635149353355m 0.2459911286095251m -1.3487544176935709m"
-                    data-normal="0.7028271402920705m 0.6846774637160267m -0.19300461535481306m"
-                    data-orbit="468deg 89.11deg 8.515m" field-of-view="12deg" data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Chassis</h5>
-                        <a target="_blank"
-                            href="https://motorsportengineer.net/from-concept-to-track-chassis-design-engineering-in-formula-1/"
-                            style="text-decoration: none; color: black">
-
-                            <p style="display: none;" id="chassis"></p>
-                        </a>
-                    </div>
-                </button>
-                <!-- Halo Annotation -->
-                <button class="Hotspot" slot="hotspot-15" id="haloButton"
-                    data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
-                    data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
-                    data-orbit="377deg 80.89deg 9.157m" data-target="0.003m 0.49m -2.49m"
-                    data-visibility-attribute="visible">
-                    <div class="HotspotAnnotation">
-                        <h5>Halo</h5>
-                        <a target="_blank" href="https://en.wikipedia.org/wiki/Halo_(safety_device)"
-                            style="text-decoration: none; color: black">
-
-                            <p style="display: none;" id="halo"></p>
-                        </a>
-                    </div>
-                </button>
-                
-            <!-- Halo Annotation -->
-                <button class="home" data-position="1.4495676547258318m 1.2212353503534477m 0.3911117707682144m"
-                    data-normal="0.14543365342095474m 0.9685387640371068m 0.20194483160038335m"
-                    data-orbit="52.04deg 71.56deg 13.09m" id="home" style="margin:25px">Home</button>
-
-
-        
-
-            </model-viewer>
-
-        </div>
-
-
-    </div>
 </body>
 
 
@@ -363,59 +372,59 @@
     }
 
     // makes a listener on the wheel button and shows the descriptionText
-    document.getElementById('wheelsButton').addEventListener('click', function () {
+    document.getElementById('wheelsButton')?.addEventListener('click', function () {
         descriptionText("wheels")
         console.log("clicked")
     })
     // makes a listener on the home button
-    document.getElementById('home').addEventListener('click', function () {
+    document.getElementById('home')?.addEventListener('click', function () {
         descriptionText("")
         console.log("clicked")
     })
     // makes a listener on the front button and shows the descriptionText
 
-    document.getElementById('frontButton').addEventListener('click', function () {
+    document.getElementById('frontButton')?.addEventListener('click', function () {
         descriptionText("front")
         console.log("clicked")
     })
         // makes a listener on the drs button and shows the descriptionText
 
-    document.getElementById('drsButton').addEventListener('click', function () {
+    document.getElementById('drsButton')?.addEventListener('click', function () {
         descriptionText("drs")
         console.log("clicked")
     })
         // makes a listener on the gas button and shows the descriptionText
 
-    document.getElementById('gasButton').addEventListener('click', function () {
+    document.getElementById('gasButton')?.addEventListener('click', function () {
         descriptionText("gas")
         console.log("clicked")
     })
         // makes a listener on the halo button and shows the descriptionText
 
-    document.getElementById('haloButton').addEventListener('click', function () {
+    document.getElementById('haloButton')?.addEventListener('click', function () {
         descriptionText("halo")
         console.log("clicked")
     })
         // makes a listener on the steering button and shows the descriptionText
 
-    document.getElementById('steeringButton').addEventListener('click', function () {
+    document.getElementById('steeringButton')?.addEventListener('click', function () {
         descriptionText("steering")
         console.log("clicked")
     })
         // makes a listener on the chassis button and shows the descriptionText
 
-    document.getElementById('chassisButton').addEventListener('click', function () {
+    document.getElementById('chassisButton')?.addEventListener('click', function () {
         descriptionText("chassis")
         console.log("clicked")
     })
         // makes a listener on the engine button and shows the descriptionText
 
-    document.getElementById('engineButton').addEventListener('click', function () {
+    document.getElementById('engineButton')?.addEventListener('click', function () {
         descriptionText("engine")
         console.log("clicked")
     })
     
-    modelViewer2.querySelectorAll('button').forEach((hotspot) => {
+    modelViewer2.querySelectorAll('button')?.forEach((hotspot) => {
         hotspot.addEventListener('click', () => annotationClicked(hotspot));
 
     });

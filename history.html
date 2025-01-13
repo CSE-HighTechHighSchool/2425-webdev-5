@@ -6,6 +6,11 @@
       href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" type="image/png" href="img/websitelogo.png" />
@@ -30,6 +35,7 @@
     />
 
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/index.css" />
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
@@ -43,375 +49,356 @@
   </head>
 
   <body style="background-color: black; display: grid">
-    <nav
-      class="d-flex flex-row align-items-center justify-content-between px-3"
-    >
-      <!-- Logo -->
-      <a id="navbarlogo" href="index.html">
-        <img
-          src="img/logo.png"
-          alt="Emotion Logo"
-          id="plainlogo"
-          class="icon"
-          style="width: 80px; height: 27px"
-        />
-      </a>
+    <aside>
+      <nav>
+        <ul>
+          <li>
+            <p id="navbarlogo" href="index.html">
+              <img
+                src="img/logo.png"
+                alt="Emotion Logo"
+                id="plainlogo"
+                class="icon"
+                style="width: 60px; height: 20px"
+              />
+            </p>
+          </li>
 
-      <!-- Navbar Links -->
-      <div id="navbarTogglerDemo02" class="d-flex flex-row align-items-center">
-        <!-- Left-Aligned Links -->
-        <div class="d-flex flex-row align-items-center navbar">
-          <a
-            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-            href="history.html"
-          >
-            <b><i class="bi bi-clock-history"></i> History</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-            href="signIn.html"
-            id="signIn"
-          >
-            <b><i class="bi bi-box-arrow-in-right"></i> Sign In</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none me-3 navbar-link ubuntu-regular"
-            href="register.html"
-            id="register"
-          >
-            <b><i class="bi bi-box-arrow-right"></i> Register</b>
-          </a>
-          <a
-            class="hover-underline-animation text-decoration-none me-2 navbar-link ubuntu-regular"
-            href="index.html"
-            style="display: none"
-            id="user"
-          >
-            <b><i class="bi bi-person-circle"></i> User</b>
-          </a>
-          <div
-            class="hover-underline-animation text-decoration-none me-2 navbar-link ubuntu-regular"
-            style="display: none"
-            id="signOut"
-          >
-            <b
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="icon icon-tabler icons-tabler-filled icon-tabler-direction-sign"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M10.52 2.614a2.095 2.095 0 0 1 2.835 -.117l.126 .117l7.905 7.905c.777 .777 .816 2.013 .117 2.836l-.117 .126l-7.905 7.905a2.094 2.094 0 0 1 -2.836 .117l-.126 -.117l-7.907 -7.906a2.096 2.096 0 0 1 -.115 -2.835l.117 -.126l7.905 -7.905zm5.969 9.535l.01 -.116l-.003 -.12l-.016 -.114l-.03 -.11l-.044 -.112l-.052 -.098l-.076 -.105l-.07 -.081l-3.5 -3.5l-.095 -.083a1 1 0 0 0 -1.226 0l-.094 .083l-.083 .094a1 1 0 0 0 0 1.226l.083 .094l1.792 1.793h-5.085l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h5.085l-1.792 1.793l-.083 .094a1 1 0 0 0 1.403 1.403l.094 -.083l3.5 -3.5l.097 -.112l.05 -.074l.037 -.067l.05 -.112l.023 -.076l.025 -.117z"
-                />
-              </svg>
-              Sign Out</b
-            >
-          </div>
-          <a
-            class="hover-underline-animation text-decoration-none navbar-link ubuntu-regular"
-            href="model.html"
-          >
-            <b
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                fill="currentColor"
-                class="bi bi-box"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"
-                />
-              </svg>
-              Model</b
-            >
-          </a>
+          <li>
+            <a href="index.html">
+              <i class="bx bx-home-alt"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="model.html">
+              <i class="bx bx-cube"></i>
+              <span>Model</span>
+            </a>
+          </li>
+          <li>
+            <a href="history.html" class="active">
+              <i class="bx bx-history"></i>
+              <span>History</span>
+            </a>
+          </li>
+          <li id="register">
+            <a href="register.html">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>Register</span>
+            </a>
+          </li>
+          <li>
+            <a href="signIn.html" id="signIn">
+              <i class="bx bx-clipboard"></i>
+              <span>Login </span>
+            </a>
+          </li>
+          <li id="user">
+            <a href="index.html">
+              <i class="bi bi-person-circle"></i>
+              <span id="username"></span>
+            </a>
+          </li>
+          <li id="signOut">
+            <a href="#">
+              <i class="bx bx-log-out-circle"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+          <li>
+            <a href="pred.html" id="predict">
+              <i class="bx bxs-flag-checkered"></i>
+              <span>Predict</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-resize-btn>
+              <i class="bx bx-chevrons-right"></i>
+              <span>Collapse</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main>
+      <div
+        style="
+          width: 100%;
+          height: 100vh;
+          background-image: url('img/higherGradientBackground.png');
+          background-size: cover;
+          text-shadow: black 3px 3px 15px;
+        "
+        id="historyOne"
+        class="historyPages"
+      >
+        <!-- Centrally align the white text 
+      Make it so that the card spans 60% of the screen width 
+      with a good amount of padding.
+      Each page has cards in this format
+    -->
+        <div
+          class="card-body ubuntu-regular"
+          style="
+            background-color: transparent;
+            text-align: center;
+            text-shadow: none;
+            padding: 15px;
+
+            width: 60%;
+          "
+          class="historyCards"
+        >
+          <!-- Cooresponding Card
+        Each page/slide has these cards in this format 
+      -->
+
+          <h5 class="card-title cardTitle">First Race</h5>
+          <p class="card-text cardText">
+            This was known as the "Grand Prix of Europe" and it was held on May
+            13, 1953. The winner of this race was Giuseppe Farina, who was 43 at
+            the time. 120, 000 viewers from around the world tuned in to witness
+            history. Racing wasn't a huge industry at the time, but would soon
+            change...
+          </p>
         </div>
-
-        <!-- Right-Aligned Links -->
-      </div>
-    </nav>
-
-    <div
-      style="
-        width: 100%;
-        height: 100vh;
-        background-image: url('img/higherGradientBackground.png');
-        background-size: cover;
-        text-shadow: black 3px 3px 15px;
-      "
-      id="historyOne"
-      class="historyPages"
-    >
-      <!-- Centrally align the white text 
-        Make it so that the card spans 60% of the screen width 
-        with a good amount of padding.
-        Each page has cards in this format
-      -->
-      <div
-        class="card-body ubuntu-regular"
-        style="
-          background-color: transparent;
-          text-align: center;
-          text-shadow: none;
-          padding: 15px;
-
-          width: 60%;
-        "
-        class="historyCards"
-      >
-        <!-- Cooresponding Card
-          Each page/slide has these cards in this format 
-        -->
-
-        <h5 class="card-title cardTitle">First Race</h5>
-        <p class="card-text cardText">
-          This was known as the "Grand Prix of Europe" and it was held on May
-          13, 1953. The winner of this race was Giuseppe Farina, who was 43 at
-          the time. 120, 000 viewers from around the world tuned in to witness
-          history. Racing wasn't a huge industry at the time, but would soon
-          change...
-        </p>
-      </div>
-      <!--This is the navigator element to the side that corresponds to the section the 
-      user is on page
-        The position is fixed and halfway down the page. The navbar is positioned 
-        slightly away from the right
-      -->
-      <div
-        style="
-          position: fixed;
-          top: 50%;
-          right: 30px;
-          transform: translateY(-50%);
-        "
-      >
-        <!-- This navigator is a flexbox that presents elements in column order
-          The z-index makes it overlap with all other elements 
-        -->
+        <!--This is the navigator element to the side that corresponds to the section the 
+    user is on page
+      The position is fixed and halfway down the page. The navbar is positioned 
+      slightly away from the right
+    -->
         <div
           style="
-            display: flex;
-            flex-direction: column;
-            text-align: right;
-            z-index: 40;
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
           "
         >
-          <div style="color: white" class="ubuntu-regular navHistory">
-            First Race
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            The Golden Age
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            Into the Billions
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            McLaren
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            Tragedy Strikes
-          </div>
-          <div style="color: white" class="ubuntu-regular navHistory">
-            A Champion
+          <!-- This navigator is a flexbox that presents elements in column order
+        The z-index makes it overlap with all other elements 
+      -->
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              text-align: right;
+              z-index: 40;
+            "
+          >
+            <div style="color: white" class="ubuntu-regular navHistory">
+              First Race
+            </div>
+            <div style="color: white" class="ubuntu-regular navHistory">
+              The Golden Age
+            </div>
+            <div style="color: white" class="ubuntu-regular navHistory">
+              Into the Billions
+            </div>
+            <div style="color: white" class="ubuntu-regular navHistory">
+              McLaren
+            </div>
+            <div style="color: white" class="ubuntu-regular navHistory">
+              Tragedy Strikes
+            </div>
+            <div style="color: white" class="ubuntu-regular navHistory">
+              A Champion
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- This is the Golden Age Page on the history.html -->
-    <div
-      style="
-        width: 100%;
-        height: 100vh;
-        background-image: url('img/goldenAgePic.png');
-        background-size: cover;
-        text-align: center;
-        text-shadow: black 3px 3px 15px;
-      "
-      id="historyTwoPage"
-      class="historyPages"
-    >
       <div
-        class="card-body ubuntu-regular"
         style="
-          width: 60%;
-          margin: 0 auto;
-          text-shadow: none;
-          color: white;
-          padding: 15px;
-          border-radius: 20px;
-          bottom: 20px;
-          right: 20px;
+          width: 100%;
+          height: 100vh;
+          background-image: url('img/goldenAgePic.png');
+          background-size: cover;
+          text-align: center;
+          text-shadow: black 3px 3px 15px;
         "
-        class="historyCards"
+        id="historyTwoPage"
+        class="historyPages"
       >
-        <h5 class="card-title cardTitle">The Golden Age</h5>
-        <p class="card-text cardText">
-          The 1960's and 1970's were considered the "Golden Age" of Formula
-          Racing. Charismatic racers like James Hunt and Niki Lauda had a
-          blazing rivalry that drawed in many fans of the sport. This time
-          periodic is also known for its eccentric car designs. Finally, there
-          were vast improvements on the engine at this time.
-        </p>
-      </div>
-    </div>
-    <!-- This is the Into the Billions Page on the history.html page -->
-
-    <div
-      style="
-        width: 100%;
-        height: 100vh;
-        background-image: url('img/bernieFounder.png');
-        background-size: cover;
-        text-align: center;
-        text-shadow: black 3px 3px 15px;
-      "
-      id="historyThreePage"
-      class="historyPages"
-    >
-      <div
-        class="card-body ubuntu-regular"
-        style="
-          width: 60%;
-          margin: 0 auto;
-          text-shadow: none;
-          color: white;
-          padding: 15px;
-          border-radius: 20px;
-          bottom: 20px;
-          right: 20px;
-        "
-        class="historyCards"
-      >
-        <h5 class="card-title cardTitle">Into the Billions</h5>
-        <p class="card-text cardText">
-          Born in Britain in 1930, Bernie Ecclestone was a huge figure in
-          Formula One as he made the sport televised in the 80's. He negotiated
-          sponsorships with companies which led to the accelerated development
-          of the sport. Without him, who knows what F1 would look like today?
-        </p>
-      </div>
-    </div>
-    <!-- This is the page on McLaren's Dominance on the history.html page -->
-
-    <div
-      style="
-        width: 100%;
-        height: 100vh;
-        background-image: url('img/tragedy.png');
-        background-size: cover;
-        text-align: center;
-        text-shadow: black 3px 3px 15px;
-      "
-      id="historyFourPage"
-      class="historyPages"
-    >
-      <div
-        class="card-body ubuntu-regular"
-        style="
-          width: 60%;
-          margin: 0 auto;
-          text-shadow: none;
-          color: white;
-          padding: 15px;
-          border-radius: 20px;
-          bottom: 20px;
-          right: 20px;
-        "
-        class="historyCards"
-      >
-        <h5 class="card-title cardTitle">McLaren</h5>
-        <p class="card-text cardText">
-          McLaren's dominance was very apparent at this time as they won 15 out
-          of 16 championships, which Ayrton Senna claiming their first
-          championship victory. From 1988-1991, McLaren was a huge name in
-          Formula One as the company claimed victory in the Driver's
-          Championship.
-        </p>
-      </div>
-    </div>
-    <!-- This is the page on the Tragic Deaths in F1 on the history.html page -->
-
-    <div
-      style="
-        width: 100%;
-        height: 100vh;
-        background-image: url('img/mcLaren.png');
-        background-size: cover;
-        text-align: center;
-        text-shadow: black 3px 3px 15px;
-      "
-      id="historyFivePage"
-      class="historyPages"
-    >
-      <div
-        class="card-body ubuntu-regular"
-        style="
-          width: 60%;
-          margin: 0 auto;
-          text-shadow: none;
-          color: white;
-          padding: 15px;
-          border-radius: 20px;
-          bottom: 20px;
-          right: 20px;
-        "
-        class="historyCards"
-      >
-        <h5 class="card-title cardTitle">Tragedy Strikes</h5>
-        <p class="card-text cardText">
-          The tragic deaths of Ayrton Senna and Roland Ratzenberger at Imola,
-          changing F1's approach to safety. With the advent of carbon fiber
-          helmets and fire-resistant suits, deaths in this sport have decreased
-          dramatically every since the early 90's.
-        </p>
-      </div>
-    </div>
-    <!-- This is the page on Lewis Hamilton on the history.html page -->
-
-    <div
-      style="
-        width: 100%;
-        height: 100vh;
-        background-image: url('img/LewisHamilton.png');
-        background-size: cover;
-        text-align: center;
-        text-shadow: black 3px 3px 15px;
-      "
-      id="historySixPage"
-      class="historyPages"
-    >
-      <div
-        class="card-body ubuntu-regular"
-        style="
-          width: 60%;
-          margin: 0 auto;
-          text-shadow: none;
-          color: white;
-          padding: 15px;
-          border-radius: 20px;
-          bottom: 20px;
-          right: 20px;
-        "
-        class="historyCards"
-      >
-        <div>
-          <h5 class="card-title cardTitle">A Champion</h5>
+        <div
+          class="card-body ubuntu-regular"
+          style="
+            width: 60%;
+            margin: 0 auto;
+            text-shadow: none;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+            bottom: 20px;
+            right: 20px;
+          "
+          class="historyCards"
+        >
+          <h5 class="card-title cardTitle">The Golden Age</h5>
           <p class="card-text cardText">
-            This English-born racing sensation was born in 1985 and debuted in
-            F1 in 2007 in the Australian Grand Prix. He has a record for most
-            career victories in Formula One Racing. When he was in his teens, he
-            raced Karts competitively, and he won the world karting championship
-            in 2000.
+            The 1960's and 1970's were considered the "Golden Age" of Formula
+            Racing. Charismatic racers like James Hunt and Niki Lauda had a
+            blazing rivalry that drawed in many fans of the sport. This time
+            periodic is also known for its eccentric car designs. Finally, there
+            were vast improvements on the engine at this time.
           </p>
         </div>
       </div>
-    </div>
+      <div
+        style="
+          width: 100%;
+          height: 100vh;
+          background-image: url('img/bernieFounder.png');
+          background-size: cover;
+          text-align: center;
+          text-shadow: black 3px 3px 15px;
+        "
+        id="historyThreePage"
+        class="historyPages"
+      >
+        <div
+          class="card-body ubuntu-regular"
+          style="
+            width: 60%;
+            margin: 0 auto;
+            text-shadow: none;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+            bottom: 20px;
+            right: 20px;
+          "
+          class="historyCards"
+        >
+          <h5 class="card-title cardTitle">Into the Billions</h5>
+          <p class="card-text cardText">
+            Born in Britain in 1930, Bernie Ecclestone was a huge figure in
+            Formula One as he made the sport televised in the 80's. He
+            negotiated sponsorships with companies which led to the accelerated
+            development of the sport. Without him, who knows what F1 would look
+            like today?
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          width: 100%;
+          height: 100vh;
+          background-image: url('img/tragedy.png');
+          background-size: cover;
+          text-align: center;
+          text-shadow: black 3px 3px 15px;
+        "
+        id="historyFourPage"
+        class="historyPages"
+      >
+        <div
+          class="card-body ubuntu-regular"
+          style="
+            width: 60%;
+            margin: 0 auto;
+            text-shadow: none;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+            bottom: 20px;
+            right: 20px;
+          "
+          class="historyCards"
+        >
+          <h5 class="card-title cardTitle">McLaren</h5>
+          <p class="card-text cardText">
+            McLaren's dominance was very apparent at this time as they won 15
+            out of 16 championships, which Ayrton Senna claiming their first
+            championship victory. From 1988-1991, McLaren was a huge name in
+            Formula One as the company claimed victory in the Driver's
+            Championship.
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          width: 100%;
+          height: 100vh;
+          background-image: url('img/mcLaren.png');
+          background-size: cover;
+          text-align: center;
+          text-shadow: black 3px 3px 15px;
+        "
+        id="historyFivePage"
+        class="historyPages"
+      >
+        <div
+          class="card-body ubuntu-regular"
+          style="
+            width: 60%;
+            margin: 0 auto;
+            text-shadow: none;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+            bottom: 20px;
+            right: 20px;
+          "
+          class="historyCards"
+        >
+          <h5 class="card-title cardTitle">Tragedy Strikes</h5>
+          <p class="card-text cardText">
+            The tragic deaths of Ayrton Senna and Roland Ratzenberger at Imola,
+            changing F1's approach to safety. With the advent of carbon fiber
+            helmets and fire-resistant suits, deaths in this sport have
+            decreased dramatically every since the early 90's.
+          </p>
+        </div>
+      </div>
+      <div
+        style="
+          width: 100%;
+          height: 100vh;
+          background-image: url('img/LewisHamilton.png');
+          background-size: cover;
+          text-align: center;
+          text-shadow: black 3px 3px 15px;
+        "
+        id="historySixPage"
+        class="historyPages"
+      >
+        <div
+          class="card-body ubuntu-regular"
+          style="
+            width: 60%;
+            margin: 0 auto;
+            text-shadow: none;
+            color: white;
+            padding: 15px;
+            border-radius: 20px;
+            bottom: 20px;
+            right: 20px;
+          "
+          class="historyCards"
+        >
+          <div>
+            <h5 class="card-title cardTitle">A Champion</h5>
+            <p class="card-text cardText">
+              This English-born racing sensation was born in 1985 and debuted in
+              F1 in 2007 in the Australian Grand Prix. He has a record for most
+              career victories in Formula One Racing. When he was in his teens,
+              he raced Karts competitively, and he won the world karting
+              championship in 2000.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- This is the Golden Age Page on the history.html -->
+    <!-- This is the Into the Billions Page on the history.html page -->
+
+    <!-- This is the page on McLaren's Dominance on the history.html page -->
+
+    <!-- This is the page on the Tragic Deaths in F1 on the history.html page -->
+
+    <!-- This is the page on Lewis Hamilton on the history.html page -->
+
     <!-- Footer code-->
     <footer style="background-color: #131316; border-radius: 20px">
       <div class="container">
@@ -445,22 +432,4 @@
       </div>
     </footer>
   </body>
-  <script>
-    document.getElementById("redlogo").style.display = "none";
-
-    document
-      .getElementById("navbarlogo")
-      .addEventListener("mouseenter", (e) => {
-        e.preventDefault();
-        document.getElementById("redlogo").style.display = "inline";
-        document.getElementById("plainlogo").style.display = "none";
-      });
-    document
-      .getElementById("navbarlogo")
-      .addEventListener("mouseleave", (e) => {
-        e.preventDefault();
-        document.getElementById("redlogo").style.display = "none";
-        document.getElementById("plainlogo").style.display = "inline";
-      });
-  </script>
 </html>

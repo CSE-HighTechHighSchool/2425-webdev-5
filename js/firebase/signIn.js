@@ -37,49 +37,68 @@ const auth = getAuth();
 const db = getDatabase(app);
 // ---------------------- Sign-In User ---------------------------------------//
 window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("user") != null) {
+  if (
+    localStorage.getItem("user") != null ||
+    sessionStorage.getItem("user") != null
+  ) {
     window.location.href = "/index.html";
+  } else {
+    console.log("auth");
   }
-});
-document.getElementById("signIn").onclick = function () {
-  // Get suer's email and password for sign in
-  const email = document.getElementById("loginEmail").value;
-  const password = document.getElementById("loginPassword").value;
+  document.getElementById("signInButton").onclick = function () {
+    // Get suer's email and password for sign in
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
+    if (document.getElementById("loginEmail").value.length === 0) {
+      alert("Please enter your email");
+      return;
+    }
+    if (document.getElementById("loginPassword").length === 0) {
+      alert("Please enter your password");
+      return;
+    }
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
 
-      // Log sign-in in db
-      // Update will only add the last_login and won't overwrite anything
-      let logDate = new Date().toISOString();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
 
-      update(ref(db, "users/" + user.uid), {
-        last_login: logDate, // Add or update the last_login field
-      })
-        .then(() => {
-          // Successfully updated
-          get(ref(db, "users/" + user.uid))
-            .then((snapshot) => {
-              if (snapshot.exists()) {
-                logIn(snapshot.val());
-              } else {
-                console.log("No data available");
-              }
-            })
-            .catch((error) => {
-              console.error(error);
-            });
+        // Log sign-in in db
+        // Update will only add the last_login and won't overwrite anything
+        let logDate = new Date().toISOString();
+        alert("fail");
+
+        update(ref(db, "users/" + user.uid), {
+          last_login: logDate, // Add or update the last_login field
         })
-        .catch((error) => {
-          alert("Not Logged In");
-          console.error("Error updating data:", error);
-        });
-    })
-    .catch((error) => {
-      console.error("Sign-in error:", error);
-    });
-};
+          .then(() => {
+            // Successfully updated
+            get(ref(db, "users/" + user.uid))
+              .then((snapshot) => {
+                console.log(snapshot.val());
+                if (snapshot.exists()) {
+                  logIn(snapshot.val());
+                  window.location.href = "/index.html";
+                } else {
+                  console.log("No data available");
+                }
+              })
+              .catch((error) => {
+                console.error(error);
+              });
+          })
+          .catch((error) => {
+            alert("Not Logged In");
+            console.error("Error updating data:", error);
+          });
+      })
+      .catch((error) => {
+        alert("fail");
+
+        console.error("Sign-in error:", error);
+      });
+  };
+});
 
 // ---------------- Keep User Logged In ----------------------------------//
 
@@ -89,29 +108,37 @@ function logIn(user) {
   let keepLoggedIn = document.getElementById("keepLoggedInSwitch").checked;
   console.log(keepLoggedIn);
   if (keepLoggedIn) {
+    console.log("local store");
+
     localStorage.setItem(
       "user",
       JSON.stringify({
-        firstname: firstName,
-        lastname: lastName,
-        email: email,
-        password: encryptPass(pw),
-        uid: user.uid,
+        firstname: user.accountInfo.firstname,
+        lastname: user.accountInfo.lastname,
+        email: user.accountInfo.email,
+        password: encryptPass(user.accountInfo.password),
+        uid: user.accountInfo.uid,
         last_login: new Date().toISOString(), // Add or update the last_login field
       })
     );
   } else {
+    console.log("session store");
     sessionStorage.setItem(
       "user",
       JSON.stringify({
-        firstname: firstName,
-        lastname: lastName,
-        email: email,
-        password: encryptPass(pw),
-        uid: user.uid,
+        firstname: user.accountInfo.firstname,
+        lastname: user.accountInfo.lastname,
+        email: user.accountInfo.email,
+        password: encryptPass(user.accountInfo.password),
+        uid: user.accountInfo.uid,
         last_login: new Date().toISOString(), // Add or update the last_login field
       })
     );
   }
-  window.location.href = "index.html";
+}
+
+function encryptPass(password) {
+  let encrypted = CryptoJS.AES.encrypt(password, password);
+  console.log("Encrypted Password: " + encrypted);
+  return encrypted.toString();
 }

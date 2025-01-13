@@ -13,7 +13,7 @@ const turnOffAndOn = async () => {
     if (!off) {
       document.getElementById("underscore").style.display = "none";
       // document.getElementById("underscore").style.color = "red";
-      console.log("editing style");
+      // console.log("editing style");
     } else {
       document.getElementById("underscore").style.display = "inline";
     }
@@ -27,7 +27,7 @@ const typingInHeader = async () => {
       for (let char in typingArray[i]) {
         document.getElementById("descriptor").innerHTML =
           typingArray[i].slice(0, Number(char) + 1) + "|";
-        console.log(typingArray[i].slice(0, char + 1) + "|");
+        // console.log(typingArray[i].slice(0, char + 1) + "|");
         await sleep(150);
       }
       // turnOffAndOn()
@@ -45,13 +45,15 @@ const typingInHeader = async () => {
     }
   }
 };
-document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
-  e.preventDefault();
-  document.getElementById("plainlogo").src = "img/redlogo.png";
-});
-document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
-  e.preventDefault();
-  document.getElementById("plainlogo").src = "img/logo.png";
-});
 
-typingInHeader();
+window.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
+    e.preventDefault();
+    document.getElementById("plainlogo").src = "img/redlogo.png";
+  });
+  document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
+    e.preventDefault();
+    document.getElementById("plainlogo").src = "img/logo.png";
+  });
+  typingInHeader();
+});
