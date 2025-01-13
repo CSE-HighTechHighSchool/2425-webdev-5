@@ -585,7 +585,7 @@ ol {
 
 
 model-viewer {
-  width: 100%;  /* 100% of the container width */
+  width: 110%;  /* 100% of the container width */
   height: 80vh;  /* 80% of the viewport height */
   max-height: 90vh;
   background-color: black;

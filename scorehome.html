@@ -46,6 +46,7 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 <!-- reference the css-->
@@ -54,9 +55,10 @@
 
  <script src="js/index.js" defer></script>
  <script src="js/database.js" defer></script>
- <script src="js/firebase/data.js" type="module" defer></script>
 
   <script src="js/main.js" defer></script>
+  <script src="js/chart.js"></script>
+
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>F1 cars</title>
@@ -136,10 +138,21 @@
       </ul>
     </nav>
   </aside>
-  <div style="margin-left: 140px;">
-    <h1 style="color: white">Predict The Score</h1>
-    <ol id="contextList"></ol>
-    <button id="guessButton">Guess</button>
+  <div style="margin-left: 140px; flex-direction: row;">
+    <div style="flex: 1;">
+        <div class="container d-flex overflow-hidden bg-light rounded-4" id="chart-wrapper">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+
+    <div style="flex: 1;">
+        <ol id="contextList"></ol>
+    </div>
+
+    <a style="color: white" href="./pred.html">
+ejfrihero
+    </a>
+
 
   </div>
     
