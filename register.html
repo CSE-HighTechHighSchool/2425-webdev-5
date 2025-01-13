@@ -32,8 +32,12 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
-    <script src="js/index.js" defer></script>
+    <link rel="stylesheet" href="styles/index.css" />
     <script src="js/main.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
@@ -42,7 +46,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script type="module" src="js/register.js" defer></script>
+    <script type="module" src="js/firebase/register.js" defer></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"
       integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ=="
@@ -54,102 +58,127 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-container">
-      <a class="navbar-brand navbar-link" id="navbarlogo" href="index.html">
-        <img
-          src="img/logo.png"
-          alt="Emotion Logo"
-          id="plainlogo"
-          class="icon"
-          style="width: 80px; height: 27px"
-        />
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarTogglerDemo02"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div
-        class="collapse navbar-collapse"
-        style="
-          width: 100%;
-          text-align: right;
-          margin: 10px;
-          background-color: black;
-        "
-        id="navbarTogglerDemo02"
-      >
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="align-items: end">
-            <a
-              class="hover-underline-animation bd-highlight navbar-link ubuntu-regular"
-              href="history.html"
-              ><b>History</b></a
-            >
+    <aside>
+      <nav>
+        <ul>
+          <li>
+            <p id="navbarlogo" href="index.html">
+              <img
+                src="img/logo.png"
+                alt="Emotion Logo"
+                id="plainlogo"
+                class="icon"
+                style="width: 60px; height: 20px"
+              />
+            </p>
           </li>
-          <li class="nav-item">
-            <a
-              class="hover-underline-animation bd-highlight navbar-link ubuntu-regular"
-              href="model.html"
-              ><b>Model</b></a
-            >
+
+          <li>
+            <a href="index.html">
+              <i class="bx bx-home-alt"></i>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="model.html">
+              <i class="bx bx-cube"></i>
+              <span>Model</span>
+            </a>
+          </li>
+          <li>
+            <a href="history.html">
+              <i class="bx bx-history"></i>
+              <span>History</span>
+            </a>
+          </li>
+          <li id="register">
+            <a href="register.html" class="active">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>Register</span>
+            </a>
+          </li>
+          <li>
+            <a href="signIn.html" id="signIn">
+              <i class="bx bx-clipboard"></i>
+              <span>Login </span>
+            </a>
+          </li>
+          <li id="user">
+            <a href="index.html">
+              <i class="bi bi-person-circle"></i>
+              <span id="username"></span>
+            </a>
+          </li>
+          <li id="signOut">
+            <a href="#">
+              <i class="bx bx-log-out-circle"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+          <li>
+            <a href="pred.html" id="predict">
+              <i class="bx bxs-flag-checkered"></i>
+              <span>Predict</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-resize-btn>
+              <i class="bx bx-chevrons-right"></i>
+              <span>Collapse</span>
+            </a>
           </li>
         </ul>
+      </nav>
+    </aside>
+    <main>
+      <div id="formContainer">
+        <div class="container">
+          <br />
+          <h2 class="text-center" style="color: #1e40af">Register</h2>
+          <br />
+        </div>
+
+        <!--Sign Up -->
+        <div class="signUpForm mb-5">
+          <form>
+            <input
+              type="text"
+              placeholder="First Name"
+              id="firstName"
+              class="form-control mb-3"
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              id="lastName"
+              class="form-control mb-3"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              id="userEmail"
+              class="form-control mb-3"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              id="userPass"
+              class="form-control mb-3"
+            />
+            <button
+              type="button"
+              id="submitData"
+              name="submitData"
+              class="btn btn-outline-primary mb-3 w-100"
+            >
+              Register
+            </button>
+            <a href="signIn.html" class="w-100" id="alreadyHave"
+              >Already have an account?</a
+            >
+          </form>
+        </div>
       </div>
-    </nav>
-
-    <div class="container">
-      <br />
-      <h2 class="text-center">Account Registration</h2>
-      <br />
-    </div>
-
-    <!--Sign Up -->
-    <div class="signUpForm mb-5">
-      <form>
-        <input
-          type="text"
-          placeholder="First Name"
-          id="firstName"
-          class="form-control mb-3"
-        />
-        <input
-          type="text"
-          placeholder="Last Name"
-          id="lastName"
-          class="form-control mb-3"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          id="userEmail"
-          class="form-control mb-3"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          id="userPass"
-          class="form-control mb-3"
-        />
-        <button
-          type="button"
-          id="submitData"
-          name="submitData"
-          class="btn btn-outline-primary mb-3 w-100"
-        >
-          Register
-        </button>
-        <a href="signIn.html" class="w-100" id="alreadyHave"
-          >Already have an account?</a
-        >
-      </form>
-    </div>
+    </main>
   </body>
 </html>

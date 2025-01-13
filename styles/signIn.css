@@ -17,7 +17,9 @@ body {
 h2 {
     color:white;
 }
-
+#formContainer {
+    display:grid;
+}
 #alreadyHave {
     padding: 10px;
     color:white;
