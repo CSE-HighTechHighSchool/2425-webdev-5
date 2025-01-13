@@ -59,8 +59,6 @@ document.getElementById("submitData").onclick = () => {
         // Add user info to realtime db
         // set will create a new ref or completely replace an existing one
         // each new user will be placed under the "users" node
-        // update will just update an existing doc
-        // ...
 
         console.log(user);
         set(ref(db, "users/" + user.uid + "/accountInfo"), {
@@ -85,16 +83,10 @@ document.getElementById("submitData").onclick = () => {
             last_login: new Date().toISOString(), // Add or update the last_login field
           })
         );
-
-        // Log localStorage content to verify the update
-        console.log("We're on");
-        console.log(localStorage.getItem("user"));
-        console.log(JSON.parse(localStorage.getItem("user")));
-        console.log(JSON.parse(localStorage.getItem("user")).firstname);
       })
       .then(() => {
         console.log("New account made!");
-        // window.location.href = "/index.html";
+        window.location.href = "/index.html";
       })
       .catch((err) => {
         console.error(err.message);

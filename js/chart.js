@@ -6,6 +6,8 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
   async function createChart() {
     //const data = await getData(); // wait for getData to send formatted data to create chart
     const lineChart = document.getElementById("lineChart");
+
+    Chart.defaults.font.family = "Ubuntu-light";
    
     const myChart = new Chart(lineChart, {
       type: "line",
@@ -16,9 +18,11 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
             label: 'Predicted',
             data: data, // y-axis data
             fill: false,
-            backgroundColor: "rgba(255, 0, 132, 0.2)",
-            borderColor: "rgba(255, 0, 132, 1)",
-            borderWidth: 1,
+            backgroundColor: "rgba(150, 32, 32, 0.5)",
+            borderColor: "rgb(255, 0, 0)",
+            borderWidth: 4,
+            pointBorderWidth: 1,
+            pointRadius:4
           },
         ],
       },
@@ -32,8 +36,10 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
               display: true,
               text: "Races", // x-axis title
               font: {
-                size: 14,
+                size: 14
+
               },
+              color: "#fff"
             },
             ticks: {
               callback: function(val, index) {
@@ -43,9 +49,10 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
               font: {
                 size: 14,
               },
+              color: "#fff"
             },
             grid: {
-              color: "#6c767e",
+              color: "rgba(256, 256, 256, 0.4)",
             },
           },
           y: {
@@ -55,6 +62,7 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
               font: {
                 size: 14,
               },
+              color: "#fff"
             },
             
             ticks: {
@@ -65,9 +73,10 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
               font: {
                 size: 12,
               },
+              color: "white"
             },
             grid: {
-              color: "#6c767e",
+              color: "rgba(256, 256, 256, 0.4)",
             },
           },
         },
@@ -79,7 +88,7 @@ var races = ['Bahrain', 'Saudi Arabia', 'Australia', 'Japan', 'China', 'Miami', 
             font: {
               size: 24,
             },
-            color: "black",
+            color: "white",
             padding: {
               top: 10,
               bottom: 30,

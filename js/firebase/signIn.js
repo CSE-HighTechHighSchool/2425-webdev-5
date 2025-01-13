@@ -66,16 +66,17 @@ window.addEventListener("DOMContentLoaded", () => {
         // Log sign-in in db
         // Update will only add the last_login and won't overwrite anything
         let logDate = new Date().toISOString();
-        alert("fail");
+        // alert("fail");
 
         update(ref(db, "users/" + user.uid), {
           last_login: logDate, // Add or update the last_login field
         })
           .then(() => {
-            // Successfully updated
+            // Get the user information on the realtime db
             get(ref(db, "users/" + user.uid))
               .then((snapshot) => {
                 console.log(snapshot.val());
+                // If it exists, pass it into the login function and redirect to index.html
                 if (snapshot.exists()) {
                   logIn(snapshot.val());
                   window.location.href = "/index.html";
@@ -103,13 +104,12 @@ window.addEventListener("DOMContentLoaded", () => {
 // ---------------- Keep User Logged In ----------------------------------//
 
 function logIn(user) {
-  // Store user data in local storage
-
+  // Store user data in local storage or session store based on the switch
   let keepLoggedIn = document.getElementById("keepLoggedInSwitch").checked;
   console.log(keepLoggedIn);
   if (keepLoggedIn) {
     console.log("local store");
-
+    // Store user data in local storage if switch is checked
     localStorage.setItem(
       "user",
       JSON.stringify({
@@ -122,6 +122,7 @@ function logIn(user) {
       })
     );
   } else {
+    // Store user data in local storage if switch isn't checked
     console.log("session store");
     sessionStorage.setItem(
       "user",

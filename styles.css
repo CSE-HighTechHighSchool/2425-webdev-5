@@ -46,7 +46,11 @@
     text-decoration: none;
     color: white;
   }
-  
+  @media (max-width: 768px) {
+    .weAre {
+      font: .8rem;
+    }
+  }
   .hover-underline-animation::after {
     content: "";
     position: absolute;
