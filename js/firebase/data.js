@@ -66,7 +66,8 @@ const setData = (userId, year, race, playersData, scoreData) => {
     score: scoreData,
   })
     .then(() => {
-      alert("Data Array stored successfully");
+      alert("Success!");
+      document.getElementById("goBack").style.display = "block";
     })
     .catch((err) => {
       alert("There was an error. Error: " + err.message);
