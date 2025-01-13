@@ -1,3 +1,9 @@
+/*
+ File name: main.js
+ Purpose: Contains code that runs on each page of the website.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
+
 document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
   // When you mouse enters the navbarlogo, turn the logo into a red version of the logo
   e.preventDefault();

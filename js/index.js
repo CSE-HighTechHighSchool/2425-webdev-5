@@ -1,3 +1,8 @@
+/*
+ File name: main.js
+ Purpose: Contains code that runs on the landing page (specifically the typing in header).
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
 let typingArray = ["Trailblazers", "Innovators", "Speed"];
 
 function sleep(ms) {

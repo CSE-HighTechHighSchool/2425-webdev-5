@@ -1,3 +1,8 @@
+/*
+ File name: database.js
+ Purpose: Contains code that interacts with the database to provide an interactive user experience.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
 // Function to fetch driver standings from the Ergast API
 async function getDriverStandings(year, round) {
   const apiUrl = `http://ergast.com/api/f1/${year}/${round}/driverStandings.json`;
@@ -85,13 +90,13 @@ function renderList(dataArrayPlayers) {
 }
 
 function getOrderedPlayerNames() {
-  const listItems = list.querySelectorAll("li"); // Select all <li> elements in the list
+  const listItems = list.querySelectorAll("li"); // Select all list elements in the list
   const playerNames = Array.from(listItems)
     .map((item) => {
-      const nameSpan = item.querySelector("span:last-child"); // Select the <span> containing the name
+      const nameSpan = item.querySelector("span:last-child"); // Select the span elements containing the name
       return nameSpan ? nameSpan.textContent : null;
     })
-    .filter((name) => name !== null); // Remove null values if any
+    .filter((name) => name !== null); // Remove null values
   return playerNames;
 }
 

@@ -122,7 +122,7 @@
           </li>
           <li id="user">
             <a href="index.html">
-              <i class="bi bi-person-circle"></i>
+              <i class="bx bx-user"></i>
               <span id="username"></span>
             </a>
           </li>
@@ -133,7 +133,7 @@
             </a>
           </li>
           <li>
-            <a href="pred.html" id="predict" class="active">
+            <a href="scorehome.html" id="predict" class="active">
               <i class="bx bxs-flag-checkered"></i>
               <span>Predict</span>
             </a>
@@ -147,39 +147,75 @@
         </ul>
       </nav>
     </aside>
-    <div
-      style="margin-left: 140px; flex-direction: row; justify-content: center"
-    >
-      <div style="flex: 1">
-        <div
-          class="container d-flex overflow-hidden bg-light rounded-4"
-          style="background-color: black"
-          id="chart-wrapper"
-        >
-          <!-- Linechart for player stats -->
-          <canvas id="lineChart"></canvas>
+    <main>
+      <div
+        style="margin-left: 140px; flex-direction: row; justify-content: center"
+      >
+        <div style="flex: 1">
+          <div
+            class="container d-flex overflow-hidden bg-light rounded-4"
+            style="background-color: black"
+            id="chart-wrapper"
+          >
+            <!-- Linechart for player stats -->
+            <canvas id="lineChart"></canvas>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px">
+          <!-- Dynamically generated list of players with flexed guessing page button -->
+          <ol id="contextList" style="margin: 15px auto; flex: 1"></ol>
+          <a
+            style="
+              color: white;
+              background-color: #be123c;
+              padding: 15px;
+              border-radius: 10px;
+              text-decoration: none;
+              font-size: 1rem;
+              margin-right: auto;
+            "
+            href="./pred.html"
+            id="guessPageLink"
+          >
+            Go to Guessing Page
+          </a>
         </div>
       </div>
-
-      <div style="display: flex; align-items: center; gap: 20px">
-        <!-- Dynamically generated list of players with flexed guessing page button -->
-        <ol id="contextList" style="margin: 15px auto; flex: 1"></ol>
-        <a
-          style="
-            color: white;
-            background-color: #be123c;
-            padding: 15px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 1rem;
-            margin-right: auto;
-          "
-          href="./pred.html"
-          id="guessPageLink"
-        >
-          Go to Guessing Page
-        </a>
-      </div>
-    </div>
+      <footer style="background-color: #131316; border-radius: 20px">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col ubuntu-regular"
+              style="text-align: center; padding: 15px 0; color: white"
+            >
+              Phone Number: 732-###-####
+            </div>
+            <div
+              class="col ubuntu-regular"
+              style="text-align: center; padding: 15px 0; color: white"
+            >
+              Email us at _____@gmail.com
+            </div>
+          </div>
+          <hr />
+          <div
+            class="ubuntu-regular"
+            style="
+              text-align: center;
+              margin: 0 auto;
+              padding: 20px 0px;
+              font-size: 1.3em;
+              color: white;
+            "
+          >
+            <b> &copy; SE 2024 </b>
+          </div>
+          <a href="#" style="font-size: 2rem; color: white; margin: auto auto"
+            ><i class="bx bx-up-arrow-alt"></i
+          ></a>
+        </div>
+      </footer>
+    </main>
   </body>
 </html>
