@@ -106,16 +106,18 @@ function isEmptyorSpaces(str) {
 
 // ---------------------- Validate Registration Data -----------------------//
 const validation = (firstName, lastName, email, pw) => {
+  // Regex validation
   let fNameRegex = /^\w+$/;
   let lNameRegex = /^\w+$/;
   let emailRegex = /^[a-zA-Z]+@(ctemc|gmail|yahoo)\.(org|com|net)$/;
+  // If any are empty, or fail the regex tests, send an alert
   if (
     isEmptyorSpaces(lastName) ||
     isEmptyorSpaces(firstName) ||
     isEmptyorSpaces(email) ||
     isEmptyorSpaces(pw)
   ) {
-    alert("Please complete all field");
+    alert("Please complete all fields");
     return false;
   }
   if (!fNameRegex.test(firstName)) {

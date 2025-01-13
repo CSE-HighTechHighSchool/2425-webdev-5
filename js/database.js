@@ -10,11 +10,14 @@ async function getDriverStandings(year, round) {
     }
 
     const data = await response.json();
-    const standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map((driver) => ({
-      position: parseInt(driver.position, 10),
-      name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
-      points: driver.points,
-    }));
+    const standings =
+      data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
+        (driver) => ({
+          position: parseInt(driver.position, 10),
+          name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
+          points: driver.points,
+        })
+      );
 
     return standings;
   } catch (error) {
@@ -49,29 +52,29 @@ async function getDriversList(year, round) {
 }
 
 let contextArray = [];
-const list = document.getElementById('contextList');
-const guessButton = document.getElementById('guessButton');
+const list = document.getElementById("contextList");
+const guessButton = document.getElementById("guessButton");
 let selectedItem = null;
 
 // Function to render the list
 function renderList() {
-  list.innerHTML = '';
+  list.innerHTML = "";
 
   contextArray.forEach((driver, index) => {
-    const li = document.createElement('li');
+    const li = document.createElement("li");
     li.dataset.index = index;
 
-    const numberSpan = document.createElement('span');
-    numberSpan.classList.add('number');
+    const numberSpan = document.createElement("span");
+    numberSpan.classList.add("number");
     numberSpan.textContent = `${index + 1}. `;
 
-    const nameSpan = document.createElement('span');
+    const nameSpan = document.createElement("span");
     nameSpan.textContent = driver.name;
 
     li.appendChild(numberSpan);
     li.appendChild(nameSpan);
 
-    li.addEventListener('click', () => {
+    li.addEventListener("click", () => {
       selectItem(li);
     });
 
@@ -86,23 +89,22 @@ getDriversList(2024, 1)
     renderList();
   })
   .catch((error) => {
-    console.error('Error fetching drivers:', error);
+    console.error("Error fetching drivers:", error);
   });
 
 // Highlight selected item
 function selectItem(item) {
   if (selectedItem) {
-    selectedItem.classList.remove('selected');
+    selectedItem.classList.remove("selected");
   }
   selectedItem = item;
-  selectedItem.classList.add('selected');
+  selectedItem.classList.add("selected");
 
   // Scroll the selected item into view
   selectedItem.scrollIntoView({
-    behavior: 'smooth',
-    block: 'nearest'  // 'nearest' ensures the item is scrolled into the least disruptive position
+    behavior: "smooth",
+    block: "nearest", // 'nearest' ensures the item is scrolled into the least disruptive position
   });
-
 }
 
 // Function to compare user guesses with real standings and calculate scores
@@ -110,16 +112,20 @@ async function compareStandings() {
   const realStandings = await getDriverStandings(2024, 1);
 
   if (!realStandings || !contextArray) {
-    console.error('Failed to fetch standings or driver list.');
+    console.error("Failed to fetch standings or driver list.");
     return;
   }
 
-  console.log('Comparing User Guesses with Real Standings:');
+  console.log("Comparing User Guesses with Real Standings:");
   let totalDifference = 0;
 
   realStandings.forEach((realDriver, index) => {
-    const guessedDriver = contextArray.find((driver) => driver.name === realDriver.name);
-    const userPosition = guessedDriver ? contextArray.indexOf(guessedDriver) + 1 : null;
+    const guessedDriver = contextArray.find(
+      (driver) => driver.name === realDriver.name
+    );
+    const userPosition = guessedDriver
+      ? contextArray.indexOf(guessedDriver) + 1
+      : null;
     const realPosition = realDriver.position;
 
     if (guessedDriver) {
@@ -128,11 +134,13 @@ async function compareStandings() {
 
       console.log(
         `${realPosition}: ${realDriver.name} - Your guess: ${
-          userPosition ? userPosition : 'No guess'
+          userPosition ? userPosition : "No guess"
         } - Difference: ${positionDifference}`
       );
     } else {
-      console.log(`${realPosition}: ${realDriver.name} - No guess - Difference: Not included`);
+      console.log(
+        `${realPosition}: ${realDriver.name} - No guess - Difference: Not included`
+      );
     }
   });
 
@@ -142,37 +150,58 @@ async function compareStandings() {
   console.log(`Final Score: ${finalScore}`);
 }
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowUp') {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowUp") {
     moveUp();
-  } else if (event.key === 'ArrowDown') {
+  } else if (event.key === "ArrowDown") {
     moveDown();
   }
 });
 
+// Function to move the selected item up in the list
 function moveUp() {
   if (selectedItem) {
+    // Get the index of the selected item
     const index = parseInt(selectedItem.dataset.index, 10);
+
     if (index > 0) {
-      [contextArray[index - 1], contextArray[index]] = [contextArray[index], contextArray[index - 1]];
+      // Swap the current item with the one above it in the array
+      [contextArray[index - 1], contextArray[index]] = [
+        contextArray[index],
+        contextArray[index - 1],
+      ];
+
       renderList();
+
       selectItem(list.children[index - 1]);
     }
   }
 }
 
+// Function to move the selected item down in the list
 function moveDown() {
+  // Check if an item is selected
   if (selectedItem) {
+    // Get the index of the selected item
     const index = parseInt(selectedItem.dataset.index, 10);
+
     if (index < contextArray.length - 1) {
-      [contextArray[index], contextArray[index + 1]] = [contextArray[index + 1], contextArray[index]];
+      // Swap the current item with the one below it in the contextArray
+      [contextArray[index], contextArray[index + 1]] = [
+        contextArray[index + 1],
+        contextArray[index],
+      ];
+
+      // Call the function
       renderList();
+
+      // Select the new item
       selectItem(list.children[index + 1]);
     }
   }
 }
 
 // Add click event for the "Guess" button to compare standings
-guessButton.addEventListener('click', () => {
+guessButton.addEventListener("click", () => {
   compareStandings();
 });

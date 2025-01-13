@@ -12,7 +12,7 @@ document.getElementById("navbarlogo").addEventListener("mouseleave", (e) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   const resizeBtn = document.querySelector("[data-resize-btn]");
-
+  // Add the event listener for the navbar toggler
   resizeBtn.addEventListener("click", function (e) {
     e.preventDefault();
     document.body.classList.toggle("sb-expanded");
@@ -21,9 +21,11 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("user") != null
       ? localStorage.getItem("user")
       : sessionStorage.getItem("user");
+  // Get the user data
   const user = userString != null ? JSON.parse(userString) : null;
   if (user != null) {
     // alert("user not null");
+    // If there is a user, the navbar is updated accordingly
     document
       .getElementById("register")
       .style.setProperty("display", "none", "important"); // Set the display property as important
@@ -38,6 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
       window.location.href = "/";
     };
   } else {
+    // If there isn't a user, the navbar is updated accordingly
     document.getElementById("user").style.display = "none";
     document.getElementById("signOut").style.display = "none";
     document.getElementById("predict").style.display = "none";

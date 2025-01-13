@@ -136,7 +136,7 @@
       <div id="formContainer">
         <div class="container">
           <br />
-          <h2 class="text-center" style="color: #0c6dfd">Sign In</h2>
+          <h2 class="text-center" style="color: #be123b">Sign In</h2>
           <br />
         </div>
 
@@ -160,10 +160,19 @@
               id="signInButton"
               name="submitData"
               class="btn btn-outline-primary mb-3 w-100"
+              style="border-color: #be123b; color: #be123b; margin: 0px"
             >
               Sign In
             </button>
+            <!-- Invalid password message based on firebase login response -->
+            <p
+              id="passwordSensor"
+              style="color: #be123b; display: none; margin: 0px"
+            >
+              Invalid password.
+            </p>
             <div class="form-check form-switch mb-3">
+              <!-- If this is checked, use session store for user data, else use local storage -->
               <input
                 class="form-check-input"
                 type="checkbox"
@@ -173,7 +182,7 @@
               <label
                 class="form-check-label"
                 for="flexSwitchCheckDefault"
-                style="color: #0e6cfd"
+                style="color: #be123b"
               >
                 <b> Keep me signed in </b>
               </label>

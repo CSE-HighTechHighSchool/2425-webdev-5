@@ -6,34 +6,21 @@ function sleep(ms) {
 const clear = (word, x) => {
   return word.slice(0, word.length - 1) + "|";
 };
-const turnOffAndOn = async () => {
-  let off = true;
-  for (var i = 0; i < 6; i++) {
-    off = !off;
-    if (!off) {
-      document.getElementById("underscore").style.display = "none";
-      // document.getElementById("underscore").style.color = "red";
-      // console.log("editing style");
-    } else {
-      document.getElementById("underscore").style.display = "inline";
-    }
-    await sleep(1500 / 6);
-  }
-};
 const typingInHeader = async () => {
   for (var i = 0; i < 1000; i++) {
     for (let i in typingArray) {
-      let isOn = true;
       for (let char in typingArray[i]) {
+        // Add another char
         document.getElementById("descriptor").innerHTML =
           typingArray[i].slice(0, Number(char) + 1) + "|";
         // console.log(typingArray[i].slice(0, char + 1) + "|");
         await sleep(150);
       }
       // turnOffAndOn()
-
+      // Delay the code for .4 seconds
       await sleep(400);
       for (let char in typingArray[i]) {
+        // Return the string with one less char than before
         document.getElementById("descriptor").innerHTML = clear(
           document.getElementById("descriptor").innerHTML.slice(0, -1),
           i
@@ -47,6 +34,7 @@ const typingInHeader = async () => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
+  //Swap the logos on hover
   document.getElementById("navbarlogo").addEventListener("mouseenter", (e) => {
     e.preventDefault();
     document.getElementById("plainlogo").src = "img/redlogo.png";

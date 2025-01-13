@@ -66,7 +66,6 @@ window.addEventListener("DOMContentLoaded", () => {
         // Log sign-in in db
         // Update will only add the last_login and won't overwrite anything
         let logDate = new Date().toISOString();
-        // alert("fail");
 
         update(ref(db, "users/" + user.uid), {
           last_login: logDate, // Add or update the last_login field
@@ -94,9 +93,11 @@ window.addEventListener("DOMContentLoaded", () => {
           });
       })
       .catch((error) => {
-        alert("fail");
-
-        console.error("Sign-in error:", error);
+        if (error.message === "Firebase: Error (auth/invalid-credential).") {
+          document.getElementById("passwordSensor").style.display = "block";
+        } else {
+          console.log(error.message);
+        }
       });
   };
 });

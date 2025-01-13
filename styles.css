@@ -46,9 +46,9 @@
     text-decoration: none;
     color: white;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .weAre {
-      font: .8rem;
+      font-size: 3rem !important;
     }
   }
   .hover-underline-animation::after {
@@ -431,7 +431,7 @@ td {
 @media (max-width: 800px) {
   /* Make the alert span 80% of the width of the page */
   #startingAlert {
-    width: 90% !important;
+    width: 70% !important;
   margin-left: 5% !important;
 
   }
@@ -527,10 +527,17 @@ ol {
       color: #f0f0f0; /* Default link color */
       text-decoration: none;
     }
-    
+    #contextList li:hover {
+      border: 2px solid;  
+      border-color: #be123c;
+    }
     #contextList li.selected {
       color: black; /* Make the text color black when selected */
       background-color: #f0f0f0;
+    }
+    #guessPageLink:hover {
+
+      background-color: #F43F5E !important;
     }
     
     #contextList li.selected a {
@@ -543,12 +550,22 @@ ol {
       padding-left: 0; /* Remove default padding for ordered list */
       list-style: none; /* Remove default numbering */
     }
-
+    
     #contextList li {
       padding: 8px 10px;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #333; /* Optional border between list items */
+      background-color: black;
+      color: #94a3b8 !important; /*Make text-color grayish*/
+
+    }
+    #signInButton:hover {
+      background-color:#BE123B;
+      color:white !important;
+      
+    }
+    #contextList {
+      margin-top: 50px;
     }
 
     #contextList li a {
