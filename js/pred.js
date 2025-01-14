@@ -1,6 +1,14 @@
+/*
+ File name: pred.js
+ Purpose: runs the logic on the pred page which is how the list is rendered and how the list is moved up and down.
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
+
 let selectedItem = null;
 const list = document.getElementById("contextList");
 
+
+// this randomizes the order of the drivers so that they can't get a hundred in the first try.
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       // Pick a random index
@@ -11,6 +19,7 @@ function shuffleArray(array) {
     return array;
   }
 
+  // Function to fetch the list of drivers using the csv files
 async function getDriversList(year, round) {
     // const csv = 'Japan,Max Verstappen,Sergio Perez,Carlos Sainz,Charles Leclerc,Lando Norris,Fernando Alonso,George Russell,Oscar Piastri,Lewis Hamilton,Yuki Tsunoda,Nico Hulkenburg,Lance Stroll,Kevin Magnussen,Valtteri Bottas,Esteban Ocon,Pierre Gasly,Logan Sargeant,Zhou Guanyu,Daniel Ricciardo,Alexander Albon';
     console.log("Fetching drivers list");
@@ -87,27 +96,14 @@ function renderList(dataArrayPlayers) {
     });
 }
 
+//gets the round number from the URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
-// Get the 'race' query parameter from the URL
-// const race = getQueryParam('race');
 
-
-// if (race) {
-//     console.log(`Race query parameter: ${race}`);
-//     // You can add additional logic here to handle the 'race' parameter
-// } else {
-//     console.log('No race query parameter found');
-// }
-
-// getDriversList(2024, race).then((drivers) => {
-//     renderList(drivers);
-// });
-
-
+//listens for a key press and moves the selected item up or down
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowUp") {
       moveUp();

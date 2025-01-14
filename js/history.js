@@ -1,3 +1,9 @@
+/*
+ File name: history.js
+ Purpose: makes the scroll navigation work on the history page work
+ Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
+ */
+
 // Scroll to the beginning of the page when the page loads
 window.scrollTo(0, 0);
 

@@ -1,5 +1,5 @@
 /*
- File name: database.js
+ File name: chart.js
  Purpose: Renders the chart based on given data.
  Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
  */
@@ -63,6 +63,7 @@ const getDataScore = async (userId, year, round) => {
   }
 };
 
+// Get the current user's username from local storage or session storage
 function getUserName() {
   if (localStorage.getItem("user") != null) {
     currentUser = JSON.parse(localStorage.getItem("user"));

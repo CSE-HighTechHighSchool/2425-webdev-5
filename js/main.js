@@ -29,12 +29,13 @@ window.addEventListener("DOMContentLoaded", () => {
       : sessionStorage.getItem("user");
   // Get the user data
   const user = userString != null ? JSON.parse(userString) : null;
+
+
   if (user != null) {
     // alert("user not null");
-    // If there is a user, the navbar is updated accordingly
-    document
-      .getElementById("register")
-      .style.setProperty("display", "none", "important"); // Set the display property as important
+    // If there is a user, the navbar is updated accordingly with all the tabs changing what is displayed
+
+    document.getElementById("register").style.setProperty("display", "none", "important"); // Set the display property as important
     console.log(document.getElementById("register"));
     document.getElementById("signIn").style.display = "none";
     document.getElementById("user").style.display = "block";
