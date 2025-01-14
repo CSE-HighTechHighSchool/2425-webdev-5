@@ -170,10 +170,10 @@
           </div>
         </div>
 
-        
-        <h3>Pick the race you are going to try to predict</h3>
-        <div>
-            <select  name="selectcountry" id="selectcountry">
+        <div class="mt-5">
+          <h3 style="color:white">Pick the Race You Are Going to Try to Predict</h3>
+          <div class="d-flex align-items-center mt-3">
+            <select name="selectcountry" id="selectcountry" class="form-select w-50 me-3">
               <option value="1">Bahrain</option>
               <option value="2">Saudi Arabia</option>
               <option value="3">Australia</option>
@@ -199,30 +199,13 @@
               <option value="23">Qatar</option>
               <option value="24">Abu Dhabi</option>
             </select>
+            <a class="btn btn-danger" onclick="goToGuessPage()">Go to Guessing Page</a>
           </div>
-
-          <div style="display: flex; align-items: center; gap: 20px">
-            <!-- Dynamically generated list of players with flexed guessing page button -->
-            <!-- <ol id="contextList" style="margin: 15px auto; flex: 1"></ol> -->
-            <a
-              style="
-                color: white;
-                background-color: #be123c;
-                padding: 15px;
-                border-radius: 10px;
-                text-decoration: none;
-                font-size: 1rem;
-                margin-right: auto;
-              "
-              onclick="goToGuessPage()"
-              id="guessPageLink"
-            >
-              Go to Guessing Page
-            </a>
-          </div>
+        </div>
+      </div>
           
       </div>
-      <footer style="background-color: #131316; border-radius: 20px">
+      <footer style="background-color: #131316; border-radius: 20px;  position: fixed; bottom: 0; left: 0; width: 100%;">
         <div class="container">
           <div class="row">
             <div
@@ -249,7 +232,7 @@
               color: white;
             "
           >
-            <b> &copy; SE 2025 </b>
+            <b> &copy; SE 2024 </b>
           </div>
           <a href="#" style="font-size: 2rem; color: white; margin: auto auto"
             ><i class="bx bx-up-arrow-alt"></i

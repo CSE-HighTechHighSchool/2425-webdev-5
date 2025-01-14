@@ -49,18 +49,18 @@ let currentUser = null; //Initialize current user to null
 let round = 4;
 // ----------------------- Get User's Name'Name ------------------------------
 function getUserName() {
-    if (localStorage.getItem("user") != null) {
-      currentUser = JSON.parse(localStorage.getItem("user"));
-    } else {
-      currentUser = JSON.parse(sessionStorage.getItem("user"));
-    }
-    if (currentUser) {
-      console.log("User retrieved:", currentUser);
-      return currentUser.uid;
-    } else {
-      console.log("No user found in storage");
-    }
+  if (localStorage.getItem("user") != null) {
+    currentUser = JSON.parse(localStorage.getItem("user"));
+  } else {
+    currentUser = JSON.parse(sessionStorage.getItem("user"));
   }
+  if (currentUser) {
+    console.log("User retrieved:", currentUser);
+    return currentUser.uid;
+  } else {
+    console.log("No user found in storage");
+  }
+}
 // Once the user makes a guess, set that value in the db
 const setData = (userId, year, race, playersData, scoreData) => {
   set(ref(db, "users/" + userId + "/data/" + year + "/" + race), {
@@ -203,87 +203,86 @@ async function renderInitList() {
 }
 
 function getOrderedPlayerNames() {
-    const listItems = list.querySelectorAll("li"); // Select all list elements in the list
-    const playerNames = Array.from(listItems)
-      .map((item) => {
-        const nameSpan = item.querySelector("span:last-child"); // Select the span elements containing the name
-        return nameSpan ? nameSpan.textContent : null;
-      })
-      .filter((name) => name !== null); // Remove null values
-    return playerNames;
-  }
-  
-  // Function to compare user guesses with real standings and calculate scores
+  const listItems = list.querySelectorAll("li"); // Select all list elements in the list
+  const playerNames = Array.from(listItems)
+    .map((item) => {
+      const nameSpan = item.querySelector("span:last-child"); // Select the span elements containing the name
+      return nameSpan ? nameSpan.textContent : null;
+    })
+    .filter((name) => name !== null); // Remove null values
+  return playerNames;
+}
+
+// Function to compare user guesses with real standings and calculate scores
 async function compareStandings() {
-    const race = getRound();
-    const realStandings = await getDriversList(2024, race);
-  
-    if (!realStandings || !contextArray) {
-      console.error("Failed to fetch standings or driver list.");
-      return;
-    }
-  
-    console.log("Comparing User Guesses with Real Standings:");
-    let totalDifference = 0;
-  
-    realStandings.forEach((realDriver, index) => {
-      const guessedDriver = contextArray.find(
-        (driver) => driver.name === realDriver.name
-      );
-      const userPosition = guessedDriver
-        ? contextArray.indexOf(guessedDriver) + 1
-        : null;
-      const realPosition = realDriver.number;
-  
-      if (guessedDriver) {
-        const positionDifference = Math.abs(userPosition - realPosition);
-        totalDifference += positionDifference;
-  
-        console.log(
-          `${realPosition}: ${realDriver.name} - Your guess: ${
-            userPosition ? userPosition : "No guess"
-          } - Difference: ${positionDifference}`
-        );
-      } else {
-        console.log(
-          `${realPosition}: ${realDriver.name} - No guess - Difference: Not included`
-        );
-      }
-    });
-  
-    // Final score calculation
-    const finalScore = 400 - totalDifference;
-    console.log(`Total Difference: ${totalDifference}`);
-    console.log(`Final Score: ${finalScore}`);
-    return finalScore;
+  const race = getRound();
+  const realStandings = await getDriversList(2024, race);
+
+  if (!realStandings || !contextArray) {
+    console.error("Failed to fetch standings or driver list.");
+    return;
   }
 
-  async function getDriverStandings(year, round) {
-    const apiUrl = `http://ergast.com/api/f1/${year}/${round}/driverStandings.json`;
-  
-    try {
-      const response = await fetch(apiUrl);
-  
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-  
-      const data = await response.json();
-      const standings =
-        data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
-          (driver) => ({
-            position: parseInt(driver.position, 10),
-            name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
-            points: driver.points,
-          })
-        );
-  
-      return standings;
-    } catch (error) {
-      console.error(`Error fetching data: ${error.message}`);
-      return null;
+  console.log("Comparing User Guesses with Real Standings:");
+  let totalDifference = 0;
+
+  realStandings.forEach((realDriver, index) => {
+    const guessedDriver = contextArray.find(
+      (driver) => driver.name === realDriver.name
+    );
+    const userPosition = guessedDriver
+      ? contextArray.indexOf(guessedDriver) + 1
+      : null;
+    const realPosition = realDriver.number;
+
+    if (guessedDriver) {
+      const positionDifference = Math.abs(userPosition - realPosition);
+      totalDifference += positionDifference;
+
+      console.log(
+        `${realPosition}: ${realDriver.name} - Your guess: ${userPosition ? userPosition : "No guess"
+        } - Difference: ${positionDifference}`
+      );
+    } else {
+      console.log(
+        `${realPosition}: ${realDriver.name} - No guess - Difference: Not included`
+      );
     }
+  });
+
+  // Final score calculation
+  const finalScore = 400 - totalDifference;
+  console.log(`Total Difference: ${totalDifference}`);
+  console.log(`Final Score: ${finalScore}`);
+  return finalScore;
+}
+
+async function getDriverStandings(year, round) {
+  const apiUrl = `http://ergast.com/api/f1/${year}/${round}/driverStandings.json`;
+
+  try {
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const standings =
+      data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
+        (driver) => ({
+          position: parseInt(driver.position, 10),
+          name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
+          points: driver.points,
+        })
+      );
+
+    return standings;
+  } catch (error) {
+    console.error(`Error fetching data: ${error.message}`);
+    return null;
   }
+}
 // ----------------- Event Listeners ------------------------//
 // window.addEventListener("DOMContentLoaded", () => {
 //   getUserName();
@@ -298,62 +297,67 @@ async function compareStandings() {
 // guessButton.addEventListener("click", () => {
 //     setPlayerList(2024, 5);
 //   });
-  
-  cancelButton.addEventListener("click", () => {
-    let uid = getUserName();
-    let race = getRound();
-    deleteData(uid, 2024, race);
-  });
 
-  function getRound() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var race = urlParams.get('race');
-    return race;
-  }
+cancelButton.addEventListener("click", () => {
+  let uid = getUserName();
+  let race = getRound();
+  deleteData(uid, 2024, race);
+});
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const selectCountry = document.getElementById("selectcountry");
-    const showCountryImage = document.getElementById("showCountry");
-  
-    // Add an event listener to the select element
+function getRound() {
+  var urlParams = new URLSearchParams(window.location.search);
+  var race = urlParams.get('race');
+  return race;
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const selectCountry = document.getElementById("selectcountry");
+  const showCountryImage = document.getElementById("showCountry");
+
+  // Add an event listener to the select element
+  if (selectCountry) {
     selectCountry.addEventListener("change", () => {
       const selectedCountry = selectCountry.value; // Get the selected value
       showCountryImage.src = `/img/countries/${selectedCountry}.png`; // Update the image source
     });
-  });
-  
-  console.log("Data page loaded");
-  const selectCountry = document.getElementById("selectcountry");
+  }
+});
 
+console.log("Data page loaded");
+const selectCountry = document.getElementById("selectcountry");
+if(selectCountry) {
   // Add an event listener to update the 'round' variable when the selection changes
-  selectCountry.addEventListener("change", () => {
-    round = selectCountry.value; // Get the selected value
-    console.log(`Selected round: ${round}`);
-  });
+// selectCountry.addEventListener("change", () => {
+//   round = selectCountry.value; // Get the selected value
+//   console.log(`Selected round: ${round}`);
+// });
 
-  // Example: Fetching data dynamically when the round changes
-  selectCountry.addEventListener("change", async () => {
-    if (round) {
-      console.log(`Fetching data for round: ${round}`);
-      // Example: Call your `getDriverStandings` or `getDriversList` functions here
-      const drivers = await getDriversList(2024, round);
-      console.log(`Drivers for round ${round}:`, drivers);
-    }
-  });
+// Example: Fetching data dynamically when the round changes
+selectCountry.addEventListener("change", async () => {
+  if (round) {
+    console.log(`Fetching data for round: ${round}`);
+    // Example: Call your `getDriverStandings` or `getDriversList` functions here
+    const drivers = await getDriversList(2024, round);
+    console.log(`Drivers for round ${round}:`, drivers);
+  }
+});
+
+}
+
 
 //   const guessButton = document.getElementById("guessButton");
 
-  guessButton.addEventListener("click", () => {
-    getOrderedPlayerNames();
-    compareStandings();
-    var urlParams = new URLSearchParams(window.location.search);
-    var race = urlParams.get('race');
-    setPlayerList("2024",race);
-  });
+guessButton.addEventListener("click", () => {
+  getOrderedPlayerNames();
+  compareStandings();
+  var urlParams = new URLSearchParams(window.location.search);
+  var race = urlParams.get('race');
+  setPlayerList("2024", race);
+});
 
 function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
 }
 
 // Get the 'race' query parameter from the URL
@@ -362,24 +366,24 @@ const race = getQueryParam('race');
 console.log('race', race);
 
 getPlayerList(2024, race).then((drivers) => {
-    var playersPromise;
-    if(drivers && drivers.length >0 ) {
-        playersPromise =  new Promise((resolve, reject) => {
-            resolve(drivers.map((driver, index) => ({
-                number: index + 1,
-                name: driver,
-            })));
-          });
-
-    } else {
-        playersPromise =  getDriversList("2024", race)
-    }
-     
-    playersPromise.then((players) => {
-        console.log('Drivers:', players);
-        renderList(players);
+  var playersPromise;
+  if (drivers && drivers.length > 0) {
+    playersPromise = new Promise((resolve, reject) => {
+      resolve(drivers.map((driver, index) => ({
+        number: index + 1,
+        name: driver,
+      })));
     });
-    // console.log('Drivers:', players);
-    // renderList(players);
+
+  } else {
+    playersPromise = getDriversList("2024", race)
+  }
+
+  playersPromise.then((players) => {
+    console.log('Drivers:', players);
+    renderList(players);
+  });
+  // console.log('Drivers:', players);
+  // renderList(players);
 });
 
