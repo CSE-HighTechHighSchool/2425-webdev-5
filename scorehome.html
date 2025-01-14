@@ -159,7 +159,7 @@
       <div
         style="margin-left: 140px; flex-direction: row; justify-content: center"
       >
-        <div style="flex: 1"
+        <div style="flex: 1">
           <div
             class="container d-flex overflow-hidden bg-light rounded-4"
             style="background-color: black"
@@ -168,39 +168,58 @@
             <!-- Linechart for player stats -->
             <canvas id="lineChart"></canvas>
           </div>
-          <div class="mt-5 ; margin-bottom: 10 ">
-            <h3 style="color:white">Pick the Race You Are Going to Try to Predict</h3>
-            <div class="d-flex align-items-center mt-3">
-              <select name="selectcountry" id="selectcountry" class="form-select w-50 me-3">
-                <option value="1">Bahrain</option>
-                <option value="2">Saudi Arabia</option>
-                <option value="3">Australia</option>
-                <option value="4" selected>Japan</option>
-                <option value="5">China</option>
-                <option value="6">Miami</option>
-                <option value="7">Emilia Romagna</option>
-                <option value="8">Monaco</option>
-                <option value="9">Canada</option>
-                <option value="10">Spain</option>
-                <option value="11">Austria</option>
-                <option value="12">Britain</option>
-                <option value="13">Hungary</option>
-                <option value="14">Belgium</option>
-                <option value="15">Netherlands</option>
-                <option value="16">Italy</option>
-                <option value="17">Azerbaijan</option>
-                <option value="18">Singapore</option>
-                <option value="19">United States</option>
-                <option value="20">Mexico City</option>
-                <option value="21">Sao Paulo</option>
-                <option value="22">Las Vegas</option>
-                <option value="23">Qatar</option>
-                <option value="24">Abu Dhabi</option>
-              </select>
-              <a class="btn btn-danger" onclick="goToGuessPage()">Go to Guessing Page</a>
-            </div>
-          </div>
         </div>
+
+        
+        <h3>Pick the race you are going to try to predict</h3>
+        <div>
+            <select  name="selectcountry" id="selectcountry">
+              <option value="1">Bahrain</option>
+              <option value="2">Saudi Arabia</option>
+              <option value="3">Australia</option>
+              <option value="4" selected>Japan</option>
+              <option value="5">China</option>
+              <option value="6">Miami</option>
+              <option value="7">Emilia Romagna</option>
+              <option value="8">Monaco</option>
+              <option value="9">Canada</option>
+              <option value="10">Spain</option>
+              <option value="11">Austria</option>
+              <option value="12">Britain</option>
+              <option value="13">Hungary</option>
+              <option value="14">Belgium</option>
+              <option value="15">Netherlands</option>
+              <option value="16">Italy</option>
+              <option value="17">Azerbaijan</option>
+              <option value="18">Singapore</option>
+              <option value="19">United States</option>
+              <option value="20">Mexico City</option>
+              <option value="21">Sao Paulo</option>
+              <option value="22">Las Vegas</option>
+              <option value="23">Qatar</option>
+              <option value="24">Abu Dhabi</option>
+            </select>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 20px">
+            <!-- Dynamically generated list of players with flexed guessing page button -->
+            <!-- <ol id="contextList" style="margin: 15px auto; flex: 1"></ol> -->
+            <a
+              style="
+                color: white;
+                background-color: #be123c;
+                padding: 15px;
+                border-radius: 10px;
+                text-decoration: none;
+                font-size: 1rem;
+                margin-right: auto;
+              "
+              onclick="goToGuessPage()"
+              id="guessPageLink"
+            >
+              Go to Guessing Page
+            </a>
+          </div>
           
       </div>
       <footer style="background-color: #131316; border-radius: 20px">
