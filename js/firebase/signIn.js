@@ -46,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
     localStorage.getItem("user") != null ||
     sessionStorage.getItem("user") != null
   ) {
-    window.location.href = "/index.html";
+    window.location.href = "/2425-webdev-5/index.html";
   } else {
     console.log("auth");
   }
