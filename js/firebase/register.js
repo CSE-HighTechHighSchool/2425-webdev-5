@@ -114,7 +114,7 @@ const validation = (firstName, lastName, email, pw) => {
   // Regex validation
   let fNameRegex = /^\w+$/;
   let lNameRegex = /^\w+$/;
-  let emailRegex = /^[a-zA-Z]+@(ctemc|gmail|yahoo)\.(org|com|net)$/;
+  let emailRegex = /^[a-zA-Z0-9]+@(ctemc|gmail|yahoo)\.(org|com|net)$/;
   // If any are empty, or fail the regex tests, send an alert
   if (
     isEmptyorSpaces(lastName) ||
