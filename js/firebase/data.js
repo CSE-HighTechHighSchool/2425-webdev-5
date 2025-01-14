@@ -68,7 +68,7 @@ const setData = (userId, year, race, playersData, scoreData) => {
     score: scoreData,
   })
     .then(() => {
-      alert("Data Saved");
+      alert("Guess Saved");
     })
     .catch((err) => {
       alert("There was an error. Error: " + err.message);
@@ -131,7 +131,7 @@ const deleteData = (userID, year, race) => {
     ref(db, "users/" + userID + "/data/" + year + "/" + race + "/" + "players")
   )
     .then(() => {
-      alert("Data removed successfully.");
+      alert("Guess removed successfully.");
     })
     .catch((err) => {
       console.log(err.message);
@@ -140,7 +140,7 @@ const deleteData = (userID, year, race) => {
     ref(db, "users/" + userID + "/data/" + year + "/" + race + "/" + "score")
   )
     .then(() => {
-      alert("Data removed successfully.");
+      alert("Guess removed successfully.");
     })
     .catch((err) => {
       console.log(err.message);
