@@ -83,7 +83,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 // If it exists, pass it into the login function and redirect to index.html
                 if (snapshot.exists()) {
                   logIn(snapshot.val());
-                  window.location.href = "/index.html";
+                  window.location.href = "/2425-webdev-5/index.html";
                 } else {
                   console.log("No data available");
                 }

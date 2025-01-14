@@ -91,7 +91,7 @@ document.getElementById("submitData").onclick = () => {
       })
       .then(() => {
         console.log("New account made!");
-        window.location.href = "/index.html";
+        window.location.href = "/2425-webdev-5/index.html";
       })
       .catch((err) => {
         console.error(err.message);
