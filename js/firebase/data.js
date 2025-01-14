@@ -215,7 +215,8 @@ function getOrderedPlayerNames() {
   
   // Function to compare user guesses with real standings and calculate scores
 async function compareStandings() {
-    const realStandings = await getDriverStandings(2024, 4);
+    const race = getRound();
+    const realStandings = await getDriversList(2024, race);
   
     if (!realStandings || !contextArray) {
       console.error("Failed to fetch standings or driver list.");
@@ -232,7 +233,7 @@ async function compareStandings() {
       const userPosition = guessedDriver
         ? contextArray.indexOf(guessedDriver) + 1
         : null;
-      const realPosition = realDriver.position;
+      const realPosition = realDriver.number;
   
       if (guessedDriver) {
         const positionDifference = Math.abs(userPosition - realPosition);
@@ -300,11 +301,15 @@ async function compareStandings() {
   
   cancelButton.addEventListener("click", () => {
     let uid = getUserName();
-    var urlParams = new URLSearchParams(window.location.search);
-    var race = urlParams.get('race');
+    let race = getRound();
     deleteData(uid, 2024, race);
   });
 
+  function getRound() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var race = urlParams.get('race');
+    return race;
+  }
 
   window.addEventListener("DOMContentLoaded", () => {
     const selectCountry = document.getElementById("selectcountry");
