@@ -636,3 +636,24 @@ model-viewer {
 .HotspotAnnotation p {
   font-size: 0.95vw; /* Smaller text size */
 }
+
+main {
+  flex: 1; /* Allow main content to grow and push the footer down */
+  margin-left: 140px; /* Adjust as needed for your layout */
+  padding: 20px;
+}
+
+
+footer {
+  background-color: #131316;
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+}
+
+html, body {
+  height: 100%; /* Make the body fill the viewport */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}

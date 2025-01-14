@@ -68,11 +68,19 @@ const setData = (userId, year, race, playersData, scoreData) => {
     score: scoreData,
   })
     .then(() => {
-      alert("Data Array stored successfully");
+      alert("Data Saved");
     })
     .catch((err) => {
       alert("There was an error. Error: " + err.message);
     });
+
+    // Select the goBackElement element by its ID
+const goBackLink = document.getElementById('goBack');
+
+// Change the display style to make it visible
+if (goBackLink) {
+  goBackLink.style.display = 'inline-block';
+}
 };
 // Get the data for a specific year and round from the db for a user
 const getDataScore = async (userId, year, round) => {
