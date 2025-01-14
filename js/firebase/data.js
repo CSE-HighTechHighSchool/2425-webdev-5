@@ -41,24 +41,26 @@ const db = getDatabase(app);
 const dbref = ref(db);
 
 // ---------------------// Get reference values -----------------------------
-let currentUser = null; //Initialize current user to null
+let guessButton = document.getElementById("guessButton"); //guessButton is the button that the user clicks to submit their guess
+let cancelButton = document.getElementById("cancelButton"); //cancelButton is the button that the user clicks to cancel their guess
+const list = document.getElementById("contextList");
 
+let currentUser = null; //Initialize current user to null
+let round = 4;
 // ----------------------- Get User's Name'Name ------------------------------
 function getUserName() {
-  console.log("Get User Name");
-  if (localStorage.getItem("user") != null) {
-    currentUser = JSON.parse(localStorage.getItem("user"));
-  } else {
-    currentUser = JSON.parse(sessionStorage.getItem("user"));
+    if (localStorage.getItem("user") != null) {
+      currentUser = JSON.parse(localStorage.getItem("user"));
+    } else {
+      currentUser = JSON.parse(sessionStorage.getItem("user"));
+    }
+    if (currentUser) {
+      console.log("User retrieved:", currentUser);
+      return currentUser.uid;
+    } else {
+      console.log("No user found in storage");
+    }
   }
-  console.log();
-  if (currentUser) {
-    console.log("User retrieved:", currentUser);
-    return currentUser.uid;
-  } else {
-    console.log("No user found in storage");
-  }
-}
 // Once the user makes a guess, set that value in the db
 const setData = (userId, year, race, playersData, scoreData) => {
   set(ref(db, "users/" + userId + "/data/" + year + "/" + race), {
@@ -66,8 +68,7 @@ const setData = (userId, year, race, playersData, scoreData) => {
     score: scoreData,
   })
     .then(() => {
-      alert("Success!");
-      document.getElementById("goBack").style.display = "block";
+      alert("Data Array stored successfully");
     })
     .catch((err) => {
       alert("There was an error. Error: " + err.message);
@@ -87,11 +88,11 @@ const getDataScore = async (userId, year, round) => {
         "No players data found at path:",
         `users/${userId}/data/${year}/${round}/score`
       );
-      return null; // Explicitly return null if no data exists
+      return null; // return null if no data exists
     }
   } catch (err) {
     console.error("Error retrieving players data:", err.message);
-    throw err; // Rethrow the error to handle upstream
+    throw err; // throw the error
   }
 };
 // Get the players on a certain year and round
@@ -108,11 +109,11 @@ const getDataPlayers = async (userId, year, round) => {
         "No players data found at path:",
         `users/${userId}/data/${year}/${round}/players`
       );
-      return null; // Explicitly return null if no data exists
+      return null; // return null if no data exists
     }
   } catch (err) {
     console.error("Error retrieving players data:", err.message);
-    throw err; // Rethrow the error to handle upstream
+    throw err; // throw the error to handle upstream
   }
 };
 
@@ -137,7 +138,7 @@ const deleteData = (userID, year, race) => {
       console.log(err.message);
     });
 
-  getDriversList(2024, 5)
+  getDriversList(2024, round)
     .then((drivers) => {
       contextArray = drivers;
       renderList(contextArray);
@@ -149,7 +150,8 @@ const deleteData = (userID, year, race) => {
 // gets a list of players for a given year and round
 const getPlayerList = async (year, round) => {
   try {
-    const result = await getDataPlayers(currentUser.uid, year, round);
+    let uid = getUserName();
+    const result = await getDataPlayers(uid, year, round);
     console.log("Player list result:", result);
     return result || -1; // Return -1 if no data exists
   } catch (err) {
@@ -165,11 +167,15 @@ const setPlayerList = async (year, round) => {
   // console.log('playersString', playersString)
   let score = await compareStandings();
   console.log(players, score);
-  setData(currentUser.uid, year, round, players, score);
+  let uid = getUserName();
+
+  setData(uid, year, round, players, score);
 };
 
-// ----------------- Event Listeners ------------------------//
 
+
+
+//do the intial render of the list
 async function renderInitList() {
   try {
     const value = await getPlayerList(2024, 5);
@@ -195,22 +201,180 @@ async function renderInitList() {
     console.error("Error in renderInitList:", err.message);
   }
 }
-window.addEventListener("DOMContentLoaded", () => {
-  let guessButton = document.getElementById("guessButton"); //guessButton is the button that the user clicks to submit their guess
-  // /cancelButton is the button that the user clicks to cancel their guess
-  let cancelButton = document.getElementById("cancelButton");
-  getUserName();
-  guessButton.addEventListener("click", () => {
-    setPlayerList(2024, 5);
+
+function getOrderedPlayerNames() {
+    const listItems = list.querySelectorAll("li"); // Select all list elements in the list
+    const playerNames = Array.from(listItems)
+      .map((item) => {
+        const nameSpan = item.querySelector("span:last-child"); // Select the span elements containing the name
+        return nameSpan ? nameSpan.textContent : null;
+      })
+      .filter((name) => name !== null); // Remove null values
+    return playerNames;
+  }
+  
+  // Function to compare user guesses with real standings and calculate scores
+async function compareStandings() {
+    const realStandings = await getDriverStandings(2024, 4);
+  
+    if (!realStandings || !contextArray) {
+      console.error("Failed to fetch standings or driver list.");
+      return;
+    }
+  
+    console.log("Comparing User Guesses with Real Standings:");
+    let totalDifference = 0;
+  
+    realStandings.forEach((realDriver, index) => {
+      const guessedDriver = contextArray.find(
+        (driver) => driver.name === realDriver.name
+      );
+      const userPosition = guessedDriver
+        ? contextArray.indexOf(guessedDriver) + 1
+        : null;
+      const realPosition = realDriver.position;
+  
+      if (guessedDriver) {
+        const positionDifference = Math.abs(userPosition - realPosition);
+        totalDifference += positionDifference;
+  
+        console.log(
+          `${realPosition}: ${realDriver.name} - Your guess: ${
+            userPosition ? userPosition : "No guess"
+          } - Difference: ${positionDifference}`
+        );
+      } else {
+        console.log(
+          `${realPosition}: ${realDriver.name} - No guess - Difference: Not included`
+        );
+      }
+    });
+  
+    // Final score calculation
+    const finalScore = 400 - totalDifference;
+    console.log(`Total Difference: ${totalDifference}`);
+    console.log(`Final Score: ${finalScore}`);
+    return finalScore;
+  }
+
+  async function getDriverStandings(year, round) {
+    const apiUrl = `http://ergast.com/api/f1/${year}/${round}/driverStandings.json`;
+  
+    try {
+      const response = await fetch(apiUrl);
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      const standings =
+        data.MRData.StandingsTable.StandingsLists[0].DriverStandings.map(
+          (driver) => ({
+            position: parseInt(driver.position, 10),
+            name: `${driver.Driver.givenName} ${driver.Driver.familyName}`,
+            points: driver.points,
+          })
+        );
+  
+      return standings;
+    } catch (error) {
+      console.error(`Error fetching data: ${error.message}`);
+      return null;
+    }
+  }
+// ----------------- Event Listeners ------------------------//
+// window.addEventListener("DOMContentLoaded", () => {
+//   getUserName();
+//   if (currentUser) {
+//     console.log("User found");
+//   } else {
+//     console.log("No user found");
+//   }
+//   renderInitList();
+// });
+
+// guessButton.addEventListener("click", () => {
+//     setPlayerList(2024, 5);
+//   });
+  
+  cancelButton.addEventListener("click", () => {
+    let uid = getUserName();
+    var urlParams = new URLSearchParams(window.location.search);
+    var race = urlParams.get('race');
+    deleteData(uid, 2024, race);
   });
 
-  cancelButton.addEventListener("click", () => {
-    deleteData(currentUser.uid, 2024, 5);
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const selectCountry = document.getElementById("selectcountry");
+    const showCountryImage = document.getElementById("showCountry");
+  
+    // Add an event listener to the select element
+    selectCountry.addEventListener("change", () => {
+      const selectedCountry = selectCountry.value; // Get the selected value
+      showCountryImage.src = `/img/countries/${selectedCountry}.png`; // Update the image source
+    });
   });
-  if (currentUser) {
-    console.log("User found");
-  } else {
-    console.log("No user found");
-  }
-  renderInitList();
+  
+  console.log("Data page loaded");
+  const selectCountry = document.getElementById("selectcountry");
+
+  // Add an event listener to update the 'round' variable when the selection changes
+  selectCountry.addEventListener("change", () => {
+    round = selectCountry.value; // Get the selected value
+    console.log(`Selected round: ${round}`);
+  });
+
+  // Example: Fetching data dynamically when the round changes
+  selectCountry.addEventListener("change", async () => {
+    if (round) {
+      console.log(`Fetching data for round: ${round}`);
+      // Example: Call your `getDriverStandings` or `getDriversList` functions here
+      const drivers = await getDriversList(2024, round);
+      console.log(`Drivers for round ${round}:`, drivers);
+    }
+  });
+
+//   const guessButton = document.getElementById("guessButton");
+
+  guessButton.addEventListener("click", () => {
+    getOrderedPlayerNames();
+    compareStandings();
+    var urlParams = new URLSearchParams(window.location.search);
+    var race = urlParams.get('race');
+    setPlayerList("2024",race);
+  });
+
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Get the 'race' query parameter from the URL
+const race = getQueryParam('race');
+
+console.log('race', race);
+
+getPlayerList(2024, race).then((drivers) => {
+    var playersPromise;
+    if(drivers && drivers.length >0 ) {
+        playersPromise =  new Promise((resolve, reject) => {
+            resolve(drivers.map((driver, index) => ({
+                number: index + 1,
+                name: driver,
+            })));
+          });
+
+    } else {
+        playersPromise =  getDriversList("2024", race)
+    }
+     
+    playersPromise.then((players) => {
+        console.log('Drivers:', players);
+        renderList(players);
+    });
+    // console.log('Drivers:', players);
+    // renderList(players);
 });
+

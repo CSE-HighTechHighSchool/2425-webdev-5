@@ -3,6 +3,8 @@
  Purpose: Contains code that interacts with the database to provide an interactive user experience.
  Authors: Akshat Tewari, Aditya Choudhary, and Ange Teng
  */
+
+ import * as data from "./firebase/data.js"
 // Function to fetch driver standings from the Ergast API
 async function getDriverStandings(year, round) {
   const apiUrl = `http://ergast.com/api/f1/${year}/${round}/driverStandings.json`;
@@ -33,37 +35,70 @@ async function getDriverStandings(year, round) {
 
 // Function to fetch drivers from the Ergast API
 async function getDriversList(year, round) {
-  const apiUrl = `http://ergast.com/api/f1/${year}/${round}/drivers.json`;
-
+  // const csv = 'Japan,Max Verstappen,Sergio Perez,Carlos Sainz,Charles Leclerc,Lando Norris,Fernando Alonso,George Russell,Oscar Piastri,Lewis Hamilton,Yuki Tsunoda,Nico Hulkenburg,Lance Stroll,Kevin Magnussen,Valtteri Bottas,Esteban Ocon,Pierre Gasly,Logan Sargeant,Zhou Guanyu,Daniel Ricciardo,Alexander Albon';
+  console.log("Fetching drivers list");
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(`./data/round_${round}.csv`); // get the csv file
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
-    const data = await response.json();
-    const drivers = data.MRData.DriverTable.Drivers.map((driver, index) => ({
+    const csvText = await response.text();
+    const entries = csvText.split(',');
+
+    // Extract the first entry as the location
+    const location = entries[0];
+
+    // Map the remaining entries to create driver details
+    const drivers = entries.slice(1).map((driver, index) => ({
       number: index + 1,
-      name: `${driver.givenName} ${driver.familyName}`,
-      wikipedia: `https://en.wikipedia.org/wiki/${driver.givenName}_${driver.familyName}`,
+      name: driver,
     }));
 
+    console.log(drivers, location);
+    console.log("Drivers", drivers);
     return drivers;
   } catch (error) {
     console.error(`Error fetching data: ${error.message}`);
     return [];
   }
+
+
+  // const apiUrl = `http://ergast.com/api/f1/${year}/${round}/drivers.json`;
+
+  // try {
+  //   const response = await fetch(apiUrl);
+
+  //   if (!response.ok) {
+  //     throw new Error(`HTTP error! Status: ${response.status}`);
+  //   }
+
+  //   const data = await response.json();
+  //   const drivers = data.MRData.DriverTable.Drivers.map((driver, index) => ({
+  //     number: index + 1,
+  //     name: `${driver.givenName} ${driver.familyName}`,
+  //     wikipedia: `https://en.wikipedia.org/wiki/${driver.givenName}_${driver.familyName}`,
+  //   }));
+
+  //   return drivers;
+  // } catch (error) {
+  //   console.error(`Error fetching data: ${error.message}`);
+  //   return [];
+  // }
 }
 
 let contextArray = [];
 const list = document.getElementById("contextList");
 const guessButton = document.getElementById("guessButton");
-let selectedItem = null;
+
+let round = 
 
 // Function to render the list
 function renderList(dataArrayPlayers) {
   contextArray = dataArrayPlayers;
+  const list = document.getElementById("contextList");
+
   console.log("Rendering list:", dataArrayPlayers);
   list.innerHTML = "";
 
@@ -101,36 +136,23 @@ function getOrderedPlayerNames() {
 }
 
 // Fetch and render drivers
-getDriversList(2024, 1)
+getDriversList(2024, 4)
   .then((drivers) => {
     console.log("ContextArray", contextArray);
     contextArray = drivers;
     console.log("Drivers", drivers);
-    getPlayerList();
-    renderList(contextArray);
+    // getPlayerList();
+    // renderList(contextArray);
   })
   .catch((error) => {
     console.error("Error fetching drivers:", error);
   });
 
-// Highlight selected item
-function selectItem(item) {
-  if (selectedItem) {
-    selectedItem.classList.remove("selected");
-  }
-  selectedItem = item;
-  selectedItem.classList.add("selected");
 
-  // Scroll the selected item into view
-  selectedItem.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest", // 'nearest' ensures the item is scrolled into the least disruptive position
-  });
-}
 
 // Function to compare user guesses with real standings and calculate scores
 async function compareStandings() {
-  const realStandings = await getDriverStandings(2024, 1);
+  const realStandings = await getDriverStandings(2024, 4);
 
   if (!realStandings || !contextArray) {
     console.error("Failed to fetch standings or driver list.");
@@ -172,52 +194,28 @@ async function compareStandings() {
   return finalScore;
 }
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "ArrowUp") {
-    moveUp();
-  } else if (event.key === "ArrowDown") {
-    moveDown();
-  }
-});
 
-// Function to move the selected item up in the list
-function moveUp() {
-  if (selectedItem) {
-    // Get the index of the selected item
-    const index = parseInt(selectedItem.dataset.index, 10);
-
-    if (index > 0) {
-      [contextArray[index - 1], contextArray[index]] = [
-        contextArray[index],
-        contextArray[index - 1],
-      ];
-      renderList(contextArray);
-      selectItem(list.children[index - 1]);
-    }
-  }
-}
-
-// Function to move the selected item down in the list
-function moveDown() {
-  // Check if an item is selected
-  if (selectedItem) {
-    // Get the index of the selected item
-    const index = parseInt(selectedItem.dataset.index, 10);
-
-    if (index < contextArray.length - 1) {
-      [contextArray[index], contextArray[index + 1]] = [
-        contextArray[index + 1],
-        contextArray[index],
-      ];
-      renderList(contextArray);
-      selectItem(list.children[index + 1]);
-    }
-  }
-}
 
 // Add click event for the "Guess" button to compare standings
-guessButton.addEventListener("click", () => {
-  // getOrderedPlayerNames();
-  // compareStandings();
-  // setPlayerList();
-});
+
+
+console.log("Data page loaded");
+  const selectCountry = document.getElementById("selectcountry");
+
+  // Add an event listener to update the 'round' variable when the selection changes
+  selectCountry.addEventListener("change", () => {
+    round = selectCountry.value; // Get the selected value
+    console.log(`Selected round: ${round}`);
+  });
+
+  // Example: Fetching data dynamically when the round changes
+  selectCountry.addEventListener("change", async () => {
+    if (round) {
+      console.log(`Fetching data for round: ${round}`);
+      // Example: Call your `getDriverStandings` or `getDriversList` functions here
+      const drivers = await getDriversList(2024, round);
+      console.log(`Drivers for round ${round}:`, drivers);
+    }
+  });
+
+

@@ -63,12 +63,18 @@
     <!-- reference the css-->
     <link rel="stylesheet" href="styles.css" />
 
-    <script src="js/index.js" defer></script>
-    <script src="js/database.js" defer></script>
-    <script src="js/data.js" defer></script>
+    <!-- <script src="js/index.js" defer></script> -->
+    <!-- <script src="js/database.js" defer></script> -->
+    <script src="js/firebase/data.js"  type="module" defer></script>
 
     <script src="js/main.js" defer></script>
     <script src="js/chart.js" type="module"></script>
+    <script>
+        function goToGuessPage() {
+            var sel = document.getElementById('selectcountry');
+            window.location.href = "pred.html?race=" + sel.value;
+        }
+    </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>F1 cars</title>
@@ -83,7 +89,7 @@
             <p id="navbarlogo" href="index.html">
               <img
                 src="img/logo.png"
-                alt="Emotion Logo"
+                alt="race car Logo"
                 id="plainlogo"
                 class="icon"
                 style="width: 60px; height: 20px"
@@ -176,12 +182,41 @@
               font-size: 1rem;
               margin-right: auto;
             "
-            href="./pred.html"
+            onclick="goToGuessPage()"
             id="guessPageLink"
           >
             Go to Guessing Page
           </a>
         </div>
+        <div>
+            <select name="selectcountry" id="selectcountry">
+              <option value="1">Bahrain</option>
+              <option value="2">Saudi Arabia</option>
+              <option value="3">Australia</option>
+              <option value="4">Japan</option>
+              <option value="5">China</option>
+              <option value="6">Miami</option>
+              <option value="7">Emilia Romagna</option>
+              <option value="8">Monaco</option>
+              <option value="9">Canada</option>
+              <option value="10">Spain</option>
+              <option value="11">Austria</option>
+              <option value="12">Britain</option>
+              <option value="13">Hungary</option>
+              <option value="14">Belgium</option>
+              <option value="15">Netherlands</option>
+              <option value="16">Italy</option>
+              <option value="17">Azerbaijan</option>
+              <option value="18">Singapore</option>
+              <option value="19">United States</option>
+              <option value="20">Mexico City</option>
+              <option value="21">Sao Paulo</option>
+              <option value="22">Las Vegas</option>
+              <option value="23">Qatar</option>
+              <option value="24">Abu Dhabi</option>
+            </select>
+          </div>
+          
       </div>
       <footer style="background-color: #131316; border-radius: 20px">
         <div class="container">
